@@ -11,8 +11,8 @@ const DEVELOPER_URL = "https://rudrapratap-mohanty.vercel.app/";
 // ─── Contact Info ────────────────────────────────────────
 const PHONE_NUMBER = "+917008039858";
 const PHONE_DISPLAY = "+91 70080 39858";
-const EMAIL = "info@rajbhavan.com";
-const ADDRESS = "Bhubaneswar, Odisha, India";
+const EMAIL = "rm955069@gmail.com";
+const ADDRESS = "Chatrapur, Odisha, India";
 
 // ─── Navigation ──────────────────────────────────────────
 const quickLinks = [

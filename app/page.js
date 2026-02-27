@@ -19,7 +19,8 @@ export default async function Home() {
       <Hero />
 
       {/* About / Intro Section */}
-      <section className="section-padding bg-white">
+      {/* <section className="section-padding bg-white"> */}
+      <section className="section-padding bg-white -mt-[1px] relative z-10">
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             {/* Left - Text */}

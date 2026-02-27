@@ -1,4 +1,23 @@
 import Link from "next/link";
+import ContactForm from "@/components/ContactForm";
+
+// ─── Contact Data ────────────────────────────────────────
+const PHONE_NUMBER = "+917008039858";
+const PHONE_DISPLAY = "+91 70080 39858";
+const WHATSAPP_NUMBER = "917008039858";
+const WHATSAPP_MESSAGE = encodeURIComponent(
+    "Hi! I'm interested in your construction services. Can we discuss my project?"
+);
+const EMAIL = "rm955069@gmail.com";
+const OFFICE_ADDRESS = "Chatrapur, Odisha, India";
+const MAP_EMBED_URL =
+    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d60497.05!2d84.612!3d19.355!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a3d4e6b5d2b3b2d%3A0x4c6a4e17cd81f2e!2sChatrapur%2C%20Odisha!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin";
+
+// ─── Business Hours ──────────────────────────────────────
+const BUSINESS_HOURS = [
+    { days: "Everyday", time: "9:00 AM — 7:00 PM" },
+];
+const HOURS_SHORT = "Everyday, 9am — 7pm";
 
 export const metadata = {
     title: "Contact Us | Raj Bhavan Construction",
@@ -7,16 +26,11 @@ export const metadata = {
 };
 
 export default function ContactPage() {
-    const phoneNumber = "+91 98765 43210"; // Replace with actual
-    const whatsappNumber = "919876543210"; // Replace with actual (no +)
-    const whatsappMessage = encodeURIComponent(
-        "Hi! I'm interested in your construction services. Can we discuss my project?"
-    );
 
     return (
         <div className="pt-20 md:pt-24">
             {/* Page Header */}
-            <section className="bg-navy text-white py-16 px-4">
+            <section className="bg-navy text-white py-10 px-4">
                 <div className="max-w-7xl mx-auto text-center">
                     <p className="text-accent font-semibold text-sm uppercase tracking-wider mb-2">
                         Get In Touch
@@ -31,8 +45,40 @@ export default function ContactPage() {
                 </div>
             </section>
 
+            {/* Enquiry Form + Map */}
+            <section className="py-8 md:py-10 px-4 md:px-8 bg-white">
+                <div className="max-w-6xl mx-auto">
+                    <div className="grid lg:grid-cols-2 gap-6 lg:gap-8 items-stretch">
+                        {/* Form */}
+                        <div className="bg-white p-4 sm:p-5">
+                            <h2 className="text-2xl sm:text-3xl font-bold text-navy font-[family-name:var(--font-heading)] mb-2">
+                                Get a Free Quote
+                            </h2>
+                            <p className="text-gray-500 mb-6">
+                                Fill in your details below and our team will get back to you shortly.
+                            </p>
+                            <ContactForm />
+                        </div>
+
+                        {/* Google Map - Chatrapur */}
+                        <div className="overflow-hidden p-5 min-h-[350px] lg:min-h-0 h-full">
+                            <iframe
+                                src={MAP_EMBED_URL}
+                                width="100%"
+                                height="100%"
+                                style={{ border: 0, minHeight: "100%" }}
+                                allowFullScreen=""
+                                loading="lazy"
+                                referrerPolicy="no-referrer-when-downgrade"
+                                title="Raj Bhavan Construction - Chatrapur, Odisha"
+                            ></iframe>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             {/* Contact Content */}
-            <section className="section-padding bg-gray-100">
+            <section className="py-10 md:py-12 px-4 md:px-8 bg-gray-100">
                 <div className="max-w-5xl mx-auto">
                     <div className="grid md:grid-cols-2 gap-8 md:gap-12">
                         {/* Left - Contact Info */}
@@ -68,10 +114,10 @@ export default function ContactPage() {
                                 <div>
                                     <h3 className="text-navy font-semibold mb-1">Phone</h3>
                                     <a
-                                        href={`tel:${phoneNumber.replace(/\s/g, "")}`}
+                                        href={`tel:${PHONE_NUMBER}`}
                                         className="text-gray-500 hover:text-accent transition-colors duration-200"
                                     >
-                                        {phoneNumber}
+                                        {PHONE_DISPLAY}
                                     </a>
                                 </div>
                             </div>
@@ -96,10 +142,10 @@ export default function ContactPage() {
                                 <div>
                                     <h3 className="text-navy font-semibold mb-1">Email</h3>
                                     <a
-                                        href="mailto:info@rajbhavan.com"
+                                        href={`mailto:${EMAIL}`}
                                         className="text-gray-500 hover:text-accent transition-colors duration-200"
                                     >
-                                        info@rajbhavan.com
+                                        {EMAIL}
                                     </a>
                                 </div>
                             </div>
@@ -130,25 +176,25 @@ export default function ContactPage() {
                                 <div>
                                     <h3 className="text-navy font-semibold mb-1">Office</h3>
                                     <p className="text-gray-500">
-                                        Bhubaneswar, Odisha, India
+                                        {OFFICE_ADDRESS}
                                     </p>
                                 </div>
                             </div>
                         </div>
 
                         {/* Right - WhatsApp CTA + Call CTA */}
-                        <div className="flex flex-col gap-5">
+                        <div className="flex flex-col gap-4">
                             {/* WhatsApp Card */}
                             <Link
-                                href={`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`}
+                                href={`https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_MESSAGE}`}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="bg-white rounded-xl p-6 border border-gray-200 hover:border-[#25D366]/40 shadow-sm hover:shadow-lg transition-all duration-300 group"
+                                className="bg-white rounded-xl p-4 border border-gray-200 hover:border-[#25D366]/40 shadow-sm hover:shadow-lg transition-all duration-300 group"
                             >
-                                <div className="flex items-center gap-4 mb-4">
-                                    <div className="w-14 h-14 bg-[#25D366]/10 rounded-xl flex items-center justify-center group-hover:bg-[#25D366]/20 transition-colors duration-200">
+                                <div className="flex items-center gap-3 mb-3">
+                                    <div className="w-11 h-11 bg-[#25D366]/10 rounded-xl flex items-center justify-center group-hover:bg-[#25D366]/20 transition-colors duration-200">
                                         <svg
-                                            className="w-8 h-8 text-[#25D366]"
+                                            className="w-6 h-6 text-[#25D366]"
                                             fill="currentColor"
                                             viewBox="0 0 24 24"
                                         >
@@ -156,28 +202,28 @@ export default function ContactPage() {
                                         </svg>
                                     </div>
                                     <div>
-                                        <h3 className="text-navy text-lg font-bold font-[family-name:var(--font-heading)]">
+                                        <h3 className="text-navy text-base font-bold font-[family-name:var(--font-heading)]">
                                             WhatsApp Us
                                         </h3>
-                                        <p className="text-gray-400 text-sm">
+                                        <p className="text-gray-400 text-xs">
                                             Quick response, usually within minutes
                                         </p>
                                     </div>
                                 </div>
-                                <div className="bg-[#25D366] text-white text-center py-3 rounded-lg font-semibold group-hover:bg-[#1ebe5d] transition-colors duration-200">
+                                <div className="bg-[#25D366] text-white text-center py-2.5 rounded-lg font-semibold text-sm group-hover:bg-[#1ebe5d] transition-colors duration-200">
                                     Start WhatsApp Chat →
                                 </div>
                             </Link>
 
                             {/* Call Card */}
                             <a
-                                href={`tel:${phoneNumber.replace(/\s/g, "")}`}
-                                className="bg-white rounded-xl p-6 border border-gray-200 hover:border-accent/40 shadow-sm hover:shadow-lg transition-all duration-300 group"
+                                href={`tel:${PHONE_NUMBER}`}
+                                className="bg-white rounded-xl p-4 border border-gray-200 hover:border-accent/40 shadow-sm hover:shadow-lg transition-all duration-300 group"
                             >
-                                <div className="flex items-center gap-4 mb-4">
-                                    <div className="w-14 h-14 bg-accent/10 rounded-xl flex items-center justify-center group-hover:bg-accent/20 transition-colors duration-200">
+                                <div className="flex items-center gap-3 mb-3">
+                                    <div className="w-11 h-11 bg-accent/10 rounded-xl flex items-center justify-center group-hover:bg-accent/20 transition-colors duration-200">
                                         <svg
-                                            className="w-8 h-8 text-accent"
+                                            className="w-6 h-6 text-accent"
                                             fill="none"
                                             stroke="currentColor"
                                             viewBox="0 0 24 24"
@@ -191,16 +237,16 @@ export default function ContactPage() {
                                         </svg>
                                     </div>
                                     <div>
-                                        <h3 className="text-navy text-lg font-bold font-[family-name:var(--font-heading)]">
+                                        <h3 className="text-navy text-base font-bold font-[family-name:var(--font-heading)]">
                                             Call Us
                                         </h3>
-                                        <p className="text-gray-400 text-sm">
-                                            Available Mon-Sat, 9am — 7pm
+                                        <p className="text-gray-400 text-xs">
+                                            Available {HOURS_SHORT}
                                         </p>
                                     </div>
                                 </div>
-                                <div className="bg-accent text-white text-center py-3 rounded-lg font-semibold group-hover:bg-accent-dark transition-colors duration-200">
-                                    Call {phoneNumber} →
+                                <div className="bg-accent text-white text-center py-2.5 rounded-lg font-semibold text-sm group-hover:bg-accent-dark transition-colors duration-200">
+                                    Call {PHONE_DISPLAY} →
                                 </div>
                             </a>
 
@@ -210,14 +256,12 @@ export default function ContactPage() {
                                     🕐 Business Hours
                                 </h4>
                                 <div className="space-y-2 text-sm">
-                                    <div className="flex justify-between">
-                                        <span className="text-gray-500">Monday — Saturday</span>
-                                        <span className="text-navy font-medium">9:00 AM — 7:00 PM</span>
-                                    </div>
-                                    <div className="flex justify-between">
-                                        <span className="text-gray-500">Sunday</span>
-                                        <span className="text-navy font-medium">Closed</span>
-                                    </div>
+                                    {BUSINESS_HOURS.map((item) => (
+                                        <div key={item.days} className="flex justify-between">
+                                            <span className="text-gray-500">{item.days}</span>
+                                            <span className="text-navy font-medium">{item.time}</span>
+                                        </div>
+                                    ))}
                                 </div>
                             </div>
                         </div>

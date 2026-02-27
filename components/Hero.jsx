@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 // ─── Hero Data ───────────────────────────────────────────
 const BADGE_TEXT = "Trusted Builders Since 2005";
@@ -18,18 +19,20 @@ const STATS = [
 export default function Hero() {
     return (
         <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-            {/* Background with overlay */}
-            <div className="absolute inset-0 bg-navy-dark">
-                {/* Gradient overlay pattern */}
-                <div className="absolute inset-0 bg-gradient-to-br from-navy-dark via-navy to-navy-light opacity-90" />
-                {/* Decorative geometric shapes */}
-                <div className="absolute top-20 right-10 w-72 h-72 bg-accent/10 rounded-full blur-3xl" />
-                <div className="absolute bottom-20 left-10 w-96 h-96 bg-accent/5 rounded-full blur-3xl" />
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accent/5 rounded-full blur-3xl" />
-            </div>
-
+            {/* Background Image */}
+            <Image
+                src="/homepage/herobanner.png"
+                alt="Raj Bhavan Construction"
+                fill
+                priority
+                className="object-cover object-center"
+                sizes="100vw"
+                quality={90}
+            />
+            {/* Dark overlay for text readability */}
+            <div className="absolute inset-0 bg-gradient-to-b from-navy-dark/0 via-navy-dark/60 to-navy-dark" />
             {/* Content */}
-            <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-20">
+            <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-20 pb-32">
                 {/* Badge */}
                 <div className="inline-flex items-center gap-2 bg-accent/10 border border-accent/20 text-accent px-4 py-1.5 rounded-full text-sm font-medium mb-6 animate-pulse">
                     <span className="w-2 h-2 bg-accent rounded-full" />
@@ -79,7 +82,7 @@ export default function Hero() {
             </div>
 
             {/* Bottom gradient fade */}
-            <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent" />
-        </section>
+            {/* Bottom gradient fade */}
+            <div className="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-white to-transparent pointer-events-none" />     </section>
     );
 }

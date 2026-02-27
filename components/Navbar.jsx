@@ -75,7 +75,7 @@ export default function Navbar() {
                             <span className="text-accent text-2xl md:text-3xl font-extrabold tracking-tight font-[family-name:var(--font-heading)]">
                                 Raj Bhavan
                             </span>
-                            <span className="hidden sm:inline text-gray-300 text-sm font-light tracking-wider uppercase">
+                            <span className="text-gray-300 text-xs sm:text-sm font-light tracking-wider uppercase">
                                 Construction
                             </span>
                         </Link>
