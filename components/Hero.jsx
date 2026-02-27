@@ -1,5 +1,20 @@
 import Link from "next/link";
 
+// ─── Hero Data ───────────────────────────────────────────
+const BADGE_TEXT = "Trusted Builders Since 2005";
+const HERO_HEADING_LINE1 = "Building Your";
+const HERO_HEADING_HIGHLIGHT = "Dreams";
+const HERO_HEADING_LINE2 = "Into Reality";
+const HERO_SUBTEXT =
+    "From residential homes to commercial complexes, we bring precision, quality, and trust to every project we undertake.";
+
+const STATS = [
+    { value: "18+", label: "Years Experience" },
+    { value: "400+", label: "Projects Completed" },
+    { value: "200+", label: "Happy Clients" },
+    { value: "100+", label: "Team Members" },
+];
+
 export default function Hero() {
     return (
         <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
@@ -18,21 +33,20 @@ export default function Hero() {
                 {/* Badge */}
                 <div className="inline-flex items-center gap-2 bg-accent/10 border border-accent/20 text-accent px-4 py-1.5 rounded-full text-sm font-medium mb-6 animate-pulse">
                     <span className="w-2 h-2 bg-accent rounded-full" />
-                    Trusted Builders Since 2005
+                    {BADGE_TEXT}
                 </div>
 
                 {/* Heading */}
                 <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight font-[family-name:var(--font-heading)] mb-6">
-                    Building Your{" "}
-                    <span className="text-accent">Dreams</span>{" "}
+                    {HERO_HEADING_LINE1}{" "}
+                    <span className="text-accent">{HERO_HEADING_HIGHLIGHT}</span>{" "}
                     <br className="hidden sm:block" />
-                    Into Reality
+                    {HERO_HEADING_LINE2}
                 </h1>
 
                 {/* Subtext */}
                 <p className="text-gray-400 text-lg sm:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
-                    From residential homes to commercial complexes, we bring precision,
-                    quality, and trust to every project we undertake.
+                    {HERO_SUBTEXT}
                 </p>
 
                 {/* CTA Buttons */}
@@ -53,12 +67,7 @@ export default function Hero() {
 
                 {/* Stats */}
                 <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 max-w-3xl mx-auto">
-                    {[
-                        { value: "18+", label: "Years Experience" },
-                        { value: "500+", label: "Projects Completed" },
-                        { value: "200+", label: "Happy Clients" },
-                        { value: "50+", label: "Team Members" },
-                    ].map((stat) => (
+                    {STATS.map((stat) => (
                         <div key={stat.label} className="text-center">
                             <p className="text-accent text-3xl md:text-4xl font-bold font-[family-name:var(--font-heading)]">
                                 {stat.value}

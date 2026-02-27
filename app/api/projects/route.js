@@ -1,11 +1,9 @@
-import { getProjects } from "@/lib/googleSheets";
+import { getCachedProjects } from "@/lib/dataCache";
 import { NextResponse } from "next/server";
-
-export const revalidate = 60; // ISR: revalidate every 60 seconds
 
 export async function GET() {
     try {
-        const projects = await getProjects();
+        const projects = getCachedProjects();
         return NextResponse.json({ projects }, { status: 200 });
     } catch (error) {
         console.error("Error fetching projects:", error);

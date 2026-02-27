@@ -1,0 +1,14 @@
+[
+  {
+    "id": "1",
+    "title": "Modern Villa",
+    "description": "A beautiful 3BHK villa..",
+    "cloudinary_url": "https:"
+  },
+  {
+    "id": "2",
+    "title": "Office Complex",
+    "description": "Commercial office space...",
+    "cloudinary_url": "htpps:"
+  }
+]

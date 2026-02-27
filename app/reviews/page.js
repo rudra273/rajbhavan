@@ -1,7 +1,5 @@
 import ReviewCard from "@/components/ReviewCard";
-import { getReviews } from "@/lib/googleSheets";
-
-export const revalidate = 60;
+import { getCachedReviews } from "@/lib/dataCache";
 
 export const metadata = {
     title: "Customer Reviews | Raj Bhavan Construction",
@@ -13,7 +11,7 @@ export default async function ReviewsPage() {
     let reviews = [];
 
     try {
-        reviews = await getReviews();
+        reviews = getCachedReviews();
     } catch (error) {
         console.error("Error fetching reviews:", error);
     }

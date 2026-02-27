@@ -1,15 +1,13 @@
 import Hero from "@/components/Hero";
 import ProjectCard from "@/components/ProjectCard";
 import Link from "next/link";
-import { getProjects } from "@/lib/googleSheets";
-
-export const revalidate = 60; // ISR: revalidate every 60 seconds
+import { getCachedProjects } from "@/lib/dataCache";
 
 export default async function Home() {
   let projects = [];
 
   try {
-    const allProjects = await getProjects();
+    const allProjects = getCachedProjects();
     projects = allProjects.slice(0, 4); // Show only 3-4 featured projects
   } catch (error) {
     console.error("Error fetching projects:", error);

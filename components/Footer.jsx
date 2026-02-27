@@ -1,9 +1,25 @@
 import Link from "next/link";
 
+// ─── Company Data ────────────────────────────────────────
+const COMPANY_NAME = "Raj Bhavan";
+const COMPANY_TAGLINE =
+    "Building excellence with integrity. We deliver top-quality residential and commercial construction projects with craftsmanship you can trust.";
+const COPYRIGHT_TEXT = "Raj Bhavan Construction";
+const DEVELOPER_NAME = "Rudrapratap Mohanty";
+const DEVELOPER_URL = "https://rudrapratap-mohanty.vercel.app/";
+
+// ─── Contact Info ────────────────────────────────────────
+const PHONE_NUMBER = "+917008039858";
+const PHONE_DISPLAY = "+91 70080 39858";
+const EMAIL = "info@rajbhavan.com";
+const ADDRESS = "Bhubaneswar, Odisha, India";
+
+// ─── Navigation ──────────────────────────────────────────
 const quickLinks = [
     { name: "Home", href: "/" },
     { name: "Projects", href: "/projects" },
     { name: "Reviews", href: "/reviews" },
+    { name: "Packages", href: "/packages" },
     { name: "Contact", href: "/contact" },
 ];
 
@@ -17,12 +33,10 @@ export default function Footer() {
                     {/* Company Info */}
                     <div>
                         <h3 className="text-accent text-2xl font-bold font-[family-name:var(--font-heading)] mb-3">
-                            Raj Bhavan
+                            {COMPANY_NAME}
                         </h3>
                         <p className="text-gray-400 text-sm leading-relaxed mb-4">
-                            Building excellence with integrity. We deliver top-quality
-                            residential and commercial construction projects with
-                            craftsmanship you can trust.
+                            {COMPANY_TAGLINE}
                         </p>
                     </div>
 
@@ -68,10 +82,10 @@ export default function Footer() {
                                 </svg>
                                 <div>
                                     <a
-                                        href="tel:+919876543210"
+                                        href={`tel:${PHONE_NUMBER}`}
                                         className="text-gray-400 hover:text-accent text-sm transition-colors duration-200"
                                     >
-                                        +91 98765 43210
+                                        {PHONE_DISPLAY}
                                     </a>
                                 </div>
                             </li>
@@ -92,10 +106,10 @@ export default function Footer() {
                                     />
                                 </svg>
                                 <a
-                                    href="mailto:info@rajbhavan.com"
+                                    href={`mailto:${EMAIL}`}
                                     className="text-gray-400 hover:text-accent text-sm transition-colors duration-200"
                                 >
-                                    info@rajbhavan.com
+                                    {EMAIL}
                                 </a>
                             </li>
 
@@ -121,7 +135,7 @@ export default function Footer() {
                                     />
                                 </svg>
                                 <span className="text-gray-400 text-sm">
-                                    Bhubaneswar, Odisha, India
+                                    {ADDRESS}
                                 </span>
                             </li>
                         </ul>
@@ -131,10 +145,18 @@ export default function Footer() {
                 {/* Bottom Bar */}
                 <div className="border-t border-gray-700 mt-10 pt-6 flex flex-col sm:flex-row justify-between items-center gap-3">
                     <p className="text-gray-500 text-xs">
-                        © {currentYear} Raj Bhavan Construction. All rights reserved.
+                        © {currentYear} {COPYRIGHT_TEXT}. All rights reserved.
                     </p>
                     <p className="text-gray-600 text-xs">
-                        Designed with ❤️ for quality construction
+                        Designed By{" "}
+                        <a
+                            href={DEVELOPER_URL}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-accent hover:text-white transition-colors duration-200 underline"
+                        >
+                            {DEVELOPER_NAME}
+                        </a>
                     </p>
                 </div>
             </div>

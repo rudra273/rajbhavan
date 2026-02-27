@@ -1,0 +1,1288 @@
+{
+    "cityData": {
+        "Chatrapur": {
+            "Essential": {
+                "price": "₹1,680/sq.ft",
+                "tag": "Budget Friendly",
+                "color": "from-emerald-500 to-teal-600",
+                "sections": [
+                    {
+                        "title": "Design and Drawings",
+                        "items": [
+                            "2D – Floor Plans",
+                            "Design Development – A maximum of 3 drawing revisions testing remove testing"
+                        ]
+                    },
+                    {
+                        "title": "Civil Construction",
+                        "items": [
+                            "Steel – Rathi / Kamdhenu or equivalent – Fe 500/500D",
+                            "Cement – Ultratech / ACC / Ambuja or equivalent",
+                            "UG Sump – included up to 1000 ltrs",
+                            "Ceiling height – 10 feet (Floor to floor)"
+                        ]
+                    },
+                    {
+                        "title": "Architectural Design",
+                        "items": [
+                            "Basic elevation design"
+                        ]
+                    },
+                    {
+                        "title": "Interior Design",
+                        "items": [
+                            "Basic interior layout suggestions"
+                        ]
+                    },
+                    {
+                        "title": "Structural Designing",
+                        "items": [
+                            "RCC structural design as per IS codes"
+                        ]
+                    },
+                    {
+                        "title": "MEP Designing",
+                        "items": [
+                            "Basic MEP design"
+                        ]
+                    },
+                    {
+                        "title": "Government Liaison Assistance",
+                        "items": [
+                            "Building plan approval assistance"
+                        ]
+                    },
+                    {
+                        "title": "Flooring Wall tiling",
+                        "items": [
+                            "Living & Dining – Vitrified tiles up to Rs.40/- per sq.ft",
+                            "Bedrooms – Vitrified tiles up to Rs.40/- per sq.ft",
+                            "Bathroom – Anti-skid tiles up to Rs.28/- per sq.ft"
+                        ]
+                    },
+                    {
+                        "title": "Painting",
+                        "items": [
+                            "Interior – JK Putty + Tractor Emulsion or equivalent",
+                            "Exterior – Ace Exterior Emulsion or equivalent"
+                        ]
+                    },
+                    {
+                        "title": "Electrical",
+                        "items": [
+                            "Wiring – Anchor or equivalent",
+                            "Switches – Anchor Roma or equivalent"
+                        ]
+                    },
+                    {
+                        "title": "Plumbing",
+                        "items": [
+                            "CPVC Ashirwad / Supreme or equivalent"
+                        ]
+                    },
+                    {
+                        "title": "Fixtures",
+                        "items": [
+                            "Hindware / Parryware or equivalent",
+                            "CP fixtures up to Rs.3,000/- per bathroom point"
+                        ]
+                    },
+                    {
+                        "title": "Doors",
+                        "items": [
+                            "Main Door – Teak Wood frame & shutter – Rs.18,000/- per door",
+                            "Internal Doors – Any wood frame & shutter – Rs.7,500/- per door",
+                            "Bathroom Door – Frame & shutter – Rs.7,000/- per door"
+                        ]
+                    },
+                    {
+                        "title": "Windows",
+                        "items": [
+                            "UPVC windows – 3 track with mesh – Rs.420/- per sq.ft"
+                        ]
+                    },
+                    {
+                        "title": "Fabrication",
+                        "items": [
+                            "Main gate – MS fabrication – Rs.170/- per sq.ft",
+                            "Staircase railing – SS railing – Rs.700/- per rft"
+                        ]
+                    },
+                    {
+                        "title": "Compound Wall",
+                        "items": [
+                            "Compound wall up to 5 feet height included"
+                        ]
+                    },
+                    {
+                        "title": "Elevation",
+                        "items": [
+                            "Basic elevation with texture paint finish"
+                        ]
+                    },
+                    {
+                        "title": "Exclusions & Incidentals",
+                        "items": [
+                            "Soil testing borne by client",
+                            "Furniture & appliances not included",
+                            "Modular kitchen not included"
+                        ]
+                    },
+                    {
+                        "title": "Payment Structure",
+                        "items": [
+                            "10% – At booking",
+                            "75% – Construction-linked",
+                            "10% – At handover",
+                            "5% – Retention"
+                        ]
+                    },
+                    {
+                        "title": "Warranty and Guarantee",
+                        "items": [
+                            "1 year general warranty",
+                            "5 years structural warranty"
+                        ]
+                    }
+                ]
+            },
+            "Standard": {
+                "price": "₹1,880/sq.ft",
+                "tag": "Most Popular",
+                "color": "from-blue-500 to-indigo-600",
+                "sections": [
+                    {
+                        "title": "Design and Drawings",
+                        "items": [
+                            "2D – Floor Plans",
+                            "Design Development – A maximum of 3 drawing revisions per drawing",
+                            "Basic Internal Isometric Views of the floor plan",
+                            "Visual site survey & drawing on the basis of measurement provided by client"
+                        ]
+                    },
+                    {
+                        "title": "Civil Construction",
+                        "items": [
+                            "Steel – Rathi / Kamdhenu – Fe 500/500D",
+                            "Cement – Ultratech / ACC or equivalent",
+                            "UG Sump – up to 1500 ltrs",
+                            "Ceiling height – 10 feet"
+                        ]
+                    },
+                    {
+                        "title": "Architectural Design",
+                        "items": [
+                            "Standard elevation design"
+                        ]
+                    },
+                    {
+                        "title": "Interior Design",
+                        "items": [
+                            "Standard interior layout with furnishing suggestions"
+                        ]
+                    },
+                    {
+                        "title": "Structural Designing",
+                        "items": [
+                            "RCC structural design with soil report"
+                        ]
+                    },
+                    {
+                        "title": "MEP Designing",
+                        "items": [
+                            "Detailed MEP design"
+                        ]
+                    },
+                    {
+                        "title": "Government Liaison Assistance",
+                        "items": [
+                            "Complete building plan approval assistance"
+                        ]
+                    },
+                    {
+                        "title": "Flooring Wall tiling",
+                        "items": [
+                            "Living & Dining – Vitrified tiles up to Rs.50/- per sq.ft",
+                            "Bedrooms – up to Rs.50/- per sq.ft",
+                            "Bathroom – Anti-skid up to Rs.35/- per sq.ft"
+                        ]
+                    },
+                    {
+                        "title": "Painting",
+                        "items": [
+                            "Interior – Birla Putty + Asian Tractor Emulsion",
+                            "Exterior – Asian Ace Exterior Emulsion"
+                        ]
+                    },
+                    {
+                        "title": "Electrical",
+                        "items": [
+                            "Wiring – Havells or equivalent",
+                            "Switches – Havells / Anchor Roma"
+                        ]
+                    },
+                    {
+                        "title": "Plumbing",
+                        "items": [
+                            "CPVC Ashirwad / Supreme or equivalent"
+                        ]
+                    },
+                    {
+                        "title": "Fixtures",
+                        "items": [
+                            "Hindware / Parryware / Cera",
+                            "CP fixtures up to Rs.4,500/- per bathroom point"
+                        ]
+                    },
+                    {
+                        "title": "Doors",
+                        "items": [
+                            "Main Door – Teak Wood – Rs.23,000/- per door",
+                            "Internal Doors – Sal / Marandi wood – Rs.9,000/- per door",
+                            "Bathroom Door – Rs.8,500/- per door"
+                        ]
+                    },
+                    {
+                        "title": "Windows",
+                        "items": [
+                            "UPVC windows – Rs.470/- per sq.ft"
+                        ]
+                    },
+                    {
+                        "title": "Fabrication",
+                        "items": [
+                            "Main gate – Rs.200/- per sq.ft",
+                            "Staircase railing – SS 304 – Rs.850/- per rft"
+                        ]
+                    },
+                    {
+                        "title": "Compound Wall",
+                        "items": [
+                            "Compound wall up to 5 feet with plastering"
+                        ]
+                    },
+                    {
+                        "title": "Elevation",
+                        "items": [
+                            "Standard elevation with texture & accent paint"
+                        ]
+                    },
+                    {
+                        "title": "Exclusions & Incidentals",
+                        "items": [
+                            "Soil testing borne by client",
+                            "Furniture not included",
+                            "Modular kitchen not included"
+                        ]
+                    },
+                    {
+                        "title": "Payment Structure",
+                        "items": [
+                            "10% – At booking",
+                            "75% – Construction-linked",
+                            "10% – At handover",
+                            "5% – Retention"
+                        ]
+                    },
+                    {
+                        "title": "Warranty and Guarantee",
+                        "items": [
+                            "1 year general warranty",
+                            "5 years structural warranty",
+                            "10 years waterproofing warranty"
+                        ]
+                    }
+                ]
+            },
+            "Premium": {
+                "price": "₹2,180/sq.ft",
+                "tag": "Best Value",
+                "color": "from-purple-500 to-violet-600",
+                "sections": [
+                    {
+                        "title": "Design and Drawings",
+                        "items": [
+                            "2D – Floor Plans",
+                            "3D Elevation Designs",
+                            "Design Development – A maximum of 3 drawing revisions",
+                            "Internal Isometric views all rooms, open areas etc.",
+                            "Visual site survey & drawing",
+                            "Site survey by surveyor with instruments"
+                        ]
+                    },
+                    {
+                        "title": "Civil Construction",
+                        "items": [
+                            "Steel – Tata Tiscon / JSW – Fe 500D",
+                            "Cement – Ultratech / ACC",
+                            "UG Sump – up to 2000 ltrs",
+                            "Ceiling height – 10.5 feet"
+                        ]
+                    },
+                    {
+                        "title": "Architectural Design",
+                        "items": [
+                            "Premium elevation design with 3D views"
+                        ]
+                    },
+                    {
+                        "title": "Interior Design",
+                        "items": [
+                            "Premium interior design with 3D views"
+                        ]
+                    },
+                    {
+                        "title": "Structural Designing",
+                        "items": [
+                            "RCC design with detailed soil analysis"
+                        ]
+                    },
+                    {
+                        "title": "MEP Designing",
+                        "items": [
+                            "Detailed MEP with separate drawings"
+                        ]
+                    },
+                    {
+                        "title": "Government Liaison Assistance",
+                        "items": [
+                            "End-to-end approval",
+                            "Full utility liaison"
+                        ]
+                    },
+                    {
+                        "title": "Flooring Wall tiling",
+                        "items": [
+                            "Living – up to Rs.65/- per sq.ft",
+                            "Bedrooms – up to Rs.60/- per sq.ft",
+                            "Bathroom – up to Rs.45/- per sq.ft"
+                        ]
+                    },
+                    {
+                        "title": "Painting",
+                        "items": [
+                            "Interior – Birla Putty + Asian Royale",
+                            "Exterior – Asian Apex Exterior"
+                        ]
+                    },
+                    {
+                        "title": "Electrical",
+                        "items": [
+                            "Havells / Polycab wiring",
+                            "Legrand / Schneider switches"
+                        ]
+                    },
+                    {
+                        "title": "Plumbing",
+                        "items": [
+                            "CPVC Supreme / Astral"
+                        ]
+                    },
+                    {
+                        "title": "Fixtures",
+                        "items": [
+                            "Cera / Kohler",
+                            "CP fixtures up to Rs.7,000/- per bathroom point"
+                        ]
+                    },
+                    {
+                        "title": "Doors",
+                        "items": [
+                            "Main Door – Premium Teak – Rs.32,000/- per door",
+                            "Internal Doors – Teak frame & flush shutter – Rs.13,000/- per door",
+                            "Bathroom Door – WPC – Rs.10,000/- per door"
+                        ]
+                    },
+                    {
+                        "title": "Windows",
+                        "items": [
+                            "UPVC – Rs.550/- per sq.ft"
+                        ]
+                    },
+                    {
+                        "title": "Fabrication",
+                        "items": [
+                            "Main gate – Rs.260/- per sq.ft",
+                            "Staircase railing – SS 304 designer – Rs.1,050/- per rft"
+                        ]
+                    },
+                    {
+                        "title": "Compound Wall",
+                        "items": [
+                            "Compound wall with plastering & texture finish"
+                        ]
+                    },
+                    {
+                        "title": "Elevation",
+                        "items": [
+                            "Premium elevation with HPL / stone cladding accents"
+                        ]
+                    },
+                    {
+                        "title": "Exclusions & Incidentals",
+                        "items": [
+                            "Furniture not included",
+                            "Modular kitchen optional",
+                            "Basic landscaping included"
+                        ]
+                    },
+                    {
+                        "title": "Payment Structure",
+                        "items": [
+                            "10% – At booking",
+                            "75% – Construction-linked",
+                            "10% – At handover",
+                            "5% – Retention"
+                        ]
+                    },
+                    {
+                        "title": "Warranty and Guarantee",
+                        "items": [
+                            "2 years general warranty",
+                            "10 years structural warranty",
+                            "10 years waterproofing warranty"
+                        ]
+                    }
+                ]
+            },
+            "Luxury": {
+                "price": "₹2,650/sq.ft",
+                "tag": "Premium Living",
+                "color": "from-amber-500 to-orange-600",
+                "sections": [
+                    {
+                        "title": "Design and Drawings",
+                        "items": [
+                            "Premium 2D – Floor Plans",
+                            "Luxury Elevation Designs of all views",
+                            "Design Development – A maximum of 40 drawing revisions",
+                            "Internal Isometric Views all rooms & detailed renders",
+                            "Detailed Landscaping design",
+                            "3D Walkthrough internal & external",
+                            "Hands on isometric 3D model with separate floors",
+                            "Site survey by surveyor with instruments",
+                            "VR for 3D Walkthrough"
+                        ]
+                    },
+                    {
+                        "title": "Civil Construction",
+                        "items": [
+                            "Steel – Tata Tiscon / SAIL – Fe 500D",
+                            "Cement – Ultratech Premium / ACC",
+                            "UG Sump – up to 3000 ltrs",
+                            "Ceiling height – 11 feet"
+                        ]
+                    },
+                    {
+                        "title": "Architectural Design",
+                        "items": [
+                            "Luxury bespoke elevation with premium 3D renders"
+                        ]
+                    },
+                    {
+                        "title": "Interior Design",
+                        "items": [
+                            "Luxury interior with detailed 3D renders of every space"
+                        ]
+                    },
+                    {
+                        "title": "Structural Designing",
+                        "items": [
+                            "RCC design with exhaustive soil & load analysis"
+                        ]
+                    },
+                    {
+                        "title": "MEP Designing",
+                        "items": [
+                            "Comprehensive MEP per floor"
+                        ]
+                    },
+                    {
+                        "title": "Government Liaison Assistance",
+                        "items": [
+                            "End-to-end approval",
+                            "Full utility liaison",
+                            "Dedicated project manager"
+                        ]
+                    },
+                    {
+                        "title": "Flooring Wall tiling",
+                        "items": [
+                            "Italian marble / premium vitrified up to Rs.110/- per sq.ft",
+                            "Bedrooms – up to Rs.85/- per sq.ft",
+                            "Bathroom – designer tiles up to Rs.70/- per sq.ft"
+                        ]
+                    },
+                    {
+                        "title": "Painting",
+                        "items": [
+                            "Interior – Asian Royale Luxury",
+                            "Exterior – Asian Apex Ultima with weather-coat"
+                        ]
+                    },
+                    {
+                        "title": "Electrical",
+                        "items": [
+                            "Havells / Polycab FR wiring",
+                            "Legrand Myrius / Schneider Zencelo switches",
+                            "Enhanced electrical points per room"
+                        ]
+                    },
+                    {
+                        "title": "Plumbing",
+                        "items": [
+                            "CPVC Supreme / Astral premium",
+                            "Hot & Cold provision for all bathrooms"
+                        ]
+                    },
+                    {
+                        "title": "Fixtures",
+                        "items": [
+                            "Kohler / Grohe premium",
+                            "CP fixtures up to Rs.11,000/- per bathroom point"
+                        ]
+                    },
+                    {
+                        "title": "Doors",
+                        "items": [
+                            "Main Door – Burma Teak – Rs.50,000/- per door",
+                            "Internal Doors – Teak premium flush – Rs.18,000/- per door",
+                            "Bathroom Door – WPC / Aluminium – Rs.13,000/- per door",
+                            "Hardware – Yale / Dorset / Hafele make"
+                        ]
+                    },
+                    {
+                        "title": "Windows",
+                        "items": [
+                            "UPVC with toughened glass – Rs.670/- per sq.ft"
+                        ]
+                    },
+                    {
+                        "title": "Fabrication",
+                        "items": [
+                            "Main gate – Designer MS / SS – Rs.360/- per sq.ft",
+                            "Staircase railing – SS 304 with glass – Rs.1,400/- per rft"
+                        ]
+                    },
+                    {
+                        "title": "Compound Wall",
+                        "items": [
+                            "Compound wall with premium finish & designer gate"
+                        ]
+                    },
+                    {
+                        "title": "Elevation",
+                        "items": [
+                            "ACP / HPL cladding, natural stone & designer lighting"
+                        ]
+                    },
+                    {
+                        "title": "Exclusions & Incidentals",
+                        "items": [
+                            "Modular kitchen at special rate",
+                            "Home automation optional",
+                            "Swimming pool / outdoor kitchen optional"
+                        ]
+                    },
+                    {
+                        "title": "Payment Structure",
+                        "items": [
+                            "10% – At booking",
+                            "75% – Construction-linked",
+                            "10% – At handover",
+                            "5% – Retention"
+                        ]
+                    },
+                    {
+                        "title": "Warranty and Guarantee",
+                        "items": [
+                            "2 years general warranty",
+                            "10 years structural warranty",
+                            "10 years waterproofing warranty",
+                            "Dedicated post-handover support"
+                        ]
+                    }
+                ]
+            }
+        },
+        "Berhampur": {
+            "Essential": {
+                "price": "₹1,580/sq.ft",
+                "tag": "Budget Friendly",
+                "color": "from-emerald-500 to-teal-600",
+                "sections": [
+                    {
+                        "title": "Design and Drawings",
+                        "items": [
+                            "2D – Floor Plans",
+                            "Design Development – A maximum of 3 drawing revisions"
+                        ]
+                    },
+                    {
+                        "title": "Civil Construction",
+                        "items": [
+                            "Steel – Rathi / Kamdhenu or equivalent – Fe 500/500D – Rs.65/- per kg",
+                            "Cement – Ultratech / ACC / Ambuja or equivalent – Rs.380/- per bag",
+                            "UG Sump – included up to 1000 ltrs",
+                            "Aggregates – 20mm & 40mm",
+                            "Brickwork – Standard Clay Bricks",
+                            "Concrete – M20 / M25 as per structural design",
+                            "Ceiling height – 10 feet (Floor to floor)"
+                        ]
+                    },
+                    {
+                        "title": "Architectural Design",
+                        "items": [
+                            "Basic elevation design",
+                            "Functional layout planning"
+                        ]
+                    },
+                    {
+                        "title": "Interior Design",
+                        "items": [
+                            "Basic interior layout suggestions"
+                        ]
+                    },
+                    {
+                        "title": "Structural Designing",
+                        "items": [
+                            "RCC structural design as per IS codes"
+                        ]
+                    },
+                    {
+                        "title": "MEP Designing",
+                        "items": [
+                            "Basic Mechanical, Electrical & Plumbing design"
+                        ]
+                    },
+                    {
+                        "title": "Government Liaison Assistance",
+                        "items": [
+                            "Assistance with building plan approval",
+                            "Liaison support for utility connections"
+                        ]
+                    },
+                    {
+                        "title": "Flooring Wall tiling",
+                        "items": [
+                            "Living & Dining – Vitrified tiles up to Rs.45/- per sq.ft",
+                            "Bedrooms – Vitrified tiles up to Rs.45/- per sq.ft",
+                            "Bathroom – Anti-skid tiles up to Rs.30/- per sq.ft",
+                            "Kitchen – Anti-skid tiles up to Rs.40/- per sq.ft",
+                            "Balcony & Utility – Anti-skid tiles up to Rs.30/- per sq.ft",
+                            "Parking – Parking tiles up to Rs.25/- per sq.ft"
+                        ]
+                    },
+                    {
+                        "title": "Painting",
+                        "items": [
+                            "Interior – JK Putty + Tractor Emulsion or equivalent",
+                            "Exterior – Ace Exterior Emulsion or equivalent"
+                        ]
+                    },
+                    {
+                        "title": "Electrical",
+                        "items": [
+                            "Wiring – Anchor or equivalent",
+                            "Switches – Anchor Roma or equivalent",
+                            "MCB Distribution Box – IndoAsian or equivalent"
+                        ]
+                    },
+                    {
+                        "title": "Plumbing",
+                        "items": [
+                            "Water supply – CPVC Ashirwad / Supreme or equivalent",
+                            "Drainage – PVC SWR Ashirwad / Supreme or equivalent"
+                        ]
+                    },
+                    {
+                        "title": "Fixtures",
+                        "items": [
+                            "Bathroom – EWC, wash basin, health faucet of Hindware / Parryware or equivalent",
+                            "CP fixtures up to Rs.3,500/- per bathroom point"
+                        ]
+                    },
+                    {
+                        "title": "Doors",
+                        "items": [
+                            "Main Door – Teak Wood frame & shutter including hardware – Rs.20,000/- per door",
+                            "Internal Doors – Any wood frame & shutter including cost of hardware – Rs.8,000/- per door",
+                            "Internal Door frames & shutters – Painted (only)",
+                            "Main Door – Polished by hand",
+                            "Bathroom, Terrace & Utility Door – Frame & shutter including hardware – Rs.7,500/- per door",
+                            "Door hardware – Ozone / Europa / Dorma make",
+                            "Door hinges – SS hinges"
+                        ]
+                    },
+                    {
+                        "title": "Windows",
+                        "items": [
+                            "UPVC windows – 3 track with mesh – Rs.450/- per sq.ft",
+                            "Window grills – MS grills included"
+                        ]
+                    },
+                    {
+                        "title": "Fabrication",
+                        "items": [
+                            "Main gate – MS fabrication – Rs.180/- per sq.ft",
+                            "Staircase railing – SS railing – Rs.750/- per rft"
+                        ]
+                    },
+                    {
+                        "title": "Compound Wall",
+                        "items": [
+                            "Compound wall up to 5 feet height included"
+                        ]
+                    },
+                    {
+                        "title": "Elevation",
+                        "items": [
+                            "Basic elevation with texture paint finish"
+                        ]
+                    },
+                    {
+                        "title": "Exclusions & Incidentals",
+                        "items": [
+                            "Soil testing, survey charges borne by client",
+                            "Furniture & appliances not included",
+                            "Modular kitchen not included",
+                            "Landscaping & hardscaping not included",
+                            "External development charges (if any)"
+                        ]
+                    },
+                    {
+                        "title": "Payment Structure",
+                        "items": [
+                            "10% – At booking",
+                            "75% – Construction-linked instalments",
+                            "10% – At handover",
+                            "5% – After 3 months of handover (retention)"
+                        ]
+                    },
+                    {
+                        "title": "Warranty and Guarantee",
+                        "items": [
+                            "1 year general warranty",
+                            "5 years structural warranty",
+                            "10 years waterproofing warranty on terrace"
+                        ]
+                    }
+                ]
+            },
+            "Standard": {
+                "price": "₹1,780/sq.ft",
+                "tag": "Most Popular",
+                "color": "from-blue-500 to-indigo-600",
+                "sections": [
+                    {
+                        "title": "Design and Drawings",
+                        "items": [
+                            "2D – Floor Plans",
+                            "Design Development – A maximum of 3 drawing revisions per drawing",
+                            "Basic Internal Isometric Views of the floor plan",
+                            "Visual site survey & drawing on the basis of measurement provided by client"
+                        ]
+                    },
+                    {
+                        "title": "Civil Construction",
+                        "items": [
+                            "Steel – Rathi / Kamdhenu or equivalent – Fe 500/500D – Rs.68/- per kg",
+                            "Cement – Ultratech / ACC / Ambuja or equivalent – Rs.380/- per bag",
+                            "UG Sump – included up to 1500 ltrs",
+                            "Aggregates – 20mm & 40mm",
+                            "Brickwork – Standard Clay Bricks / AAC Blocks",
+                            "Concrete – M20 / M25 as per structural design",
+                            "Ceiling height – 10 feet (Floor to floor)"
+                        ]
+                    },
+                    {
+                        "title": "Architectural Design",
+                        "items": [
+                            "Standard elevation design",
+                            "Detailed layout planning"
+                        ]
+                    },
+                    {
+                        "title": "Interior Design",
+                        "items": [
+                            "Standard interior layout with furnishing suggestions"
+                        ]
+                    },
+                    {
+                        "title": "Structural Designing",
+                        "items": [
+                            "RCC structural design as per IS codes with soil report"
+                        ]
+                    },
+                    {
+                        "title": "MEP Designing",
+                        "items": [
+                            "Detailed Mechanical, Electrical & Plumbing design"
+                        ]
+                    },
+                    {
+                        "title": "Government Liaison Assistance",
+                        "items": [
+                            "Complete building plan approval assistance",
+                            "Full liaison support for utility connections"
+                        ]
+                    },
+                    {
+                        "title": "Flooring Wall tiling",
+                        "items": [
+                            "Living & Dining – Vitrified tiles up to Rs.55/- per sq.ft",
+                            "Bedrooms – Vitrified tiles up to Rs.55/- per sq.ft",
+                            "Bathroom – Anti-skid tiles up to Rs.40/- per sq.ft",
+                            "Kitchen – Anti-skid tiles up to Rs.50/- per sq.ft",
+                            "Balcony & Utility – Anti-skid tiles up to Rs.35/- per sq.ft",
+                            "Parking – Parking tiles up to Rs.30/- per sq.ft"
+                        ]
+                    },
+                    {
+                        "title": "Painting",
+                        "items": [
+                            "Interior – Birla Putty + Asian Tractor Emulsion or equivalent",
+                            "Exterior – Asian Ace Exterior Emulsion or equivalent"
+                        ]
+                    },
+                    {
+                        "title": "Electrical",
+                        "items": [
+                            "Wiring – Havells or equivalent",
+                            "Switches – Havells / Anchor Roma or equivalent",
+                            "MCB Distribution Box – Havells / IndoAsian or equivalent"
+                        ]
+                    },
+                    {
+                        "title": "Plumbing",
+                        "items": [
+                            "Water supply – CPVC Ashirwad / Supreme or equivalent",
+                            "Drainage – PVC SWR Ashirwad / Supreme or equivalent"
+                        ]
+                    },
+                    {
+                        "title": "Fixtures",
+                        "items": [
+                            "Bathroom – EWC, wash basin, health faucet of Hindware / Parryware / Cera or equivalent",
+                            "CP fixtures up to Rs.5,000/- per bathroom point"
+                        ]
+                    },
+                    {
+                        "title": "Doors",
+                        "items": [
+                            "Main Door – Teak Wood frame & shutter including hardware – Rs.25,000/- per door",
+                            "Internal Doors – Sal / Marandi wood frame & shutter including hardware – Rs.10,000/- per door",
+                            "Internal Door frames & shutters – Painted & polished",
+                            "Main Door – Polished by hand with melamine finish",
+                            "Bathroom, Terrace & Utility Door – Frame & shutter including hardware – Rs.9,000/- per door",
+                            "Door hardware – Ozone / Europa / Dorma make",
+                            "Door hinges – SS hinges"
+                        ]
+                    },
+                    {
+                        "title": "Windows",
+                        "items": [
+                            "UPVC windows – 3 track with mesh – Rs.500/- per sq.ft",
+                            "Window grills – MS powder coated grills included"
+                        ]
+                    },
+                    {
+                        "title": "Fabrication",
+                        "items": [
+                            "Main gate – MS fabrication with powder coating – Rs.220/- per sq.ft",
+                            "Staircase railing – SS 304 railing – Rs.900/- per rft"
+                        ]
+                    },
+                    {
+                        "title": "Compound Wall",
+                        "items": [
+                            "Compound wall up to 5 feet height with plastering included"
+                        ]
+                    },
+                    {
+                        "title": "Elevation",
+                        "items": [
+                            "Standard elevation with texture & accent paint finish"
+                        ]
+                    },
+                    {
+                        "title": "Exclusions & Incidentals",
+                        "items": [
+                            "Soil testing, survey charges borne by client",
+                            "Furniture & appliances not included",
+                            "Modular kitchen not included",
+                            "Landscaping & hardscaping not included",
+                            "External development charges (if any)"
+                        ]
+                    },
+                    {
+                        "title": "Payment Structure",
+                        "items": [
+                            "10% – At booking",
+                            "75% – Construction-linked instalments",
+                            "10% – At handover",
+                            "5% – After 3 months of handover (retention)"
+                        ]
+                    },
+                    {
+                        "title": "Warranty and Guarantee",
+                        "items": [
+                            "1 year general warranty",
+                            "5 years structural warranty",
+                            "10 years waterproofing warranty on terrace"
+                        ]
+                    }
+                ]
+            },
+            "Premium": {
+                "price": "₹2,080/sq.ft",
+                "tag": "Best Value",
+                "color": "from-purple-500 to-violet-600",
+                "sections": [
+                    {
+                        "title": "Design and Drawings",
+                        "items": [
+                            "2D – Floor Plans",
+                            "3D Elevation Designs",
+                            "Design Development – A maximum of 3 drawing revisions",
+                            "Internal Isometric views all rooms, open areas etc.",
+                            "Visual site survey & drawing on the basis of measurement provided by client",
+                            "Site survey by surveyor with instruments & drawing on the basis of survey"
+                        ]
+                    },
+                    {
+                        "title": "Civil Construction",
+                        "items": [
+                            "Steel – Tata Tiscon / JSW or equivalent – Fe 500/500D – Rs.72/- per kg",
+                            "Cement – Ultratech / ACC or equivalent – Rs.380/- per bag",
+                            "UG Sump – included up to 2000 ltrs",
+                            "Aggregates – 20mm & 40mm machine crushed",
+                            "Brickwork – AAC Blocks / Fly Ash Bricks",
+                            "Concrete – M25 / M30 as per structural design",
+                            "Ceiling height – 10.5 feet (Floor to floor)"
+                        ]
+                    },
+                    {
+                        "title": "Architectural Design",
+                        "items": [
+                            "Premium elevation design with 3D views",
+                            "Detailed & optimized layout planning"
+                        ]
+                    },
+                    {
+                        "title": "Interior Design",
+                        "items": [
+                            "Premium interior design with 3D views of each room"
+                        ]
+                    },
+                    {
+                        "title": "Structural Designing",
+                        "items": [
+                            "RCC structural design as per IS codes with detailed soil report analysis"
+                        ]
+                    },
+                    {
+                        "title": "MEP Designing",
+                        "items": [
+                            "Detailed MEP design with separate drawings"
+                        ]
+                    },
+                    {
+                        "title": "Government Liaison Assistance",
+                        "items": [
+                            "End-to-end building plan approval",
+                            "Complete liaison support for all utility connections"
+                        ]
+                    },
+                    {
+                        "title": "Flooring Wall tiling",
+                        "items": [
+                            "Living & Dining – Vitrified tiles up to Rs.70/- per sq.ft",
+                            "Bedrooms – Vitrified tiles up to Rs.65/- per sq.ft",
+                            "Bathroom – Anti-skid tiles up to Rs.50/- per sq.ft",
+                            "Kitchen – Anti-skid tiles up to Rs.55/- per sq.ft",
+                            "Balcony & Utility – Anti-skid tiles up to Rs.45/- per sq.ft",
+                            "Parking – Heavy-duty parking tiles up to Rs.40/- per sq.ft"
+                        ]
+                    },
+                    {
+                        "title": "Painting",
+                        "items": [
+                            "Interior – Birla Putty + Asian Royale or equivalent",
+                            "Exterior – Asian Apex Exterior Emulsion or equivalent"
+                        ]
+                    },
+                    {
+                        "title": "Electrical",
+                        "items": [
+                            "Wiring – Havells / Polycab or equivalent",
+                            "Switches – Legrand / Schneider or equivalent",
+                            "MCB Distribution Box – Schneider / Havells or equivalent"
+                        ]
+                    },
+                    {
+                        "title": "Plumbing",
+                        "items": [
+                            "Water supply – CPVC Supreme / Astral or equivalent",
+                            "Drainage – PVC SWR Supreme / Astral or equivalent"
+                        ]
+                    },
+                    {
+                        "title": "Fixtures",
+                        "items": [
+                            "Bathroom – EWC, wash basin, health faucet of Cera / Kohler or equivalent",
+                            "CP fixtures up to Rs.7,500/- per bathroom point"
+                        ]
+                    },
+                    {
+                        "title": "Doors",
+                        "items": [
+                            "Main Door – Premium Teak Wood frame & shutter including hardware – Rs.35,000/- per door",
+                            "Internal Doors – Teak Wood frame & flush shutter including hardware – Rs.14,000/- per door",
+                            "Internal Door frames & shutters – Polished with melamine finish",
+                            "Main Door – Machine polished with PU coating",
+                            "Bathroom, Terrace & Utility Door – WPC Frame & shutter including hardware – Rs.11,000/- per door",
+                            "Door hardware – Ozone / Dorma / Yale make",
+                            "Door hinges – SS 304 hinges"
+                        ]
+                    },
+                    {
+                        "title": "Windows",
+                        "items": [
+                            "UPVC windows – 3 track with mesh – Rs.580/- per sq.ft",
+                            "Window grills – MS designer grills with powder coating included"
+                        ]
+                    },
+                    {
+                        "title": "Fabrication",
+                        "items": [
+                            "Main gate – MS designer fabrication with powder coating – Rs.280/- per sq.ft",
+                            "Staircase railing – SS 304 designer railing – Rs.1,100/- per rft"
+                        ]
+                    },
+                    {
+                        "title": "Compound Wall",
+                        "items": [
+                            "Compound wall up to 5 feet height with plastering & texture finish"
+                        ]
+                    },
+                    {
+                        "title": "Elevation",
+                        "items": [
+                            "Premium elevation with HPL cladding / stone cladding accents"
+                        ]
+                    },
+                    {
+                        "title": "Exclusions & Incidentals",
+                        "items": [
+                            "Furniture & appliances not included",
+                            "Modular kitchen not included (can be added)",
+                            "Landscaping (basic included, detailed at extra cost)",
+                            "External development charges (if any)"
+                        ]
+                    },
+                    {
+                        "title": "Payment Structure",
+                        "items": [
+                            "10% – At booking",
+                            "75% – Construction-linked instalments",
+                            "10% – At handover",
+                            "5% – After 3 months of handover (retention)"
+                        ]
+                    },
+                    {
+                        "title": "Warranty and Guarantee",
+                        "items": [
+                            "2 years general warranty",
+                            "10 years structural warranty",
+                            "10 years waterproofing warranty on terrace"
+                        ]
+                    }
+                ]
+            },
+            "Luxury": {
+                "price": "₹2,500/sq.ft",
+                "tag": "Premium Living",
+                "color": "from-amber-500 to-orange-600",
+                "sections": [
+                    {
+                        "title": "Design and Drawings",
+                        "items": [
+                            "Premium 2D – Floor Plans",
+                            "Luxury Elevation Designs of all views",
+                            "Design Development – A maximum of 40 drawing revisions",
+                            "Internal Isometric Views all rooms, open areas etc & detailed renders for each segment",
+                            "Detailed Landscaping design",
+                            "3D Walkthrough of the home along with internal & external walkthrough",
+                            "Hands on isometric 3D model of the home with separate floors",
+                            "Site survey by surveyor with instruments & drawing on the basis of survey",
+                            "VR for the 3D Walkthrough of the home along with internal & external walkthrough"
+                        ]
+                    },
+                    {
+                        "title": "Civil Construction",
+                        "items": [
+                            "Steel – Tata Tiscon / SAIL or equivalent – Fe 500D – Rs.75/- per kg",
+                            "Cement – Ultratech / ACC Premium or equivalent – Rs.380/- per bag",
+                            "UG Sump – included up to 3000 ltrs",
+                            "Aggregates – 20mm & 40mm machine crushed premium",
+                            "Brickwork – AAC Blocks",
+                            "Concrete – M25 / M30 / M35 as per structural design",
+                            "Ceiling height – 11 feet (Floor to floor)"
+                        ]
+                    },
+                    {
+                        "title": "Architectural Design",
+                        "items": [
+                            "Luxury bespoke elevation design with premium 3D renders",
+                            "Detailed & optimized luxury layout planning"
+                        ]
+                    },
+                    {
+                        "title": "Interior Design",
+                        "items": [
+                            "Luxury interior design with detailed 3D renders of every room and space"
+                        ]
+                    },
+                    {
+                        "title": "Structural Designing",
+                        "items": [
+                            "RCC structural design with exhaustive soil & load analysis"
+                        ]
+                    },
+                    {
+                        "title": "MEP Designing",
+                        "items": [
+                            "Comprehensive MEP design with individual drawings per floor"
+                        ]
+                    },
+                    {
+                        "title": "Government Liaison Assistance",
+                        "items": [
+                            "End-to-end building plan approval",
+                            "Complete liaison support for all utility connections",
+                            "Dedicated project manager for approvals"
+                        ]
+                    },
+                    {
+                        "title": "Flooring Wall tiling",
+                        "items": [
+                            "Living & Dining – Italian marble / premium vitrified up to Rs.120/- per sq.ft",
+                            "Bedrooms – Premium vitrified tiles up to Rs.90/- per sq.ft",
+                            "Bathroom – Designer anti-skid tiles up to Rs.75/- per sq.ft",
+                            "Kitchen – Premium anti-skid tiles up to Rs.70/- per sq.ft",
+                            "Balcony & Utility – Designer tiles up to Rs.55/- per sq.ft",
+                            "Parking – Heavy-duty designer tiles up to Rs.50/- per sq.ft"
+                        ]
+                    },
+                    {
+                        "title": "Painting",
+                        "items": [
+                            "Interior – Asian / Berger premium putty + Asian Royale Luxury or equivalent",
+                            "Exterior – Asian Apex Ultima or equivalent with weather-coat"
+                        ]
+                    },
+                    {
+                        "title": "Electrical",
+                        "items": [
+                            "Wiring – Havells / Polycab FR or equivalent",
+                            "Switches – Legrand Myrius / Schneider Zencelo or equivalent",
+                            "MCB Distribution Box – Schneider / ABB or equivalent",
+                            "Electrical points – enhanced allocation per room"
+                        ]
+                    },
+                    {
+                        "title": "Plumbing",
+                        "items": [
+                            "Water supply – CPVC Supreme / Astral premium or equivalent",
+                            "Drainage – PVC SWR Supreme / Astral or equivalent",
+                            "Hot & Cold water provision for all bathrooms"
+                        ]
+                    },
+                    {
+                        "title": "Fixtures",
+                        "items": [
+                            "Bathroom – Premium EWC, wall-hung basin, rain shower of Kohler / Grohe or equivalent",
+                            "CP fixtures up to Rs.12,000/- per bathroom point"
+                        ]
+                    },
+                    {
+                        "title": "Doors",
+                        "items": [
+                            "Main Door – Premium Burma Teak frame & shutter including hardware – Rs.55,000/- per door",
+                            "Internal Doors – Teak Wood frame & premium flush shutter including hardware – Rs.20,000/- per door",
+                            "Internal Door frames & shutters – PU polished finish",
+                            "Main Door – Machine polished with premium PU coating",
+                            "Bathroom, Terrace & Utility Door – WPC / Aluminium Frame & shutter including hardware – Rs.14,000/- per door",
+                            "Door hardware – Yale / Dorset / Hafele make",
+                            "Door hinges – SS 304 concealed hinges"
+                        ]
+                    },
+                    {
+                        "title": "Windows",
+                        "items": [
+                            "UPVC windows – 3 track with mesh & toughened glass – Rs.700/- per sq.ft",
+                            "Window grills – Designer SS / MS grills with powder coating included"
+                        ]
+                    },
+                    {
+                        "title": "Fabrication",
+                        "items": [
+                            "Main gate – Designer MS / SS fabrication with powder coating – Rs.380/- per sq.ft",
+                            "Staircase railing – SS 304 designer railing with glass – Rs.1,500/- per rft"
+                        ]
+                    },
+                    {
+                        "title": "Compound Wall",
+                        "items": [
+                            "Compound wall up to 5 feet height with premium finish & designer gate"
+                        ]
+                    },
+                    {
+                        "title": "Elevation",
+                        "items": [
+                            "Luxury elevation with ACP / HPL cladding, natural stone, and designer lighting accents"
+                        ]
+                    },
+                    {
+                        "title": "Exclusions & Incidentals",
+                        "items": [
+                            "Modular kitchen (can be added at special package rate)",
+                            "Home automation (optional add-on)",
+                            "Swimming pool, outdoor kitchen (optional add-on)",
+                            "External development charges (if any)"
+                        ]
+                    },
+                    {
+                        "title": "Payment Structure",
+                        "items": [
+                            "10% – At booking",
+                            "75% – Construction-linked instalments",
+                            "10% – At handover",
+                            "5% – After 3 months of handover (retention)"
+                        ]
+                    },
+                    {
+                        "title": "Warranty and Guarantee",
+                        "items": [
+                            "2 years general warranty",
+                            "10 years structural warranty",
+                            "10 years waterproofing warranty on terrace",
+                            "Dedicated post-handover support team"
+                        ]
+                    }
+                ]
+            }
+        }
+    },
+    "packages": [
+        "Essential",
+        "Standard",
+        "Premium",
+        "Luxury"
+    ],
+    "cities": [
+        "Chatrapur",
+        "Berhampur"
+    ]
+}
