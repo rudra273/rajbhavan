@@ -1,4 +1,6 @@
 import Hero from "@/components/Hero";
+import AboutIntro from "@/components/AboutIntro";
+import Brands from "@/components/Brands";
 import ProjectCard from "@/components/ProjectCard";
 import Link from "next/link";
 import { getCachedProjects } from "@/lib/dataCache";
@@ -19,88 +21,10 @@ export default async function Home() {
       <Hero />
 
       {/* About / Intro Section */}
-      {/* <section className="section-padding bg-white"> */}
-      <section className="section-padding bg-white -mt-[1px] relative z-10">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            {/* Left - Text */}
-            <div>
-              <p className="text-accent font-semibold text-sm uppercase tracking-wider mb-2">
-                Who We Are
-              </p>
-              <h2 className="text-3xl sm:text-4xl font-bold text-navy font-[family-name:var(--font-heading)] mb-5">
-                Crafting Quality{" "}
-                <span className="text-accent">Construction</span> Since 2005
-              </h2>
-              <p className="text-gray-500 leading-relaxed mb-4">
-                At Raj Bhavan Construction, we believe in building more than
-                structures — we build trust, relationships, and legacies. With
-                over 18 years of experience in the construction industry, our
-                team delivers projects that stand the test of time.
-              </p>
-              <p className="text-gray-500 leading-relaxed mb-6">
-                From residential homes to large-scale commercial builds, we
-                combine modern techniques with traditional craftsmanship to
-                deliver results that exceed expectations.
-              </p>
-              <div className="flex flex-wrap gap-4">
-                {[
-                  "Residential",
-                  "Commercial",
-                  "Renovation",
-                  "Interior",
-                ].map((tag) => (
-                  <span
-                    key={tag}
-                    className="bg-cream text-navy text-sm font-medium px-4 py-2 rounded-full border border-gray-200"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            </div>
+      <AboutIntro />
 
-            {/* Right - Feature cards */}
-            <div className="grid grid-cols-2 gap-4">
-              {[
-                {
-                  icon: "🏗️",
-                  title: "Expert Team",
-                  desc: "Skilled professionals with years of experience",
-                },
-                {
-                  icon: "✅",
-                  title: "Quality First",
-                  desc: "Premium materials and precise workmanship",
-                },
-                {
-                  icon: "⏰",
-                  title: "On Time",
-                  desc: "We deliver projects on schedule, every time",
-                },
-                {
-                  icon: "💰",
-                  title: "Fair Pricing",
-                  desc: "Transparent costs with no hidden charges",
-                },
-              ].map((item) => (
-                <div
-                  key={item.title}
-                  className="bg-cream rounded-xl p-5 text-center border border-gray-200/60 hover:border-accent/30 transition-colors duration-200"
-                >
-                  <span className="text-3xl mb-2 block">{item.icon}</span>
-                  <h4 className="text-navy font-semibold text-sm mb-1 font-[family-name:var(--font-heading)]">
-                    {item.title}
-                  </h4>
-                  <p className="text-gray-500 text-xs leading-relaxed">
-                    {item.desc}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Brands We Use Section */}
+      <Brands />
 
       {/* Featured Projects Section */}
       <section className="section-padding bg-gray-100">

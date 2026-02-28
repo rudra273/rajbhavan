@@ -3,7 +3,7 @@
 import Link from "next/link";
 
 export default function WhatsAppButton() {
-    const phoneNumber = "919876543210"; // Replace with actual number (country code + number, no +)
+    const phoneNumber = "917008039858";
     const message = encodeURIComponent(
         "Hi! I'm interested in your construction services. Can we discuss my project?"
     );

@@ -4,7 +4,7 @@
             "Essential": {
                 "price": "₹1,680/sq.ft",
                 "tag": "Budget Friendly",
-                "color": "from-emerald-500 to-teal-600",
+                "color": "from-slate-600 to-slate-700",
                 "sections": [
                     {
                         "title": "Design and Drawings",
@@ -149,7 +149,7 @@
             "Standard": {
                 "price": "₹1,880/sq.ft",
                 "tag": "Most Popular",
-                "color": "from-blue-500 to-indigo-600",
+                "color": "from-blue-600 to-blue-700",
                 "sections": [
                     {
                         "title": "Design and Drawings",
@@ -297,7 +297,7 @@
             "Premium": {
                 "price": "₹2,180/sq.ft",
                 "tag": "Best Value",
-                "color": "from-purple-500 to-violet-600",
+                "color": "from-emerald-700 to-emerald-800",
                 "sections": [
                     {
                         "title": "Design and Drawings",
@@ -448,7 +448,7 @@
             "Luxury": {
                 "price": "₹2,650/sq.ft",
                 "tag": "Premium Living",
-                "color": "from-amber-500 to-orange-600",
+                "color": "from-amber-700 to-amber-800",
                 "sections": [
                     {
                         "title": "Design and Drawings",
@@ -609,7 +609,7 @@
             "Essential": {
                 "price": "₹1,580/sq.ft",
                 "tag": "Budget Friendly",
-                "color": "from-emerald-500 to-teal-600",
+                "color": "from-slate-600 to-slate-700",
                 "sections": [
                     {
                         "title": "Design and Drawings",
@@ -772,7 +772,7 @@
             "Standard": {
                 "price": "₹1,780/sq.ft",
                 "tag": "Most Popular",
-                "color": "from-blue-500 to-indigo-600",
+                "color": "from-blue-600 to-blue-700",
                 "sections": [
                     {
                         "title": "Design and Drawings",
@@ -937,7 +937,7 @@
             "Premium": {
                 "price": "₹2,080/sq.ft",
                 "tag": "Best Value",
-                "color": "from-purple-500 to-violet-600",
+                "color": "from-emerald-700 to-emerald-800",
                 "sections": [
                     {
                         "title": "Design and Drawings",
@@ -1103,7 +1103,7 @@
             "Luxury": {
                 "price": "₹2,500/sq.ft",
                 "tag": "Premium Living",
-                "color": "from-amber-500 to-orange-600",
+                "color": "from-amber-700 to-amber-800",
                 "sections": [
                     {
                         "title": "Design and Drawings",

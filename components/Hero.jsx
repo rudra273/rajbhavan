@@ -32,7 +32,7 @@ export default function Hero() {
             {/* Dark overlay for text readability */}
             <div className="absolute inset-0 bg-gradient-to-b from-navy-dark/0 via-navy-dark/60 to-navy-dark" />
             {/* Content */}
-            <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-20 pb-32">
+            <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-42 pb-32">
                 {/* Badge */}
                 <div className="inline-flex items-center gap-2 bg-accent/10 border border-accent/20 text-accent px-4 py-1.5 rounded-full text-sm font-medium mb-6 animate-pulse">
                     <span className="w-2 h-2 bg-accent rounded-full" />

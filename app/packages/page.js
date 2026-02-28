@@ -11,14 +11,14 @@ function PackageCard({ name, pkg, isSelected, onSelect }) {
     return (
         <button
             onClick={() => onSelect(name)}
-            className={`relative group text-left rounded-2xl p-6 border-2 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl ${isSelected
-                ? "border-accent bg-accent/5 shadow-lg shadow-accent/10"
-                : "border-gray-200 bg-white hover:border-accent/40"
+            className={`relative group text-left rounded-xl p-6 border transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md ${isSelected
+                ? "border-accent bg-accent/5 shadow-sm"
+                : "border-gray-200 bg-white hover:border-gray-300"
                 }`}
         >
             {/* Tag */}
             <span
-                className={`inline-block text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full text-white bg-gradient-to-r ${pkg.color} mb-4`}
+                className={`inline-block text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full text-white bg-gradient-to-r ${pkg.color} mb-4`}
             >
                 {pkg.tag}
             </span>
@@ -94,7 +94,7 @@ function ExpandableRow({ title, items }) {
 
 function ComparisonCard({ packageName, pkg }) {
     return (
-        <div className="flex-1 bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden">
+        <div className="flex-1 bg-white rounded-xl border border-gray-200 overflow-hidden">
             {/* Header */}
             <div className={`bg-gradient-to-r ${pkg.color} px-6 py-5`}>
                 <h4 className="text-xl font-bold text-white font-[family-name:var(--font-heading)]">
@@ -207,7 +207,7 @@ export default function PackagesPage() {
             </section>
 
             {/* ——— PACKAGES SECTION ——— */}
-            <section className="section-padding bg-white">
+            <section className="section-padding bg-gray-100/60">
                 <div className="max-w-7xl mx-auto">
                     {/* Heading + City Selector */}
                     <div className="text-center mb-10">
@@ -222,7 +222,7 @@ export default function PackagesPage() {
                             <select
                                 value={city}
                                 onChange={(e) => setCity(e.target.value)}
-                                className="inline-block bg-cream border border-gray-300 text-navy font-semibold rounded-lg px-3 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-accent/50 cursor-pointer"
+                                className="inline-block bg-white border border-gray-300 text-navy font-semibold rounded-lg px-3 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-accent/50 cursor-pointer"
                             >
                                 {CITIES.map((c) => (
                                     <option key={c} value={c}>
@@ -270,7 +270,7 @@ export default function PackagesPage() {
                                 <select
                                     value={compareA}
                                     onChange={(e) => setCompareA(e.target.value)}
-                                    className="bg-cream border border-gray-300 text-navy font-semibold rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-accent/50"
+                                    className="bg-white border border-gray-300 text-navy font-semibold rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-accent/50"
                                 >
                                     {PACKAGE_NAMES.map((n) => (
                                         <option key={n} value={n}>
@@ -289,7 +289,7 @@ export default function PackagesPage() {
                                 <select
                                     value={compareB}
                                     onChange={(e) => setCompareB(e.target.value)}
-                                    className="bg-cream border border-gray-300 text-navy font-semibold rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-accent/50"
+                                    className="bg-white border border-gray-300 text-navy font-semibold rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-accent/50"
                                 >
                                     {PACKAGE_NAMES.map((n) => (
                                         <option key={n} value={n}>
