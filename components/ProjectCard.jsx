@@ -1,14 +1,25 @@
+"use client";
+
+import { CldImage } from 'next-cloudinary';
+
 export default function ProjectCard({ title, description, cloudinary_url, category }) {
     return (
-        <div className="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-200/60">
+        <div className="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-200/60 flex flex-col h-full">
             {/* Image */}
-            <div className="relative h-56 sm:h-64 overflow-hidden">
-                <img
-                    src={cloudinary_url}
-                    alt={title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    loading="lazy"
-                />
+            <div className="relative h-56 sm:h-64 overflow-hidden shrink-0">
+                {cloudinary_url ? (
+                    <CldImage
+                        src={cloudinary_url}
+                        alt={title}
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-500"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    />
+                ) : (
+                    <div className="w-full h-full bg-gray-200 flex items-center justify-center text-gray-400">
+                        No Image
+                    </div>
+                )}
                 {/* Category Badge */}
                 {category && (
                     <span className="absolute top-3 left-3 bg-accent text-white text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wide">

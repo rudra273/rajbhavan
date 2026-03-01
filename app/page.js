@@ -10,7 +10,7 @@ export default async function Home() {
 
   try {
     const allProjects = getCachedProjects();
-    projects = allProjects.slice(0, 4); // Show only 3-4 featured projects
+    projects = allProjects.filter(p => p.is_featured === true || p.is_featured === "true" || p.is_featured === "TRUE").slice(0, 4); // Show only up to 4 featured projects
   } catch (error) {
     console.error("Error fetching projects:", error);
   }

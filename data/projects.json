@@ -1,14 +1,26 @@
 [
   {
     "id": "1",
-    "title": "Modern Villa",
-    "description": "A beautiful 3BHK villa..",
-    "cloudinary_url": "https:"
+    "title": "test again",
+    "description": "test descitoon",
+    "cloudinary_url": "y9jo54aoukxmdahya5yr",
+    "category": "Residenatal",
+    "is_featured": true
   },
   {
     "id": "2",
-    "title": "Office Complex",
-    "description": "Commercial office space...",
-    "cloudinary_url": "htpps:"
+    "title": "testing 2 state",
+    "description": "working.",
+    "cloudinary_url": "uau66fqlpok42eytyc9p",
+    "category": "",
+    "is_featured": false
+  },
+  {
+    "id": "3",
+    "title": "testing. category",
+    "description": "withour img",
+    "cloudinary_url": "cgzkadtyysrzhlgd0vg4",
+    "category": "Residential",
+    "is_featured": false
   }
 ]

@@ -131,9 +131,14 @@ export default function AdminPage() {
                         Data Management
                     </h1>
                     <p className="text-gray-400 max-w-lg mx-auto">
-                        Refresh your site data from Google Sheets. Click a button below to
-                        pull the latest data.
+                        Refresh your site data from Google Sheets, or manage content below.
                     </p>
+
+                    <div className="mt-6 flex justify-center">
+                        <a href="/admin/projects" className="bg-white/10 hover:bg-white/20 border border-white/10 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-200">
+                            ✏️ Manage Projects
+                        </a>
+                    </div>
                 </div>
 
                 {/* Cards Grid */}
@@ -167,8 +172,8 @@ export default function AdminPage() {
                                     onClick={() => handleRefresh(item.type)}
                                     disabled={isLoading}
                                     className={`w-full py-2.5 rounded-lg font-semibold text-sm transition-all duration-200 ${isLoading
-                                            ? "bg-white/10 text-gray-400 cursor-not-allowed"
-                                            : "bg-accent hover:bg-accent-dark text-white hover:shadow-lg hover:shadow-accent/25"
+                                        ? "bg-white/10 text-gray-400 cursor-not-allowed"
+                                        : "bg-accent hover:bg-accent-dark text-white hover:shadow-lg hover:shadow-accent/25"
                                         }`}
                                 >
                                     {isLoading ? (
@@ -185,8 +190,8 @@ export default function AdminPage() {
                                 {result && (
                                     <div
                                         className={`mt-3 px-4 py-2.5 rounded-lg text-sm ${result.success
-                                                ? "bg-green-500/10 border border-green-500/20 text-green-400"
-                                                : "bg-red-500/10 border border-red-500/20 text-red-400"
+                                            ? "bg-green-500/10 border border-green-500/20 text-green-400"
+                                            : "bg-red-500/10 border border-red-500/20 text-red-400"
                                             }`}
                                     >
                                         {result.success ? "✅ " : "❌ "}
