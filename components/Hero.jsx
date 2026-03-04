@@ -3,7 +3,7 @@ import Image from "next/image";
 
 // ─── Hero Data ───────────────────────────────────────────
 const BADGE_TEXT = "Trusted Builders Since 2005";
-const HERO_HEADING_LINE1 = "Building Your";
+const HERO_HEADING_LINE1 = "Buildings Your";
 const HERO_HEADING_HIGHLIGHT = "Dreams";
 const HERO_HEADING_LINE2 = "Into Reality";
 const HERO_SUBTEXT =
