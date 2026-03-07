@@ -1,20 +1,18 @@
+"use client";
+
 import Link from "next/link";
 
-// ─── Company Data ────────────────────────────────────────
 const COMPANY_NAME = "Raj Bhavan";
-const COMPANY_TAGLINE =
-    "Building excellence with integrity. We deliver top-quality residential and commercial construction projects with craftsmanship you can trust.";
+const COMPANY_TAGLINE = "Building excellence with integrity. We deliver top-quality residential and commercial construction projects with craftsmanship you can trust.";
 const COPYRIGHT_TEXT = "Raj Bhavan Construction";
 const DEVELOPER_NAME = "Rudrapratap Mohanty";
 const DEVELOPER_URL = "https://rudrapratap-mohanty.vercel.app/";
 
-// ─── Contact Info ────────────────────────────────────────
 const PHONE_NUMBER = "+917008039858";
 const PHONE_DISPLAY = "+91 70080 39858";
-const EMAIL = "rm955069@gmail.com";
+const EMAIL = "akashchandramohanty@gmail.com";
 const ADDRESS = "Chatrapur, Odisha, India";
 
-// ─── Navigation ──────────────────────────────────────────
 const quickLinks = [
     { name: "Home", href: "/" },
     { name: "Projects", href: "/projects" },
@@ -23,143 +21,104 @@ const quickLinks = [
     { name: "Contact", href: "/contact" },
 ];
 
+const contactItems = [
+    {
+        icon: <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.56 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.4a16 16 0 0 0 6.29 6.29l.88-.88a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" /></svg>,
+        content: <a href={`tel:${PHONE_NUMBER}`} style={{ color: "#475569", textDecoration: "none", transition: "color 0.15s" }} onMouseOver={e => e.currentTarget.style.color = "#0a0f1a"} onMouseOut={e => e.currentTarget.style.color = "#475569"}>{PHONE_DISPLAY}</a>,
+    },
+    {
+        icon: <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" /><polyline points="22,6 12,13 2,6" /></svg>,
+        content: <a href={`mailto:${EMAIL}`} style={{ color: "#475569", textDecoration: "none", transition: "color 0.15s" }} onMouseOver={e => e.currentTarget.style.color = "#0a0f1a"} onMouseOut={e => e.currentTarget.style.color = "#475569"}>{EMAIL}</a>,
+    },
+    {
+        icon: <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" /><circle cx="12" cy="10" r="3" /></svg>,
+        content: <span style={{ color: "#475569" }}>{ADDRESS}</span>,
+    },
+];
+
 export default function Footer() {
     const currentYear = new Date().getFullYear();
 
     return (
-        <footer className="bg-navy-dark text-gray-300">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12">
-                    {/* Company Info */}
-                    <div>
-                        <h3 className="text-accent text-2xl font-bold font-[family-name:var(--font-heading)] mb-3">
-                            {COMPANY_NAME}
-                        </h3>
-                        <p className="text-gray-400 text-sm leading-relaxed mb-4">
-                            {COMPANY_TAGLINE}
+        <>
+            <style>{`
+                @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=DM+Sans:wght@400;500;600&display=swap');
+                .f-link { font-family: 'DM Sans', sans-serif; font-size: 13px; color: #475569; text-decoration: none; transition: color 0.15s; display: inline-block; padding: 3px 0; }
+                .f-link:hover { color: #0a0f1a; }
+                .f-dev:hover { color: var(--accent, #e07b39) !important; }
+            `}</style>
+            <footer style={{ background: "#f8fafc", borderTop: "1px solid #e2e8f0", fontFamily: "'DM Sans', sans-serif" }}>
+                <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "64px 24px 0" }}>
+
+                    {/* Top grid */}
+                    <div style={{ display: "grid", gridTemplateColumns: "1.6fr 1fr 1.4fr", gap: "60px", paddingBottom: "48px", borderBottom: "1px solid #e2e8f0" }}>
+
+                        {/* Brand col */}
+                        <div>
+                            <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "11px", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--accent, #e07b39)", margin: "0 0 12px" }}>
+                                Since 2005
+                            </p>
+                            <h3 style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: "30px", fontWeight: 500, color: "#e07b39", margin: "0 0 16px", letterSpacing: "-0.02em", lineHeight: 1 }}>
+                                {COMPANY_NAME}
+                                <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "11px", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", color: "#94a3b8", marginLeft: "10px", verticalAlign: "middle" }}>
+                                    Construction
+                                </span>
+                            </h3>
+                            <p style={{ fontSize: "13px", color: "#64748b", lineHeight: 1.7, margin: "0 0 0", maxWidth: "300px" }}>
+                                {COMPANY_TAGLINE}
+                            </p>
+                        </div>
+
+                        {/* Quick Links */}
+                        <div>
+                            <p style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "#94a3b8", margin: "0 0 20px" }}>
+                                Navigation
+                            </p>
+                            <ul style={{ listStyle: "none", margin: 0, padding: 0 }}>
+                                {quickLinks.map(link => (
+                                    <li key={link.name}>
+                                        <Link href={link.href} className="f-link">{link.name}</Link>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+
+                        {/* Contact */}
+                        <div>
+                            <p style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "#94a3b8", margin: "0 0 20px" }}>
+                                Contact
+                            </p>
+                            <ul style={{ listStyle: "none", margin: 0, padding: 0, display: "flex", flexDirection: "column", gap: "14px" }}>
+                                {contactItems.map((item, i) => (
+                                    <li key={i} style={{ display: "flex", alignItems: "flex-start", gap: "10px" }}>
+                                        <span style={{ color: "var(--accent, #e07b39)", marginTop: "2px", flexShrink: 0 }}>{item.icon}</span>
+                                        <span style={{ fontSize: "13px", lineHeight: 1.5 }}>{item.content}</span>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    </div>
+
+                    {/* Bottom bar */}
+                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "20px 0", gap: "12px", flexWrap: "wrap" }}>
+                        <p style={{ fontSize: "12px", color: "#94a3b8", margin: 0 }}>
+                            &copy; {currentYear} {COPYRIGHT_TEXT}. All rights reserved.
+                        </p>
+                        <p style={{ fontSize: "12px", color: "#94a3b8", margin: 0 }}>
+                            Designed by{" "}
+                            <a
+                                href={DEVELOPER_URL}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="f-dev"
+                                style={{ color: "#94a3b8", textDecoration: "none", fontWeight: 500, transition: "color 0.15s" }}
+                            >
+                                {DEVELOPER_NAME}
+                            </a>
                         </p>
                     </div>
-
-                    {/* Quick Links */}
-                    <div>
-                        <h4 className="text-white text-lg font-semibold font-[family-name:var(--font-heading)] mb-4">
-                            Quick Links
-                        </h4>
-                        <ul className="space-y-2.5">
-                            {quickLinks.map((link) => (
-                                <li key={link.name}>
-                                    <Link
-                                        href={link.href}
-                                        className="text-gray-400 hover:text-accent text-sm transition-colors duration-200"
-                                    >
-                                        {link.name}
-                                    </Link>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-
-                    {/* Contact Info */}
-                    <div>
-                        <h4 className="text-white text-lg font-semibold font-[family-name:var(--font-heading)] mb-4">
-                            Contact Us
-                        </h4>
-                        <ul className="space-y-3">
-                            {/* Phone */}
-                            <li className="flex items-start gap-3">
-                                <svg
-                                    className="w-5 h-5 text-accent mt-0.5 shrink-0"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    viewBox="0 0 24 24"
-                                >
-                                    <path
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        strokeWidth={2}
-                                        d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                                    />
-                                </svg>
-                                <div>
-                                    <a
-                                        href={`tel:${PHONE_NUMBER}`}
-                                        className="text-gray-400 hover:text-accent text-sm transition-colors duration-200"
-                                    >
-                                        {PHONE_DISPLAY}
-                                    </a>
-                                </div>
-                            </li>
-
-                            {/* Email */}
-                            <li className="flex items-start gap-3">
-                                <svg
-                                    className="w-5 h-5 text-accent mt-0.5 shrink-0"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    viewBox="0 0 24 24"
-                                >
-                                    <path
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        strokeWidth={2}
-                                        d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                                    />
-                                </svg>
-                                <a
-                                    href={`mailto:${EMAIL}`}
-                                    className="text-gray-400 hover:text-accent text-sm transition-colors duration-200"
-                                >
-                                    {EMAIL}
-                                </a>
-                            </li>
-
-                            {/* Address */}
-                            <li className="flex items-start gap-3">
-                                <svg
-                                    className="w-5 h-5 text-accent mt-0.5 shrink-0"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    viewBox="0 0 24 24"
-                                >
-                                    <path
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        strokeWidth={2}
-                                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                                    />
-                                    <path
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        strokeWidth={2}
-                                        d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                                    />
-                                </svg>
-                                <span className="text-gray-400 text-sm">
-                                    {ADDRESS}
-                                </span>
-                            </li>
-                        </ul>
-                    </div>
                 </div>
-
-                {/* Bottom Bar */}
-                <div className="border-t border-gray-700 mt-10 pt-6 flex flex-col sm:flex-row justify-between items-center gap-3">
-                    <p className="text-gray-500 text-xs">
-                        © {currentYear} {COPYRIGHT_TEXT}. All rights reserved.
-                    </p>
-                    <p className="text-gray-600 text-xs">
-                        Designed By{" "}
-                        <a
-                            href={DEVELOPER_URL}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-accent hover:text-white transition-colors duration-200 underline"
-                        >
-                            {DEVELOPER_NAME}
-                        </a>
-                    </p>
-                </div>
-            </div>
-        </footer>
+            </footer>
+        </>
     );
 }

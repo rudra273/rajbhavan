@@ -3,13 +3,11 @@
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
-// ─── Hero Data ───────────────────────────────────────────
 const BADGE_TEXT = "Trusted Builders Since 2005";
 const HERO_HEADING_LINE1 = "We Build Structures";
 const HERO_HEADING_LINE2 = "That Last";
 const HERO_HEADING_HIGHLIGHT = "Generations";
-const HERO_SUBTEXT =
-    "From residential homes to commercial complexes, we bring precision, quality, and trust to every project we undertake.";
+const HERO_SUBTEXT = "From residential homes to commercial complexes, we bring precision, quality, and trust to every project we undertake.";
 
 const STATS = [
     { value: 18, suffix: "+", label: "Years Experience" },
@@ -18,147 +16,213 @@ const STATS = [
     { value: 100, suffix: "+", label: "Team Members" },
 ];
 
-// ─── Animated Counter Hook ───────────────────────────────
 function useCountUp(target, duration = 2000, startCounting = false) {
     const [count, setCount] = useState(0);
     const hasAnimated = useRef(false);
-
     useEffect(() => {
         if (!startCounting || hasAnimated.current) return;
         hasAnimated.current = true;
-
         const startTime = performance.now();
         const step = (currentTime) => {
             const elapsed = currentTime - startTime;
             const progress = Math.min(elapsed / duration, 1);
-            // Ease-out curve for a satisfying deceleration
             const eased = 1 - Math.pow(1 - progress, 3);
             setCount(Math.floor(eased * target));
-            if (progress < 1) {
-                requestAnimationFrame(step);
-            }
+            if (progress < 1) requestAnimationFrame(step);
         };
         requestAnimationFrame(step);
     }, [target, duration, startCounting]);
-
     return count;
 }
 
-// ─── Single Stat Item ────────────────────────────────────
-function StatItem({ value, suffix, label, delay }) {
+function StatItem({ value, suffix, label, delay, dark = false }) {
     const ref = useRef(null);
     const [isVisible, setIsVisible] = useState(false);
-
     useEffect(() => {
         const observer = new IntersectionObserver(
-            ([entry]) => {
-                if (entry.isIntersecting) setIsVisible(true);
-            },
+            ([entry]) => { if (entry.isIntersecting) setIsVisible(true); },
             { threshold: 0.3 }
         );
         if (ref.current) observer.observe(ref.current);
         return () => observer.disconnect();
     }, []);
-
     const count = useCountUp(value, 2000, isVisible);
 
     return (
-        <div ref={ref} className="text-center hero-fade-in" style={{ animationDelay: delay }}>
-            <p className="text-accent text-3xl md:text-4xl lg:text-5xl font-bold font-[family-name:var(--font-heading)]">
+        <div ref={ref} style={{ animationDelay: delay, animation: "heroFade 0.6s ease forwards", opacity: 0 }}>
+            <p style={{
+                fontFamily: "'Cormorant Garamond', Georgia, serif",
+                fontSize: "clamp(36px, 4vw, 52px)",
+                fontWeight: 500,
+                color: dark ? "white" : "#0a0f1a",
+                margin: 0,
+                lineHeight: 1,
+                letterSpacing: "-0.02em",
+            }}>
                 {count}{suffix}
             </p>
-            <p className="text-gray-400 text-xs md:text-sm mt-2 uppercase tracking-wider">
+            <p style={{
+                fontFamily: "'DM Sans', sans-serif",
+                fontSize: "11px",
+                fontWeight: 600,
+                letterSpacing: "0.1em",
+                textTransform: "uppercase",
+                color: dark ? "rgba(255,255,255,0.45)" : "#94a3b8",
+                margin: "8px 0 0",
+            }}>
                 {label}
             </p>
         </div>
     );
 }
 
-// ─── Hero Component ──────────────────────────────────────
 export default function Hero() {
     return (
-        <section className="relative min-h-0 md:min-h-screen flex items-center overflow-hidden">
-            {/* Background Image */}
-            <Image
-                src="/homepage/herobanner.png"
-                alt="Raj Bhavan Construction"
-                fill
-                priority
-                className="object-cover object-center"
-                sizes="100vw"
-                quality={90}
-            />
+        <>
+            <style>{`
+                @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@400;500;600;700&display=swap');
+                @keyframes heroFade { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+                @keyframes heroFadeLeft { from { opacity: 0; transform: translateX(-12px); } to { opacity: 1; transform: translateX(0); } }
+            `}</style>
 
-            {/* Gradient overlays */}
-            <div className="absolute inset-0 bg-gradient-to-r from-navy-dark/90 via-navy-dark/60 to-navy-dark/30" />
-            <div className="absolute inset-0 bg-gradient-to-t from-navy-dark/80 via-transparent to-transparent" />
+            <section style={{ position: "relative", minHeight: "100svh", display: "flex", flexDirection: "column", overflow: "hidden" }}>
 
-            {/* Content */}
-            <div className="relative z-10 w-full">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-12 md:pt-28 md:pb-16">
-                    {/* Two-column layout on desktop */}
-                    <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-12 lg:gap-16">
+                {/* Background image — right half only on desktop */}
+                <div style={{ position: "absolute", inset: 0 }}>
+                    <Image
+                        src="/homepage/herobanner.png"
+                        alt="Raj Bhavan Construction"
+                        fill
+                        priority
+                        style={{ objectFit: "cover", objectPosition: "center" }}
+                        sizes="100vw"
+                        quality={90}
+                    />
+                    {/* On desktop: white panel covers left half */}
+                    <div style={{
+                        position: "absolute", inset: 0,
+                        background: "linear-gradient(to right, white 0%, white 48%, transparent 68%)",
+                    }} />
+                    {/* On mobile: dark overlay over full image */}
+                    <div style={{
+                        position: "absolute", inset: 0,
+                        background: "rgba(10,15,26,0.72)",
+                    }} className="mobile-overlay" />
+                </div>
 
-                        {/* Left Column — Text Content */}
-                        <div className="lg:flex-1 lg:max-w-2xl">
-                            {/* Badge */}
-                            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/15 text-accent px-3 py-1 rounded-full text-xs font-medium mb-6 hero-fade-in" style={{ animationDelay: '0.1s' }}>
-                                <span className="w-2 h-2 bg-accent rounded-full" />
-                                {BADGE_TEXT}
-                            </div>
+                <style>{`
+                    @media (min-width: 768px) { .mobile-overlay { display: none !important; } }
+                    @media (max-width: 767px) { .desktop-split { display: none !important; } .mobile-stats { display: grid !important; } }
+                    @media (min-width: 768px) { .mobile-stats { display: none !important; } }
+                `}</style>
 
-                            {/* Heading — bigger sizes */}
-                            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl font-bold text-white leading-[1.08] tracking-tight font-[family-name:var(--font-heading)] mb-6 hero-fade-in" style={{ animationDelay: '0.25s' }}>
-                                {HERO_HEADING_LINE1}
-                                <br />
-                                {HERO_HEADING_LINE2}{" "}
-                                <span className="text-accent">{HERO_HEADING_HIGHLIGHT}</span>
-                            </h1>
+                {/* Content */}
+                <div style={{ position: "relative", zIndex: 10, flex: 1, display: "flex", alignItems: "center", paddingTop: "120px", paddingBottom: "60px" }}>
+                    <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 24px", width: "100%" }}>
+                        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0", alignItems: "center" }}>
 
-                            {/* Accent bar + Subtext */}
-                            <div className="flex items-start gap-3 hero-fade-in" style={{ animationDelay: '0.4s' }}>
-                                <div className="w-1 rounded-full bg-accent shrink-0 mt-0.5 self-stretch" />
-                                <p className="text-gray-300 text-lg sm:text-xl max-w-lg leading-relaxed">
+                            {/* Left — text */}
+                            <div style={{ paddingRight: "48px" }}>
+                                {/* Badge */}
+                                <div style={{
+                                    display: "inline-flex", alignItems: "center", gap: "8px",
+                                    fontFamily: "'DM Sans', sans-serif", fontSize: "11px", fontWeight: 600,
+                                    letterSpacing: "0.08em", textTransform: "uppercase", color: "#e07b39",
+                                    marginBottom: "28px",
+                                    animation: "heroFade 0.5s ease 0.1s forwards", opacity: 0,
+                                }}>
+                                    <span style={{ width: "20px", height: "1px", background: "#e07b39", display: "inline-block" }} />
+                                    {BADGE_TEXT}
+                                </div>
+
+                                {/* Heading */}
+                                <h1 style={{
+                                    fontFamily: "'Cormorant Garamond', Georgia, serif",
+                                    fontSize: "clamp(42px, 5.5vw, 76px)",
+                                    fontWeight: 300,
+                                    color: "#0a0f1a",
+                                    lineHeight: 1.05,
+                                    letterSpacing: "-0.025em",
+                                    margin: "0 0 28px",
+                                    animation: "heroFade 0.6s ease 0.25s forwards", opacity: 0,
+                                }}>
+                                    {HERO_HEADING_LINE1}<br />
+                                    {HERO_HEADING_LINE2}{" "}
+                                    <em style={{ fontStyle: "italic", fontWeight: 400 }}>{HERO_HEADING_HIGHLIGHT}</em>
+                                </h1>
+
+                                {/* Subtext */}
+                                <p style={{
+                                    fontFamily: "'DM Sans', sans-serif",
+                                    fontSize: "15px",
+                                    color: "#475569",
+                                    lineHeight: 1.7,
+                                    maxWidth: "420px",
+                                    margin: "0 0 40px",
+                                    animation: "heroFade 0.6s ease 0.4s forwards", opacity: 0,
+                                }}>
                                     {HERO_SUBTEXT}
                                 </p>
+
+                                {/* CTA buttons */}
+                                <div style={{ display: "flex", gap: "12px", flexWrap: "wrap", animation: "heroFade 0.6s ease 0.55s forwards", opacity: 0 }}>
+                                    <a href="/projects" style={{
+                                        fontFamily: "'DM Sans', sans-serif", fontSize: "12px", fontWeight: 700,
+                                        letterSpacing: "0.08em", textTransform: "uppercase",
+                                        color: "white", background: "#0a0f1a",
+                                        padding: "13px 28px", textDecoration: "none", transition: "background 0.15s",
+                                        display: "inline-block",
+                                    }}
+                                        onMouseOver={e => e.currentTarget.style.background = "#1e293b"}
+                                        onMouseOut={e => e.currentTarget.style.background = "#0a0f1a"}
+                                    >
+                                        View Projects
+                                    </a>
+                                    <a href="/contact" style={{
+                                        fontFamily: "'DM Sans', sans-serif", fontSize: "12px", fontWeight: 700,
+                                        letterSpacing: "0.08em", textTransform: "uppercase",
+                                        color: "#0a0f1a", background: "transparent",
+                                        border: "1px solid #cbd5e1",
+                                        padding: "13px 28px", textDecoration: "none", transition: "border-color 0.15s",
+                                        display: "inline-block",
+                                    }}
+                                        onMouseOver={e => e.currentTarget.style.borderColor = "#0a0f1a"}
+                                        onMouseOut={e => e.currentTarget.style.borderColor = "#cbd5e1"}
+                                    >
+                                        Free Consultation
+                                    </a>
+                                </div>
+                            </div>
+
+                            {/* Right — desktop stats panel (floats over image) */}
+                            <div className="desktop-split" style={{ display: "flex", justifyContent: "flex-end" }}>
+                                <div style={{
+                                    background: "rgba(10,15,26,0.72)",
+                                    backdropFilter: "blur(12px)",
+                                    padding: "40px 44px",
+                                    display: "grid",
+                                    gridTemplateColumns: "1fr 1fr",
+                                    gap: "36px 48px",
+                                    maxWidth: "380px",
+                                    width: "100%",
+                                }}>
+                                    {STATS.map((stat, i) => (
+                                        <StatItem key={stat.label} {...stat} delay={`${0.6 + i * 0.12}s`} dark />
+                                    ))}
+                                </div>
                             </div>
                         </div>
-
-                        {/* Right Column — Stats (desktop) */}
-                        <div className="hidden lg:grid grid-cols-2 gap-x-16 gap-y-10">
-                            {STATS.map((stat, index) => (
-                                <StatItem
-                                    key={stat.label}
-                                    value={stat.value}
-                                    suffix={stat.suffix}
-                                    label={stat.label}
-                                    delay={`${0.6 + index * 0.15}s`}
-                                />
-                            ))}
-                        </div>
                     </div>
                 </div>
 
-                {/* Stats Bar — mobile/tablet only (no divider lines) */}
-                <div className="lg:hidden hero-stats-bar hero-fade-in" style={{ animationDelay: '0.7s' }}>
-                    <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8">
-                        <div className="grid grid-cols-2 md:grid-cols-4 gap-y-8 gap-x-4">
-                            {STATS.map((stat) => (
-                                <StatItem
-                                    key={stat.label}
-                                    value={stat.value}
-                                    suffix={stat.suffix}
-                                    label={stat.label}
-                                    delay="0.7s"
-                                />
-                            ))}
-                        </div>
-                    </div>
+                {/* Mobile stats bar — sits below content, over image */}
+                <div className="mobile-stats" style={{ display: "none", position: "relative", zIndex: 10, background: "rgba(10,15,26,0.75)", backdropFilter: "blur(8px)", padding: "28px 24px", gridTemplateColumns: "1fr 1fr", gap: "24px" }}>
+                    {STATS.map((stat, i) => (
+                        <StatItem key={stat.label} {...stat} delay={`${0.7 + i * 0.1}s`} dark />
+                    ))}
                 </div>
-            </div>
 
-            {/* Bottom gradient fade into next section */}
-
-        </section>
+            </section>
+        </>
     );
 }

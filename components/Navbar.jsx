@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState } from "react";
@@ -14,148 +15,107 @@ export default function Navbar() {
     const [mobileOpen, setMobileOpen] = useState(false);
 
     return (
-        <header className="fixed top-0 left-0 w-full z-50">
-            {/* Top Info Bar */}
-            <div className="bg-[#0f1b2d] text-gray-300 text-xs sm:text-sm border-b border-gray-700/50">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-end gap-5 py-1.5">
-                    {/* Phone Number */}
-                    <a
-                        href="tel:+917008039858"
-                        className="flex items-center gap-1.5 hover:text-accent transition-colors duration-200 font-medium"
-                    >
-                        <svg
-                            className="w-3.5 h-3.5 text-accent"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                        >
-                            <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth={2}
-                                d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                            />
-                        </svg>
-                        +917008039858
-                    </a>
+        <>
+            <style>{`
+                @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@400;500;600;700&display=swap');
+                .nav-link { font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 500; color: #475569; text-decoration: none; padding: 6px 14px; letter-spacing: 0.02em; transition: color 0.15s; position: relative; }
+                .nav-link:hover { color: #0a0f1a; }
+                .nav-link::after { content: ''; position: absolute; bottom: 0; left: 14px; right: 14px; height: 1px; background: #0a0f1a; transform: scaleX(0); transition: transform 0.2s ease; }
+                .nav-link:hover::after { transform: scaleX(1); }
+                .cta-btn { font-family: 'DM Sans', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: white; background: #0a0f1a; text-decoration: none; padding: 9px 20px; transition: background 0.15s; }
+                .cta-btn:hover { background: #1e293b; }
+                .top-link { font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 500; color: #64748b; text-decoration: none; display: flex; align-items: center; gap: 5px; transition: color 0.15s; letter-spacing: 0.02em; }
+                .top-link:hover { color: #0a0f1a; }
+                .mob-link { display: block; font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 500; color: #475569; text-decoration: none; padding: 13px 0; border-bottom: 1px solid #f1f5f9; transition: color 0.15s; }
+                .mob-link:hover { color: #0a0f1a; }
+                .ham-btn { background: none; border: none; cursor: pointer; padding: 6px; color: #475569; display: flex; align-items: center; justify-content: center; transition: color 0.15s; }
+                .ham-btn:hover { color: #0a0f1a; }
+            `}</style>
 
-                    {/* Locations */}
-                    <div className="flex items-center gap-1.5 font-medium">
-                        <svg
-                            className="w-3.5 h-3.5 text-accent"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                        >
-                            <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth={2}
-                                d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                            />
-                            <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth={2}
-                                d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                            />
-                        </svg>
-                        Chatrapur <span className="opacity-50">|</span> Berhampur
+            <header style={{ position: "fixed", top: 0, left: 0, width: "100%", zIndex: 50 }}>
+
+                {/* Top info bar */}
+                <div style={{ background: "#f8fafc", borderBottom: "1px solid #e2e8f0", padding: "7px 24px" }}>
+                    <div style={{ maxWidth: "1200px", margin: "0 auto", display: "flex", justifyContent: "flex-end", gap: "24px" }}>
+                        <a href="tel:+917008039858" className="top-link">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.56 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.4a16 16 0 0 0 6.29 6.29l.88-.88a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" /></svg>
+                            +91 70080 39858
+                        </a>
+                        <span className="top-link" style={{ cursor: "default" }}>
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" /><circle cx="12" cy="10" r="3" /></svg>
+                            Chatrapur &nbsp;<span style={{ color: "#cbd5e1" }}>|</span>&nbsp; Berhampur
+                        </span>
                     </div>
                 </div>
-            </div>
 
-            {/* Main Navbar */}
-            <nav className="bg-navy shadow-lg">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="flex items-center justify-between h-14 md:h-16">
+                {/* Main nav */}
+                <nav style={{ background: "white", borderBottom: "1px solid #e2e8f0" }}>
+                    <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 24px", display: "flex", alignItems: "center", justifyContent: "space-between", height: "60px" }}>
+
                         {/* Logo */}
-                        <Link href="/" className="flex items-center gap-2 group">
-                            <span className="text-accent text-2xl md:text-3xl font-extrabold tracking-tight font-[family-name:var(--font-heading)]">
+                        <Link href="/" style={{ textDecoration: "none", display: "flex", alignItems: "baseline", gap: "8px" }}>
+                            <span style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: "22px", fontWeight: 600, color: "#e07b39", letterSpacing: "-0.01em", lineHeight: 1 }}>
                                 Raj Bhavan
                             </span>
-                            <span className="text-gray-300 text-xs sm:text-sm font-light tracking-wider uppercase">
+                            <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "10px", fontWeight: 600, letterSpacing: "0.14em", textTransform: "uppercase", color: "#94a3b8" }}>
                                 Construction
                             </span>
                         </Link>
 
-                        {/* Desktop Nav Links */}
-                        <div className="hidden md:flex items-center gap-1">
-                            {navLinks.map((link) => (
-                                <Link
-                                    key={link.name}
-                                    href={link.href}
-                                    className="text-gray-300 hover:text-accent px-4 py-2 rounded-md text-sm font-medium tracking-wide transition-colors duration-200"
-                                >
+                        {/* Desktop links */}
+                        <div style={{ display: "flex", alignItems: "center", gap: "4px" }} className="hidden-mobile">
+                            {navLinks.map(link => (
+                                <Link key={link.name} href={link.href} className="nav-link">{link.name}</Link>
+                            ))}
+                            <Link href="/contact" className="cta-btn" style={{ marginLeft: "12px" }}>
+                                Free Consultation
+                            </Link>
+                        </div>
+
+                        {/* Mobile hamburger */}
+                        <button
+                            className="ham-btn show-mobile"
+                            onClick={() => setMobileOpen(!mobileOpen)}
+                            aria-label="Toggle menu"
+                        >
+                            {mobileOpen ? (
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" /></svg>
+                            ) : (
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="3" y1="6" x2="21" y2="6" /><line x1="3" y1="12" x2="21" y2="12" /><line x1="3" y1="18" x2="21" y2="18" /></svg>
+                            )}
+                        </button>
+                    </div>
+
+                    {/* Mobile menu */}
+                    <div style={{
+                        overflow: "hidden",
+                        maxHeight: mobileOpen ? "360px" : "0",
+                        opacity: mobileOpen ? 1 : 0,
+                        transition: "max-height 0.3s ease, opacity 0.2s ease",
+                        borderTop: mobileOpen ? "1px solid #f1f5f9" : "none",
+                    }} className="show-mobile">
+                        <div style={{ padding: "4px 24px 20px" }}>
+                            {navLinks.map(link => (
+                                <Link key={link.name} href={link.href} className="mob-link" onClick={() => setMobileOpen(false)}>
                                     {link.name}
                                 </Link>
                             ))}
                             <Link
                                 href="/contact"
-                                className="ml-3 bg-accent hover:bg-accent-dark text-white px-5 py-2.5 rounded-md text-sm font-semibold tracking-wide transition-colors duration-200"
+                                onClick={() => setMobileOpen(false)}
+                                style={{ display: "block", marginTop: "16px", background: "#0a0f1a", color: "white", textAlign: "center", padding: "13px", fontFamily: "'DM Sans', sans-serif", fontSize: "12px", fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", textDecoration: "none", transition: "background 0.15s" }}
                             >
-                                GET FREE CONSULTATION
+                                Free Consultation
                             </Link>
                         </div>
-
-                        {/* Mobile Hamburger Button */}
-                        <button
-                            onClick={() => setMobileOpen(!mobileOpen)}
-                            className="md:hidden text-gray-300 hover:text-accent focus:outline-none transition-colors"
-                            aria-label="Toggle menu"
-                        >
-                            <svg
-                                className="w-7 h-7"
-                                fill="none"
-                                stroke="currentColor"
-                                viewBox="0 0 24 24"
-                            >
-                                {mobileOpen ? (
-                                    <path
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        strokeWidth={2}
-                                        d="M6 18L18 6M6 6l12 12"
-                                    />
-                                ) : (
-                                    <path
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        strokeWidth={2}
-                                        d="M4 6h16M4 12h16M4 18h16"
-                                    />
-                                )}
-                            </svg>
-                        </button>
                     </div>
-                </div>
+                </nav>
 
-                {/* Mobile Menu Dropdown */}
-                <div
-                    className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${mobileOpen ? "max-h-80 opacity-100" : "max-h-0 opacity-0"
-                        }`}
-                >
-                    <div className="bg-navy-light border-t border-gray-700 px-4 py-3 space-y-1">
-                        {navLinks.map((link) => (
-                            <Link
-                                key={link.name}
-                                href={link.href}
-                                onClick={() => setMobileOpen(false)}
-                                className="block text-gray-300 hover:text-accent hover:bg-navy px-3 py-2.5 rounded-md text-base font-medium transition-colors duration-200"
-                            >
-                                {link.name}
-                            </Link>
-                        ))}
-                        <Link
-                            href="/contact"
-                            onClick={() => setMobileOpen(false)}
-                            className="block bg-accent hover:bg-accent-dark text-white text-center px-3 py-2.5 rounded-md text-base font-semibold mt-2 transition-colors duration-200"
-                        >
-                            GET FREE CONSULTATION
-                        </Link>
-                    </div>
-                </div>
-            </nav>
-        </header>
+                <style>{`
+                    @media (min-width: 768px) { .hidden-mobile { display: flex !important; } .show-mobile { display: none !important; } }
+                    @media (max-width: 767px) { .hidden-mobile { display: none !important; } .show-mobile { display: flex !important; } }
+                `}</style>
+            </header>
+        </>
     );
 }

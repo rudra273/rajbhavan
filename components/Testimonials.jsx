@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
-import ReviewCard from "@/components/ReviewCard";
 import Link from "next/link";
 import reviews from "@/data/reviews.json";
 
@@ -10,28 +9,19 @@ export default function Testimonials() {
     const [isTransitioning, setIsTransitioning] = useState(false);
     const [isPaused, setIsPaused] = useState(false);
 
-    const displayReviews = reviews.slice(0, 6); // Show up to 6 reviews
+    const displayReviews = reviews.slice(0, 6);
     const total = displayReviews.length;
 
-    const goTo = useCallback(
-        (index) => {
-            if (isTransitioning) return;
-            setIsTransitioning(true);
-            setCurrent(index);
-            setTimeout(() => setIsTransitioning(false), 600);
-        },
-        [isTransitioning]
-    );
+    const goTo = useCallback((index) => {
+        if (isTransitioning) return;
+        setIsTransitioning(true);
+        setCurrent(index);
+        setTimeout(() => setIsTransitioning(false), 600);
+    }, [isTransitioning]);
 
-    const next = useCallback(() => {
-        goTo((current + 1) % total);
-    }, [current, total, goTo]);
+    const next = useCallback(() => goTo((current + 1) % total), [current, total, goTo]);
+    const prev = useCallback(() => goTo((current - 1 + total) % total), [current, total, goTo]);
 
-    const prev = useCallback(() => {
-        goTo((current - 1 + total) % total);
-    }, [current, total, goTo]);
-
-    // Auto-slide every 5 seconds
     useEffect(() => {
         if (isPaused || total <= 1) return;
         const timer = setInterval(next, 5000);
@@ -41,183 +31,111 @@ export default function Testimonials() {
     if (total === 0) return null;
 
     return (
-        <section className="section-padding bg-navy relative overflow-hidden">
-            {/* Decorative elements */}
-            <div
-                className="absolute top-0 right-0 w-96 h-96 bg-accent/[0.06] rounded-full blur-3xl"
-                aria-hidden="true"
-            />
-            <div
-                className="absolute bottom-0 left-0 w-72 h-72 bg-accent/[0.04] rounded-full blur-3xl"
-                aria-hidden="true"
-            />
-            {/* Large decorative quote */}
-            <div
-                className="absolute top-6 left-6 md:top-10 md:left-16 text-accent text-6xl md:text-8xl font-serif leading-none pointer-events-none select-none opacity-80"
-                aria-hidden="true"
-            >
-                &ldquo;
-            </div>
+        <>
+            <style>{`
+                @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@400;500;600;700&display=swap');
+                .t-arrow { width: 38px; height: 38px; background: none; border: 1px solid #e2e8f0; color: #475569; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: border-color 0.15s, color 0.15s; }
+                .t-arrow:hover { border-color: #0a0f1a; color: #0a0f1a; }
+                .t-dot { border: none; padding: 0; cursor: pointer; border-radius: 100px; transition: all 0.3s ease; background: #e2e8f0; }
+                .t-dot.active { background: var(--accent, #e07b39); }
+                .t-dot:hover { background: #cbd5e1; }
+                .t-viewmore { display: inline-flex; align-items: center; gap: 8px; font-family: 'DM Sans', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #0a0f1a; text-decoration: none; border: 1px solid #e2e8f0; padding: 10px 20px; transition: border-color 0.15s; }
+                .t-viewmore:hover { border-color: #0a0f1a; }
+                .t-viewmore svg { transition: transform 0.15s; }
+                .t-viewmore:hover svg { transform: translateX(3px); }
+            `}</style>
 
-            <div className="max-w-7xl mx-auto relative z-10">
-                {/* Header + Navigation Row */}
-                <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-8 mb-8 lg:mb-0">
-                    {/* Left: Section Header */}
-                    <div className="lg:w-[40%] lg:pr-8">
-                        <p className="text-accent font-semibold text-sm uppercase tracking-wider mb-2">
-                            Testimonials
-                        </p>
-                        <h2 className="text-3xl sm:text-4xl font-bold text-white font-[family-name:var(--font-heading)] mb-4">
-                            What Our Client&apos;s Say
-                        </h2>
-                        <p className="text-gray-400 leading-relaxed mb-6">
-                            We Have A Wealth Of Experience Working As Main
-                            Building Contractors On All Kinds Of Projects, Big
-                            And Small, From Home Maintenance And Improvements To
-                            Extensions, Refurbishments And New Builds.
-                        </p>
-                        <Link
-                            href="/reviews"
-                            className="inline-flex items-center gap-2 border border-white/30 hover:border-accent text-white hover:text-accent px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 group"
+            <section style={{ background: "linear-gradient(135deg, #f1f5f9 0%, #f8fafc 50%, #f0f4f8 100%)", borderTop: "1px solid #e2e8f0", padding: "80px 24px" }}>
+                <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
+                    <div style={{ display: "grid", gridTemplateColumns: "1fr 1.4fr", gap: "80px", alignItems: "start" }}>
+
+                        {/* Left */}
+                        <div>
+                            <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "11px", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--accent, #e07b39)", margin: "0 0 14px" }}>
+                                Testimonials
+                            </p>
+                            <h2 style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: "clamp(30px, 3.5vw, 46px)", fontWeight: 400, color: "#0a0f1a", lineHeight: 1.1, letterSpacing: "-0.02em", margin: "0 0 20px", whiteSpace: "nowrap" }}>
+                                What Our <em style={{ fontStyle: "italic", fontWeight: 300 }}>Clients Say</em>
+                            </h2>
+                            <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "14px", color: "#64748b", lineHeight: 1.75, margin: "0 0 32px", borderLeft: "2px solid #e2e8f0", paddingLeft: "16px" }}>
+                                We have a wealth of experience working as main building contractors on all kinds of projects — from home improvements to large-scale new builds.
+                            </p>
+                            <Link href="/reviews" className="t-viewmore">
+                                All Reviews
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
+                            </Link>
+                        </div>
+
+                        {/* Right — sliding card */}
+                        <div
+                            onMouseEnter={() => setIsPaused(true)}
+                            onMouseLeave={() => setIsPaused(false)}
                         >
-                            View More
-                            <svg
-                                className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200"
-                                fill="none"
-                                stroke="currentColor"
-                                viewBox="0 0 24 24"
-                            >
-                                <path
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    strokeWidth={2}
-                                    d="M17 8l4 4m0 0l-4 4m4-4H3"
-                                />
-                            </svg>
-                        </Link>
-                    </div>
+                            {/* Card window */}
+                            <div style={{ position: "relative", overflow: "hidden", minHeight: "260px", border: "1px solid rgba(255,255,255,0.8)", background: "rgba(255,255,255,0.6)", backdropFilter: "blur(12px)", WebkitBackdropFilter: "blur(12px)", boxShadow: "0 4px 24px rgba(0,0,0,0.06)" }}>
+                                {displayReviews.map((review, index) => (
+                                    <div
+                                        key={review.id}
+                                        style={{
+                                            position: "absolute", inset: 0,
+                                            transform: `translateX(${(index - current) * 100}%)`,
+                                            opacity: index === current ? 1 : 0,
+                                            transition: "transform 0.6s cubic-bezier(0.4,0,0.2,1), opacity 0.4s ease",
+                                            padding: "28px 32px",
+                                            display: "flex", flexDirection: "column",
+                                        }}
+                                    >
+                                        <svg width="32" height="24" viewBox="0 0 36 28" fill="none" style={{ opacity: 0.08, marginBottom: "12px", flexShrink: 0 }}>
+                                            <path d="M0 28V17.333C0 7.704 4.667 2.074 14 0L15.75 3.267C11.083 4.444 8.458 7.111 7.875 11.259H14.875V28H0ZM21.125 28V17.333C21.125 7.704 25.792 2.074 35.125 0L36.875 3.267C32.208 4.444 29.583 7.111 29 11.259H36V28H21.125Z" fill="#0a0f1a" />
+                                        </svg>
 
-                    {/* Right: Sliding Review Card */}
-                    <div
-                        className="lg:w-[58%] relative"
-                        onMouseEnter={() => setIsPaused(true)}
-                        onMouseLeave={() => setIsPaused(false)}
-                    >
-                        {/* Review card container */}
-                        <div className="relative overflow-hidden rounded-2xl min-h-[260px]">
-                            {displayReviews.map((review, index) => (
-                                <div
-                                    key={review.id}
-                                    className="absolute inset-0 w-full transition-all duration-600 ease-in-out"
-                                    style={{
-                                        transform: `translateX(${(index - current) * 100}%)`,
-                                        opacity:
-                                            index === current ? 1 : 0.3,
-                                        transition:
-                                            "transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.6s ease",
-                                    }}
-                                >
-                                    <div className="bg-white/10 backdrop-blur-md border border-white/15 rounded-2xl p-8 h-full shadow-xl relative">
-                                        {/* Decorative closing quote */}
-                                        <div
-                                            className="absolute top-6 right-8 text-white/20 text-7xl font-serif leading-none pointer-events-none select-none"
-                                            aria-hidden="true"
-                                        >
-                                            &rdquo;
-                                        </div>
-
-                                        {/* Review text */}
-                                        <p className="text-gray-200 text-base leading-relaxed mb-6 relative z-10 max-w-lg">
+                                        <p style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: "18px", fontWeight: 400, color: "#1e293b", lineHeight: 1.6, margin: "0 0 20px", letterSpacing: "0.01em", flex: 1, overflow: "hidden", display: "-webkit-box", WebkitLineClamp: 4, WebkitBoxOrient: "vertical" }}>
                                             {review.review_text}
                                         </p>
 
-                                        {/* Author info */}
-                                        <div className="flex items-center gap-3 relative z-10">
-                                            <div className="w-11 h-11 bg-white/15 rounded-full flex items-center justify-center">
-                                                <svg
-                                                    className="w-6 h-6 text-white/60"
-                                                    fill="currentColor"
-                                                    viewBox="0 0 24 24"
-                                                >
-                                                    <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
-                                                </svg>
+                                        {/* Author — always visible */}
+                                        <div style={{ display: "flex", alignItems: "center", gap: "12px", paddingTop: "16px", borderTop: "1px solid rgba(0,0,0,0.06)", flexShrink: 0 }}>
+                                            <div style={{ width: "34px", height: "34px", background: "#0a0f1a", color: "white", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "12px", fontWeight: 700, fontFamily: "'DM Sans', sans-serif", flexShrink: 0 }}>
+                                                {review.name?.charAt(0)?.toUpperCase() || "?"}
                                             </div>
                                             <div>
-                                                <p className="text-white font-bold text-base capitalize">
-                                                    {review.name}
-                                                </p>
-                                                <p className="text-gray-400 text-sm">
-                                                    customer
-                                                </p>
+                                                <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "13px", fontWeight: 600, color: "#0a0f1a", margin: 0 }}>{review.name}</p>
+                                                {review.date && <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "11px", color: "#94a3b8", margin: "2px 0 0" }}>{review.date}</p>}
                                             </div>
+                                            <div style={{ marginLeft: "auto", width: "6px", height: "6px", borderRadius: "50%", background: "var(--accent, #e07b39)", opacity: 0.7, flexShrink: 0 }} />
                                         </div>
                                     </div>
-                                </div>
-                            ))}
-                        </div>
-
-                        {/* Navigation arrows + dots */}
-                        <div className="flex items-center justify-between mt-6">
-                            {/* Prev/Next arrows */}
-                            <div className="flex items-center gap-3">
-                                <button
-                                    onClick={prev}
-                                    className="w-10 h-10 rounded-full border border-white/20 hover:border-accent text-white hover:text-accent flex items-center justify-center transition-all duration-300"
-                                    aria-label="Previous review"
-                                >
-                                    <svg
-                                        className="w-4 h-4"
-                                        fill="none"
-                                        stroke="currentColor"
-                                        viewBox="0 0 24 24"
-                                    >
-                                        <path
-                                            strokeLinecap="round"
-                                            strokeLinejoin="round"
-                                            strokeWidth={2}
-                                            d="M15 19l-7-7 7-7"
-                                        />
-                                    </svg>
-                                </button>
-                                <button
-                                    onClick={next}
-                                    className="w-10 h-10 rounded-full border border-white/20 hover:border-accent text-white hover:text-accent flex items-center justify-center transition-all duration-300"
-                                    aria-label="Next review"
-                                >
-                                    <svg
-                                        className="w-4 h-4"
-                                        fill="none"
-                                        stroke="currentColor"
-                                        viewBox="0 0 24 24"
-                                    >
-                                        <path
-                                            strokeLinecap="round"
-                                            strokeLinejoin="round"
-                                            strokeWidth={2}
-                                            d="M9 5l7 7-7 7"
-                                        />
-                                    </svg>
-                                </button>
-                            </div>
-
-                            {/* Dots indicator */}
-                            <div className="flex items-center gap-2">
-                                {displayReviews.map((_, index) => (
-                                    <button
-                                        key={index}
-                                        onClick={() => goTo(index)}
-                                        className={`rounded-full transition-all duration-300 ${index === current
-                                            ? "w-8 h-2.5 bg-accent"
-                                            : "w-2.5 h-2.5 bg-white/30 hover:bg-white/50"
-                                            }`}
-                                        aria-label={`Go to review ${index + 1}`}
-                                    />
                                 ))}
                             </div>
+
+                            {/* Controls */}
+                            <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginTop: "16px" }}>
+                                <div style={{ display: "flex", gap: "6px" }}>
+                                    <button className="t-arrow" onClick={prev} aria-label="Previous">
+                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6" /></svg>
+                                    </button>
+                                    <button className="t-arrow" onClick={next} aria-label="Next">
+                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6" /></svg>
+                                    </button>
+                                </div>
+
+                                <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
+                                    {displayReviews.map((_, i) => (
+                                        <button
+                                            key={i}
+                                            className={`t-dot ${i === current ? "active" : ""}`}
+                                            onClick={() => goTo(i)}
+                                            style={{ width: i === current ? "24px" : "8px", height: "8px" }}
+                                            aria-label={`Review ${i + 1}`}
+                                        />
+                                    ))}
+                                </div>
+                            </div>
                         </div>
+
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
+        </>
     );
 }

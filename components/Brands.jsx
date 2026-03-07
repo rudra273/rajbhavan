@@ -25,17 +25,16 @@ const row2 = brands.slice(8);
 
 function BrandItem({ brand }) {
     return (
-        <div
-            className="flex-shrink-0 mx-4 sm:mx-6 md:mx-10 flex items-center justify-center"
-            style={{ minWidth: "100px" }}
-        >
+        <div style={{ flexShrink: 0, margin: "0 32px", display: "flex", alignItems: "center", justifyContent: "center", minWidth: "90px" }}>
             <Image
                 src={brand.logo}
                 alt={brand.name}
-                width={100}
-                height={60}
-                className="object-contain"
+                width={90}
+                height={44}
+                style={{ objectFit: "contain", filter: "grayscale(100%)", opacity: 0.7, transition: "opacity 0.2s" }}
                 draggable={false}
+                onMouseOver={e => { e.currentTarget.style.opacity = "0.7"; e.currentTarget.style.filter = "grayscale(0%)"; }}
+                onMouseOut={e => { e.currentTarget.style.opacity = "0.7"; e.currentTarget.style.filter = "grayscale(100%)"; }}
             />
         </div>
     );
@@ -44,17 +43,15 @@ function BrandItem({ brand }) {
 function MarqueeRow({ items, reverse = false }) {
     const tripled = [...items, ...items, ...items];
     return (
-        <div className="overflow-hidden relative">
-            {/* Fade edges */}
-            <div className="absolute left-0 top-0 bottom-0 w-12 sm:w-16 md:w-24 bg-gradient-to-r from-cream to-transparent z-10" />
-            <div className="absolute right-0 top-0 bottom-0 w-12 sm:w-16 md:w-24 bg-gradient-to-l from-cream to-transparent z-10" />
-
+        <div style={{ overflow: "hidden", position: "relative" }}>
+            <div style={{ position: "absolute", left: 0, top: 0, bottom: 0, width: "80px", background: "linear-gradient(to right, white, transparent)", zIndex: 10, pointerEvents: "none" }} />
+            <div style={{ position: "absolute", right: 0, top: 0, bottom: 0, width: "80px", background: "linear-gradient(to left, white, transparent)", zIndex: 10, pointerEvents: "none" }} />
             <div
                 className={reverse ? "marquee-track marquee-reverse" : "marquee-track"}
-                style={{ width: "fit-content" }}
+                style={{ display: "flex", alignItems: "center", width: "fit-content" }}
             >
-                {tripled.map((brand, index) => (
-                    <BrandItem key={`${brand.name}-${index}`} brand={brand} />
+                {tripled.map((brand, i) => (
+                    <BrandItem key={`${brand.name}-${i}`} brand={brand} />
                 ))}
             </div>
         </div>
@@ -63,26 +60,35 @@ function MarqueeRow({ items, reverse = false }) {
 
 export default function Brands() {
     return (
-        <section className="py-12 bg-cream overflow-hidden">
-            <div className="max-w-7xl mx-auto px-4 mb-8 text-center">
-                <p className="text-accent font-semibold text-sm uppercase tracking-wider mb-2">
-                    Trusted Partners
-                </p>
-                <h2 className="text-3xl sm:text-4xl font-bold text-navy font-[family-name:var(--font-heading)]">
-                    Brands We Use
-                </h2>
+        <section style={{ background: "white", borderTop: "1px solid #e2e8f0", borderBottom: "1px solid #e2e8f0", padding: "64px 0", overflow: "hidden" }}>
+
+            {/* Header */}
+            <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 24px 40px", display: "flex", alignItems: "flex-end", justifyContent: "space-between" }}>
+                <div>
+                    <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "11px", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "#e07b39", margin: "0 0 10px" }}>
+                        Trusted Partners
+                    </p>
+                    <h2 style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: "clamp(28px, 3.5vw, 42px)", fontWeight: 400, color: "#0a0f1a", margin: 0, letterSpacing: "-0.02em", lineHeight: 1 }}>
+                        Brands We Use
+                    </h2>
+                </div>
             </div>
 
-            {/* Desktop: single row with all brands */}
-            <div className="hidden md:block">
+            {/* Desktop: single row */}
+            <div className="hidden-mobile-brands">
                 <MarqueeRow items={brands} />
             </div>
 
-            {/* Mobile: two rows — row1 scrolls left, row2 scrolls right */}
-            <div className="md:hidden flex flex-col gap-6">
+            {/* Mobile: two rows */}
+            <div className="show-mobile-brands" style={{ display: "none", flexDirection: "column", gap: "28px" }}>
                 <MarqueeRow items={row1} />
                 <MarqueeRow items={row2} reverse />
             </div>
+
+            <style>{`
+                @media (min-width: 768px) { .hidden-mobile-brands { display: block; } .show-mobile-brands { display: none !important; } }
+                @media (max-width: 767px) { .hidden-mobile-brands { display: none; } .show-mobile-brands { display: flex !important; } }
+            `}</style>
         </section>
     );
 }
