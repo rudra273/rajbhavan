@@ -1,26 +1,35 @@
 [
   {
     "id": "1",
-    "title": "test again",
-    "description": "test descitoon",
-    "cloudinary_url": "y9jo54aoukxmdahya5yr",
-    "category": "Residenatal",
-    "is_featured": true
+    "title": "new project testing",
+    "cloudinary_url": "cihdjo6ciouvqoamrbfn",
+    "category": "Commercial",
+    "is_featured": true,
+    "location": "abc",
+    "total_area": "22",
+    "floors": "24",
+    "price": "31243",
+    "package": "Standard",
+    "duration": "4",
+    "gallery_images": [
+      "nmut1f3xd9pfwnuu96yz",
+      "jmdpk0hz81oufjmug8ce"
+    ]
   },
   {
     "id": "2",
-    "title": "testing 2 state",
-    "description": "working.",
-    "cloudinary_url": "uau66fqlpok42eytyc9p",
-    "category": "",
-    "is_featured": false
-  },
-  {
-    "id": "3",
-    "title": "testing. category",
-    "description": "withour img",
-    "cloudinary_url": "cgzkadtyysrzhlgd0vg4",
+    "title": "test 02",
+    "cloudinary_url": "nj3rxaeps61g6prwjfhd",
     "category": "Residential",
-    "is_featured": false
+    "is_featured": true,
+    "location": "chatrapur",
+    "total_area": "3200 sq/ft",
+    "floors": "G+2",
+    "price": "80 lakhs",
+    "package": "Premium",
+    "duration": "12 Months",
+    "gallery_images": [
+      "avsrq176o5hn3ohx9fm2"
+    ]
   }
 ]

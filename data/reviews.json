@@ -1,16 +1,26 @@
 [
   {
     "id": "1",
-    "name": "nilesh pattnaik",
-    "rating": "5",
-    "review_text": "Excellent work by the team...",
+    "name": "Nilesh Pattnaik",
+    "review_text": "The team was extremely professional and delivered the project exactly as promised. Their attention to detail and quality of work really impressed us. I would definitely recommend them for any construction or renovation work.",
     "date": "2024-12-15"
   },
   {
     "id": "2",
-    "name": "Sanu kumar",
-    "rating": "5",
-    "review_text": "Very professional and...",
+    "name": "Amit Verma",
+    "review_text": "I was looking for a contractor I could trust for my home renovation, and they exceeded my expectations. The workmanship was excellent and the entire process was well managed. They kept us informed at every stage and ensured everything was done properly. Truly a dependable team.",
     "date": "2025-01-20"
+  },
+  {
+    "id": "3",
+    "name": "Rohit Singh",
+    "review_text": "The entire process was smooth and stress-free thanks to their professional team. They listened carefully to our requirements and delivered exactly what we wanted. The project was completed on time and within budget. I’m very satisfied with the results.",
+    "date": "2025-09-18"
+  },
+  {
+    "id": "4",
+    "name": "Vikram Desai",
+    "review_text": "From the first consultation to the final delivery, everything was handled professionally. The team worked efficiently and maintained great quality throughout the project. They paid close attention to details and ensured everything was perfect. I would definitely work with them again.",
+    "date": "2025-01-22"
   }
 ]

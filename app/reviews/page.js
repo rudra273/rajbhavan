@@ -16,15 +16,6 @@ export default async function ReviewsPage() {
         console.error("Error fetching reviews:", error);
     }
 
-    // Calculate average rating
-    const avgRating =
-        reviews.length > 0
-            ? (
-                reviews.reduce((sum, r) => sum + (parseInt(r.rating) || 0), 0) /
-                reviews.length
-            ).toFixed(1)
-            : "0";
-
     return (
         <div className="pt-20 md:pt-24">
             {/* Page Header */}
@@ -44,13 +35,6 @@ export default async function ReviewsPage() {
                     {/* Stats summary */}
                     {reviews.length > 0 && (
                         <div className="flex items-center justify-center gap-6 mt-4">
-                            <div className="text-center">
-                                <p className="text-accent text-3xl font-bold font-[family-name:var(--font-heading)]">
-                                    {avgRating}
-                                </p>
-                                <p className="text-gray-500 text-xs mt-1">Average Rating</p>
-                            </div>
-                            <div className="w-px h-10 bg-gray-600" />
                             <div className="text-center">
                                 <p className="text-accent text-3xl font-bold font-[family-name:var(--font-heading)]">
                                     {reviews.length}

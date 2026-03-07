@@ -14,10 +14,16 @@ export default function AdminProjects() {
     const [editingProject, setEditingProject] = useState(null);
     const [formData, setFormData] = useState({
         title: "",
-        description: "",
         cloudinary_url: "",
         category: "",
-        is_featured: false
+        is_featured: false,
+        location: "",
+        total_area: "",
+        floors: "",
+        price: "",
+        package: "",
+        duration: "",
+        gallery_images: []
     });
     const [isSaving, setIsSaving] = useState(false);
 
@@ -51,14 +57,26 @@ export default function AdminProjects() {
             setEditingProject(project);
             setFormData({
                 title: project.title,
-                description: project.description,
                 cloudinary_url: project.cloudinary_url,
                 category: project.category,
-                is_featured: project.is_featured === true || project.is_featured === "true" || project.is_featured === "TRUE"
+                is_featured: project.is_featured === true || project.is_featured === "true" || project.is_featured === "TRUE",
+                location: project.location || "",
+                total_area: project.total_area || "",
+                floors: project.floors || "",
+                price: project.price || "",
+                package: project.package || "",
+                duration: project.duration || "",
+                gallery_images: Array.isArray(project.gallery_images)
+                    ? project.gallery_images
+                    : (project.gallery_images ? project.gallery_images.split(",").map(s => s.trim()).filter(Boolean) : [])
             });
         } else {
             setEditingProject(null);
-            setFormData({ title: "", description: "", cloudinary_url: "", category: "", is_featured: false });
+            setFormData({
+                title: "", cloudinary_url: "", category: "", is_featured: false,
+                location: "", total_area: "", floors: "", price: "", package: "", duration: "",
+                gallery_images: []
+            });
         }
         setIsModalOpen(true);
     };
@@ -115,6 +133,13 @@ export default function AdminProjects() {
         } catch (error) {
             console.error(error);
         }
+    };
+
+    const removeGalleryImage = (index) => {
+        setFormData(prev => ({
+            ...prev,
+            gallery_images: prev.gallery_images.filter((_, i) => i !== index)
+        }));
     };
 
     if (!authenticated) {
@@ -195,7 +220,9 @@ export default function AdminProjects() {
                                         )}
                                     </h3>
                                     <p className="text-gray-400 text-sm mt-1">{project.category}</p>
-                                    <p className="text-gray-300 mt-2 line-clamp-2">{project.description}</p>
+                                    {project.location && (
+                                        <p className="text-gray-300 text-sm mt-1">📍 {project.location}</p>
+                                    )}
                                 </div>
                                 <div className="flex gap-2 sm:flex-col shrink-0">
                                     <button
@@ -216,7 +243,7 @@ export default function AdminProjects() {
                     </div>
                 )}
 
-                {/* Edit Modal */}
+                {/* Edit/Create Modal */}
                 {isModalOpen && (
                     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 px-4">
                         <div className="bg-navy border border-white/10 rounded-2xl p-6 w-full max-w-2xl max-h-[90vh] overflow-y-auto">
@@ -225,6 +252,7 @@ export default function AdminProjects() {
                             </h2>
 
                             <form onSubmit={handleSubmit} className="space-y-4">
+                                {/* Title */}
                                 <div>
                                     <label className="block text-sm text-gray-400 mb-1">Title *</label>
                                     <input
@@ -236,8 +264,9 @@ export default function AdminProjects() {
                                     />
                                 </div>
 
+                                {/* Main Image Upload */}
                                 <div>
-                                    <label className="block text-sm text-gray-400 mb-1">Upload Image *</label>
+                                    <label className="block text-sm text-gray-400 mb-1">Main Image *</label>
                                     <CldUploadWidget
                                         uploadPreset={process.env.NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET || "cloudi"}
                                         onSuccess={(result) => {
@@ -253,7 +282,7 @@ export default function AdminProjects() {
                                                         Upload with Cloudinary
                                                     </button>
                                                     {formData.cloudinary_url && (
-                                                        <span className="text-green-400 text-sm">✅ Image uploaded ({formData.cloudinary_url})</span>
+                                                        <span className="text-green-400 text-sm">✅ Image uploaded</span>
                                                     )}
                                                 </div>
                                             );
@@ -261,16 +290,7 @@ export default function AdminProjects() {
                                     </CldUploadWidget>
                                 </div>
 
-                                <div>
-                                    <label className="block text-sm text-gray-400 mb-1">Description</label>
-                                    <textarea
-                                        rows="3"
-                                        value={formData.description}
-                                        onChange={e => setFormData({ ...formData, description: e.target.value })}
-                                        className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2.5 text-white resize-none"
-                                    />
-                                </div>
-
+                                {/* Category */}
                                 <div>
                                     <label className="block text-sm text-gray-400 mb-1">Category</label>
                                     <select
@@ -287,6 +307,78 @@ export default function AdminProjects() {
                                     </select>
                                 </div>
 
+                                {/* New Detail Fields - 2 column grid */}
+                                <div className="border-t border-white/10 pt-4 mt-2">
+                                    <p className="text-white font-semibold mb-3">Project Details</p>
+                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                        <div>
+                                            <label className="block text-sm text-gray-400 mb-1">Location</label>
+                                            <input
+                                                type="text"
+                                                value={formData.location}
+                                                onChange={e => setFormData({ ...formData, location: e.target.value })}
+                                                placeholder="e.g. Old Airport"
+                                                className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2.5 text-white placeholder:text-gray-600"
+                                            />
+                                        </div>
+                                        <div>
+                                            <label className="block text-sm text-gray-400 mb-1">Total Area</label>
+                                            <input
+                                                type="text"
+                                                value={formData.total_area}
+                                                onChange={e => setFormData({ ...formData, total_area: e.target.value })}
+                                                placeholder="e.g. 5,730 sqft"
+                                                className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2.5 text-white placeholder:text-gray-600"
+                                            />
+                                        </div>
+                                        <div>
+                                            <label className="block text-sm text-gray-400 mb-1">Floors</label>
+                                            <input
+                                                type="text"
+                                                value={formData.floors}
+                                                onChange={e => setFormData({ ...formData, floors: e.target.value })}
+                                                placeholder="e.g. G+4.5"
+                                                className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2.5 text-white placeholder:text-gray-600"
+                                            />
+                                        </div>
+                                        <div>
+                                            <label className="block text-sm text-gray-400 mb-1">Price</label>
+                                            <input
+                                                type="text"
+                                                value={formData.price}
+                                                onChange={e => setFormData({ ...formData, price: e.target.value })}
+                                                placeholder="e.g. ₹1.01 Crore"
+                                                className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2.5 text-white placeholder:text-gray-600"
+                                            />
+                                        </div>
+                                        <div>
+                                            <label className="block text-sm text-gray-400 mb-1">Package</label>
+                                            <select
+                                                value={formData.package}
+                                                onChange={e => setFormData({ ...formData, package: e.target.value })}
+                                                className="w-full bg-[#1b2b4d] border border-white/10 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-accent"
+                                            >
+                                                <option value="">Select Package</option>
+                                                <option value="Essential">Essential</option>
+                                                <option value="Standard">Standard</option>
+                                                <option value="Premium">Premium</option>
+                                                <option value="Luxury">Luxury</option>
+                                            </select>
+                                        </div>
+                                        <div>
+                                            <label className="block text-sm text-gray-400 mb-1">Duration</label>
+                                            <input
+                                                type="text"
+                                                value={formData.duration}
+                                                onChange={e => setFormData({ ...formData, duration: e.target.value })}
+                                                placeholder="e.g. 12 Months"
+                                                className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2.5 text-white placeholder:text-gray-600"
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {/* Featured Checkbox */}
                                 <div className="flex items-center gap-3 py-2">
                                     <input
                                         type="checkbox"
@@ -298,6 +390,51 @@ export default function AdminProjects() {
                                     <label htmlFor="is_featured" className="text-white">Feature this project?</label>
                                 </div>
 
+                                {/* Gallery Images */}
+                                <div className="border-t border-white/10 pt-4 mt-2">
+                                    <p className="text-white font-semibold mb-3">Gallery Images (optional)</p>
+                                    <CldUploadWidget
+                                        uploadPreset={process.env.NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET || "cloudi"}
+                                        onSuccess={(result) => {
+                                            if (result?.info?.public_id) {
+                                                setFormData((prev) => ({
+                                                    ...prev,
+                                                    gallery_images: [...prev.gallery_images, result.info.public_id]
+                                                }));
+                                            }
+                                        }}
+                                    >
+                                        {({ open }) => (
+                                            <button type="button" onClick={() => open()} className="bg-white/10 hover:bg-white/20 text-white px-4 py-2.5 rounded-lg border border-white/10 text-sm">
+                                                + Add Gallery Image
+                                            </button>
+                                        )}
+                                    </CldUploadWidget>
+
+                                    {formData.gallery_images.length > 0 && (
+                                        <div className="mt-3 grid grid-cols-3 gap-3">
+                                            {formData.gallery_images.map((imgId, index) => (
+                                                <div key={index} className="relative group rounded-lg overflow-hidden bg-black/20 aspect-video">
+                                                    <CldImage
+                                                        src={imgId}
+                                                        alt={`Gallery ${index + 1}`}
+                                                        fill
+                                                        className="object-cover"
+                                                    />
+                                                    <button
+                                                        type="button"
+                                                        onClick={() => removeGalleryImage(index)}
+                                                        className="absolute top-1 right-1 bg-red-500 text-white w-6 h-6 rounded-full text-xs flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
+                                                    >
+                                                        ✕
+                                                    </button>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    )}
+                                </div>
+
+                                {/* Actions */}
                                 <div className="flex justify-end gap-3 mt-6 pt-4 border-t border-white/10">
                                     <button
                                         type="button"

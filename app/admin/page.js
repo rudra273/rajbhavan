@@ -7,7 +7,7 @@ const DATA_TYPES = [
         type: "projects",
         label: "Projects",
         icon: "🏗️",
-        desc: "Gallery & featured projects",
+        desc: "Gallery & signature builds",
         color: "from-blue-500 to-indigo-600",
     },
     {
