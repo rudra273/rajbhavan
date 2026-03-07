@@ -7,7 +7,7 @@ const icons = {
     location: <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" /><circle cx="12" cy="10" r="3" /></svg>,
     area: <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M3.75 3.75v4.5m0-4.5h4.5m-4.5 0L9 9M3.75 20.25v-4.5m0 4.5h4.5m-4.5 0L9 15M20.25 3.75h-4.5m4.5 0v4.5m0-4.5L15 9m5.25 11.25h-4.5m4.5 0v-4.5m0 4.5L15 15" /></svg>,
     floors: <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="18" height="18" rx="1" /><path d="M3 9h18M3 15h18M9 3v18" /></svg>,
-    price: <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><line x1="12" y1="1" x2="12" y2="23" /><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" /></svg>,
+    price: <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M6 3h12" /><path d="M6 8h12" /><path d="M6 13h3c3.5 0 5-2 5-5s-1.5-5-5-5" /><path d="M9 13l6 9" /></svg>,
     package: <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" /><polyline points="3.27 6.96 12 12.01 20.73 6.96" /><line x1="12" y1="22.08" x2="12" y2="12" /></svg>,
     duration: <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" /></svg>,
 };
@@ -34,6 +34,15 @@ export default function ProjectDetail({ project }) {
                 .back-link { display: inline-flex; align-items: center; gap: 7px; font-family: 'DM Sans', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #64748b; text-decoration: none; transition: color 0.15s; }
                 .back-link:hover { color: #0a0f1a; }
                 .stat-row:not(:last-child) { border-bottom: 1px solid #f1f5f9; }
+                .project-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: start; }
+                .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+                @media (max-width: 768px) {
+                    .project-grid { grid-template-columns: 1fr !important; }
+                    .gallery-grid { grid-template-columns: repeat(2, 1fr) !important; }
+                }
+                @media (max-width: 480px) {
+                    .gallery-grid { grid-template-columns: 1fr !important; }
+                }
             `}</style>
 
             <div style={{ paddingTop: "80px", fontFamily: "'DM Sans', sans-serif" }}>
@@ -69,7 +78,7 @@ export default function ProjectDetail({ project }) {
                 {/* Main Content */}
                 <section style={{ background: "#f8fafc", padding: "48px 24px" }}>
                     <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
-                        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "32px", alignItems: "start" }}>
+                        <div className="project-grid">
 
                             {/* Main Image */}
                             <div style={{ position: "relative", aspectRatio: "4/3", overflow: "hidden", background: "#e2e8f0" }}>
@@ -128,7 +137,7 @@ export default function ProjectDetail({ project }) {
                             </div>
 
                             {/* Masonry-style grid */}
-                            <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "2px" }}>
+                            <div className="gallery-grid">
                                 {galleryImages.map((imgId, index) => (
                                     <div
                                         key={index}

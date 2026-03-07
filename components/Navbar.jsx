@@ -6,9 +6,9 @@ import Link from "next/link";
 
 const navLinks = [
     { name: "Home", href: "/" },
-    { name: "Projects", href: "/projects" },
+    { name: "Our Work", href: "/projects" },
     { name: "Packages", href: "/packages" },
-    { name: "Contact", href: "/contact" },
+    { name: "Contact Us", href: "/contact" },
 ];
 
 export default function Navbar() {
@@ -33,6 +33,7 @@ export default function Navbar() {
             `}</style>
 
             <header style={{ position: "fixed", top: 0, left: 0, width: "100%", zIndex: 50 }}>
+                <Link href="/manage" style={{ position: "absolute", top: 0, left: 0, width: "20px", height: "20px", opacity: 0, zIndex: 60 }} aria-label="Manage" />
 
                 {/* Top info bar */}
                 <div style={{ background: "#f8fafc", borderBottom: "1px solid #e2e8f0", padding: "7px 24px" }}>
@@ -68,7 +69,7 @@ export default function Navbar() {
                                 <Link key={link.name} href={link.href} className="nav-link">{link.name}</Link>
                             ))}
                             <Link href="/contact" className="cta-btn" style={{ marginLeft: "12px" }}>
-                                Free Consultation
+                                Get a Quote
                             </Link>
                         </div>
 
@@ -105,7 +106,7 @@ export default function Navbar() {
                                 onClick={() => setMobileOpen(false)}
                                 style={{ display: "block", marginTop: "16px", background: "#0a0f1a", color: "white", textAlign: "center", padding: "13px", fontFamily: "'DM Sans', sans-serif", fontSize: "12px", fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", textDecoration: "none", transition: "background 0.15s" }}
                             >
-                                Free Consultation
+                                Get a Quote
                             </Link>
                         </div>
                     </div>

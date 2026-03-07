@@ -6,82 +6,28 @@ import Link from "next/link";
 const PACKAGE_NAMES = ["Essential", "Standard", "Premium", "Luxury"];
 const CITIES = ["Chatrapur", "Berhampur"];
 
-
-function PackageCard({ name, pkg, isSelected, onSelect }) {
-    return (
-        <button
-            onClick={() => onSelect(name)}
-            className={`relative group text-left rounded-xl p-6 border transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md ${isSelected
-                ? "border-accent bg-accent/5 shadow-sm"
-                : "border-gray-200 bg-white hover:border-gray-300"
-                }`}
-        >
-            {/* Tag */}
-            <span
-                className={`inline-block text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full text-white bg-gradient-to-r ${pkg.color} mb-4`}
-            >
-                {pkg.tag}
-            </span>
-
-            <h4 className="text-xl font-bold text-navy font-[family-name:var(--font-heading)] mb-1">
-                {name}
-            </h4>
-            <p className="text-2xl font-extrabold text-accent mb-3">{pkg.price}</p>
-            <p className="text-gray-500 text-sm">
-                {pkg.sections.length} categories included
-            </p>
-
-            {isSelected && (
-                <div className="absolute top-4 right-4">
-                    <svg className="w-6 h-6 text-accent" fill="currentColor" viewBox="0 0 20 20">
-                        <path
-                            fillRule="evenodd"
-                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                            clipRule="evenodd"
-                        />
-                    </svg>
-                </div>
-            )}
-        </button>
-    );
-}
-
+// ── Expandable Row ──────────────────────────────────────
 function ExpandableRow({ title, items }) {
     const [open, setOpen] = useState(false);
-
     return (
-        <div className="border-b border-gray-100 last:border-b-0">
+        <div style={{ borderBottom: "1px solid #f1f5f9" }}>
             <button
                 onClick={() => setOpen(!open)}
-                className="w-full flex items-center justify-between py-3.5 px-4 text-left hover:bg-gray-50 transition-colors duration-150 group"
+                style={{ width: "100%", display: "flex", alignItems: "center", justifyContent: "space-between", padding: "14px 20px", background: "none", border: "none", cursor: "pointer", textAlign: "left", transition: "background 0.12s" }}
+                onMouseOver={e => e.currentTarget.style.background = "#f8fafc"}
+                onMouseOut={e => e.currentTarget.style.background = "none"}
             >
-                <span className="text-sm font-semibold text-navy group-hover:text-accent transition-colors">
-                    {title}
-                </span>
-                <svg
-                    className={`w-4 h-4 text-gray-400 transition-transform duration-200 ${open ? "rotate-180" : ""
-                        }`}
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                >
-                    <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M19 9l-7 7-7-7"
-                    />
+                <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "13px", fontWeight: 600, color: "#0a0f1a" }}>{title}</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ transform: open ? "rotate(180deg)" : "none", transition: "transform 0.2s", flexShrink: 0 }}>
+                    <polyline points="6 9 12 15 18 9" />
                 </svg>
             </button>
-            <div
-                className={`overflow-hidden transition-all duration-300 ease-in-out ${open ? "max-h-[600px] opacity-100" : "max-h-0 opacity-0"
-                    }`}
-            >
-                <ul className="px-4 pb-4 space-y-2">
+            <div style={{ overflow: "hidden", maxHeight: open ? "600px" : "0", opacity: open ? 1 : 0, transition: "max-height 0.3s ease, opacity 0.2s ease" }}>
+                <ul style={{ listStyle: "none", margin: 0, padding: "0 20px 16px", display: "flex", flexDirection: "column", gap: "8px" }}>
                     {items.map((item, i) => (
-                        <li key={i} className="flex items-start gap-2 text-sm text-gray-600">
-                            <svg className="w-4 h-4 text-accent mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                        <li key={i} style={{ display: "flex", alignItems: "flex-start", gap: "8px", fontFamily: "'DM Sans', sans-serif", fontSize: "13px", color: "#475569", lineHeight: 1.5 }}>
+                            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--accent, #e07b39)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ marginTop: "2px", flexShrink: 0 }}>
+                                <polyline points="20 6 9 17 4 12" />
                             </svg>
                             {item}
                         </li>
@@ -92,18 +38,71 @@ function ExpandableRow({ title, items }) {
     );
 }
 
+// Per-package glassy palette
+const CARD_PALETTE = {
+    Essential: { bg: "rgba(241,245,249,0.6)", border: "rgba(203,213,225,0.6)", glow: "rgba(148,163,184,0.05)", tag: "#94a3b8" },
+    Standard: { bg: "rgba(219,234,254,0.45)", border: "rgba(147,197,253,0.5)", glow: "rgba(59,130,246,0.08)", tag: "#3b82f6" },
+    Premium: { bg: "rgba(254,243,199,0.5)", border: "rgba(252,211,77,0.5)", glow: "rgba(234,179,8,0.1)", tag: "#ca8a04" },
+    Luxury: { bg: "rgba(243,232,255,0.45)", border: "rgba(216,180,254,0.5)", glow: "rgba(168,85,247,0.08)", tag: "#9333ea" },
+};
+
+// ── Package Card ────────────────────────────────────────
+function PackageCard({ name, pkg, isSelected, onSelect }) {
+    const pal = CARD_PALETTE[name] || CARD_PALETTE.Essential;
+    return (
+        <button
+            onClick={() => onSelect(name)}
+            style={{
+                textAlign: "left", padding: "24px",
+                background: pal.bg,
+                backdropFilter: "blur(10px)", WebkitBackdropFilter: "blur(10px)",
+                border: isSelected ? `2px solid ${pal.tag}` : `1px solid ${pal.border}`,
+                cursor: "pointer", transition: "border-color 0.15s, box-shadow 0.15s",
+                position: "relative", width: "100%",
+                boxShadow: isSelected ? `0 0 0 3px ${pal.glow}, 0 2px 16px ${pal.glow}` : `0 1px 8px ${pal.glow}`,
+            }}
+            onMouseOver={e => { if (!isSelected) { e.currentTarget.style.borderColor = pal.tag; e.currentTarget.style.boxShadow = `0 4px 20px ${pal.glow}`; } }}
+            onMouseOut={e => { if (!isSelected) { e.currentTarget.style.borderColor = pal.border; e.currentTarget.style.boxShadow = `0 1px 8px ${pal.glow}`; } }}
+        >
+            <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "10px", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: pal.tag, margin: "0 0 10px" }}>
+                {pkg.tag}
+            </p>
+            <h4 style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: "24px", fontWeight: 500, color: "#0a0f1a", margin: "0 0 8px", letterSpacing: "-0.01em" }}>
+                {name}
+            </h4>
+            <p style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: "28px", fontWeight: 500, color: "#0a0f1a", margin: "0 0 8px", letterSpacing: "-0.02em" }}>
+                {pkg.price}
+            </p>
+            <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "12px", color: "#64748b" }}>
+                {pkg.sections.length} categories included
+            </p>
+            {isSelected && (
+                <div style={{ position: "absolute", top: "16px", right: "16px" }}>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={pal.tag} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                        <polyline points="20 6 9 17 4 12" />
+                    </svg>
+                </div>
+            )}
+        </button>
+    );
+}
+
+// ── Comparison Card ─────────────────────────────────────
 function ComparisonCard({ packageName, pkg }) {
     return (
-        <div className="flex-1 bg-white rounded-xl border border-gray-200 overflow-hidden">
-            {/* Header */}
-            <div className={`bg-gradient-to-r ${pkg.color} px-6 py-5`}>
-                <h4 className="text-xl font-bold text-white font-[family-name:var(--font-heading)]">
+        <div style={{ flex: "1 1 300px", background: "white", border: "1px solid #e2e8f0", overflow: "hidden" }}>
+            <div style={{ padding: "20px 20px 16px", borderBottom: "1px solid #e2e8f0", background: "#f8fafc" }}>
+                <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "10px", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--accent, #e07b39)", margin: "0 0 6px" }}>
+                    {pkg.tag}
+                </p>
+                <h4 style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: "22px", fontWeight: 500, color: "#0a0f1a", margin: "0 0 4px", letterSpacing: "-0.01em" }}>
                     {packageName}
                 </h4>
-                <p className="text-white/90 text-lg font-semibold mt-1">{pkg.price}</p>
+                <p style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: "20px", fontWeight: 400, color: "#475569", margin: 0 }}>
+                    {pkg.price}
+                </p>
             </div>
-            {/* Rows*/}
-            <div className="divide-y divide-gray-100">
+            <div>
                 {pkg.sections.map((section, i) => (
                     <ExpandableRow key={i} title={section.title} items={section.items} />
                 ))}
@@ -112,7 +111,7 @@ function ComparisonCard({ packageName, pkg }) {
     );
 }
 
-
+// ── Page ────────────────────────────────────────────────
 export default function PackagesPage() {
     const [city, setCity] = useState("Chatrapur");
     const [compareA, setCompareA] = useState("Essential");
@@ -123,212 +122,153 @@ export default function PackagesPage() {
 
     useEffect(() => {
         fetch("/api/packages")
-            .then((res) => {
-                if (!res.ok) throw new Error("Failed to fetch packages");
-                return res.json();
-            })
-            .then((data) => {
-                setCityData(data.cityData);
-                setLoading(false);
-            })
-            .catch((err) => {
-                console.error(err);
-                setError(err.message);
-                setLoading(false);
-            });
+            .then(res => { if (!res.ok) throw new Error("Failed to fetch packages"); return res.json(); })
+            .then(data => { setCityData(data.cityData); setLoading(false); })
+            .catch(err => { setError(err.message); setLoading(false); });
     }, []);
 
-    // While loading or on error, show a themed loading / error state
-    if (loading) {
-        return (
-            <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-navy-dark via-navy to-navy-light">
-                <div className="text-center">
-                    <div className="w-12 h-12 border-4 border-accent border-t-transparent rounded-full animate-spin mx-auto mb-4" />
-                    <p className="text-gray-400 text-lg">Loading packages…</p>
-                </div>
-            </div>
-        );
-    }
+    const SELECT_STYLE = {
+        fontFamily: "'DM Sans', sans-serif", fontSize: "13px", fontWeight: 600,
+        color: "#0a0f1a", background: "white", border: "1px solid #e2e8f0",
+        padding: "8px 32px 8px 12px", cursor: "pointer", outline: "none",
+        appearance: "none", backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E")`,
+        backgroundRepeat: "no-repeat", backgroundPosition: "right 10px center",
+    };
 
-    if (error || !cityData) {
-        return (
-            <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-navy-dark via-navy to-navy-light">
-                <div className="text-center">
-                    <p className="text-red-400 text-lg mb-2">Something went wrong</p>
-                    <p className="text-gray-500 text-sm">{error || "Unable to load package data"}</p>
-                </div>
+    if (loading) return (
+        <div style={{ minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center", background: "#f8fafc" }}>
+            <div style={{ textAlign: "center" }}>
+                <span style={{ width: "24px", height: "24px", border: "2px solid #e2e8f0", borderTopColor: "#94a3b8", borderRadius: "50%", display: "inline-block", animation: "spin 0.7s linear infinite" }} />
+                <style>{`@keyframes spin { to { transform: rotate(360deg); }}`}</style>
+                <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "13px", color: "#94a3b8", marginTop: "12px" }}>Loading packages...</p>
             </div>
-        );
-    }
+        </div>
+    );
+
+    if (error || !cityData) return (
+        <div style={{ minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center", background: "#f8fafc" }}>
+            <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "14px", color: "#ef4444" }}>{error || "Unable to load package data"}</p>
+        </div>
+    );
 
     const cityPackages = cityData[city];
 
     return (
         <>
-            {/* ——— HERO BANNER ——— */}
-            <section className="relative pt-28 pb-20 md:pt-36 md:pb-28 overflow-hidden">
-                {/* Background */}
-                <div className="absolute inset-0 bg-gradient-to-br from-navy-dark via-navy to-navy-light" />
-                <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-accent/10 rounded-full blur-[120px]" />
-                <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-accent/5 rounded-full blur-[100px]" />
+            <style>{`
+                @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=DM+Sans:wght@400;500;600;700&display=swap');
+            `}</style>
 
-                <div className="relative z-10 max-w-5xl mx-auto px-4 text-center">
-                    <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white font-[family-name:var(--font-heading)] leading-tight mb-6">
-                        Let&apos;s Build Home With{" "}
-                        <span className="text-accent">Transparency</span>
-                    </h1>
-                    <p className="text-gray-400 text-lg max-w-2xl mx-auto mb-12">
-                        Choose a package, compare features, and get a personalised quote — all with clear, upfront pricing.
-                    </p>
+            {/* Header */}
+            <section style={{ background: "white", borderBottom: "1px solid #e2e8f0", padding: "140px 24px 56px" }}>
+                <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
+                    <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", flexWrap: "wrap", gap: "20px" }}>
+                        <div>
+                            <h1 style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: "clamp(40px, 6vw, 72px)", fontWeight: 300, color: "#0a0f1a", margin: "0 0 12px", lineHeight: 1, letterSpacing: "-0.025em" }}>
+                                Build With<br />
+                                <em style={{ fontStyle: "italic", fontWeight: 400 }}>Transparency</em>
+                            </h1>
+                            <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "14px", color: "#64748b", maxWidth: "440px", lineHeight: 1.7, margin: 0 }}>
+                                Choose a package, compare features, and get a personalised quote — all with clear, upfront pricing.
+                            </p>
+                        </div>
 
-                    {/* 3 Steps */}
-                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-0">
-                        {[
-                            { step: "1", text: "Select any package" },
-                            { step: "2", text: "Review and compare" },
-                            { step: "3", text: "Send us your customised details" },
-                        ].map((s, i) => (
-                            <div key={s.step} className="flex items-center gap-3 sm:gap-4">
-                                <div className="flex items-center gap-3 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-5 py-3">
-                                    <span className="flex items-center justify-center w-8 h-8 rounded-full bg-accent text-white text-sm font-bold">
-                                        {s.step}
-                                    </span>
-                                    <span className="text-white text-sm font-medium">{s.text}</span>
+                        {/* Steps */}
+                        <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
+                            {[
+                                { n: "01", text: "Select a package" },
+                                { n: "02", text: "Review and compare" },
+                                { n: "03", text: "Send your details" },
+                            ].map(s => (
+                                <div key={s.n} style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+                                    <span style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "18px", fontWeight: 500, color: "var(--accent, #e07b39)", lineHeight: 1, minWidth: "24px" }}>{s.n}</span>
+                                    <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "13px", color: "#475569" }}>{s.text}</span>
                                 </div>
-                                {i < 2 && (
-                                    <svg className="hidden sm:block w-6 h-6 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                                    </svg>
-                                )}
-                            </div>
-                        ))}
+                            ))}
+                        </div>
                     </div>
                 </div>
             </section>
 
-            {/* ——— PACKAGES SECTION ——— */}
-            <section className="section-padding bg-gray-100/60">
-                <div className="max-w-7xl mx-auto">
-                    {/* Heading + City Selector */}
-                    <div className="text-center mb-10">
-                        <p className="text-accent font-semibold text-sm uppercase tracking-wider mb-2">
-                            Our Offerings
-                        </p>
-                        <h2 className="text-3xl sm:text-4xl font-bold text-navy font-[family-name:var(--font-heading)] mb-4">
-                            Packages
-                        </h2>
-                        <p className="text-gray-500 mb-6">
-                            Currently showing for{" "}
-                            <select
-                                value={city}
-                                onChange={(e) => setCity(e.target.value)}
-                                className="inline-block bg-white border border-gray-300 text-navy font-semibold rounded-lg px-3 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-accent/50 cursor-pointer"
-                            >
-                                {CITIES.map((c) => (
-                                    <option key={c} value={c}>
-                                        {c}
-                                    </option>
-                                ))}
+            {/* Packages */}
+            <section style={{ background: "#f8fafc", padding: "64px 24px", borderBottom: "1px solid #e2e8f0" }}>
+                <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
+
+                    {/* Section header + city selector */}
+                    <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", marginBottom: "36px", flexWrap: "wrap", gap: "16px" }}>
+                        <div>
+                            <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "11px", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "#e07b39", margin: "0 0 8px" }}>Packages</p>
+                            <h2 style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: "clamp(26px, 3vw, 38px)", fontWeight: 400, color: "#0a0f1a", margin: 0, letterSpacing: "-0.02em" }}>
+                                {city}
+                            </h2>
+                        </div>
+                        <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+                            <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "12px", color: "#64748b", fontWeight: 500 }}>City</span>
+                            <select value={city} onChange={e => setCity(e.target.value)} style={SELECT_STYLE}>
+                                {CITIES.map(c => <option key={c} value={c}>{c}</option>)}
                             </select>
-                        </p>
+                        </div>
                     </div>
 
-                    {/* City Name */}
-                    <h3 className="text-2xl font-bold text-navy font-[family-name:var(--font-heading)] mb-6 text-center">
-                        {city}
-                    </h3>
-
-                    {/* Package Cards */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-                        {PACKAGE_NAMES.map((name) => (
+                    {/* Cards grid */}
+                    <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: "12px", marginBottom: "64px" }}>
+                        {PACKAGE_NAMES.map(name => (
                             <PackageCard
                                 key={name}
                                 name={name}
                                 pkg={cityPackages[name]}
                                 isSelected={compareA === name || compareB === name}
-                                onSelect={(n) => {
-                                    if (compareA !== n && compareB !== n) {
-                                        setCompareA(n);
-                                    }
-                                }}
+                                onSelect={n => { if (compareA !== n && compareB !== n) setCompareA(n); }}
                             />
                         ))}
                     </div>
 
-                    {/* ——— COMPARE SECTION ——— */}
-                    <div className="mb-16">
-                        <h3 className="text-2xl font-bold text-navy font-[family-name:var(--font-heading)] mb-6 text-center">
-                            Compare Packages
-                        </h3>
-
-                        {/* Selectors */}
-                        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
-                            <div className="flex items-center gap-2">
-                                <label className="text-sm font-medium text-gray-600">
-                                    Package 1:
-                                </label>
-                                <select
-                                    value={compareA}
-                                    onChange={(e) => setCompareA(e.target.value)}
-                                    className="bg-white border border-gray-300 text-navy font-semibold rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-accent/50"
-                                >
-                                    {PACKAGE_NAMES.map((n) => (
-                                        <option key={n} value={n}>
-                                            {n}
-                                        </option>
-                                    ))}
-                                </select>
+                    {/* Compare section */}
+                    <div>
+                        <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", marginBottom: "24px", flexWrap: "wrap", gap: "16px" }}>
+                            <div>
+                                <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "11px", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "#94a3b8", margin: "0 0 8px" }}>Side by Side</p>
+                                <h3 style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: "clamp(24px, 3vw, 36px)", fontWeight: 400, color: "#0a0f1a", margin: 0, letterSpacing: "-0.02em" }}>
+                                    Compare Packages
+                                </h3>
                             </div>
-
-                            <span className="text-gray-400 font-bold text-lg">VS</span>
-
-                            <div className="flex items-center gap-2">
-                                <label className="text-sm font-medium text-gray-600">
-                                    Package 2:
-                                </label>
-                                <select
-                                    value={compareB}
-                                    onChange={(e) => setCompareB(e.target.value)}
-                                    className="bg-white border border-gray-300 text-navy font-semibold rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-accent/50"
-                                >
-                                    {PACKAGE_NAMES.map((n) => (
-                                        <option key={n} value={n}>
-                                            {n}
-                                        </option>
-                                    ))}
+                            <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+                                <select value={compareA} onChange={e => setCompareA(e.target.value)} style={SELECT_STYLE}>
+                                    {PACKAGE_NAMES.map(n => <option key={n} value={n}>{n}</option>)}
+                                </select>
+                                <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "11px", fontWeight: 700, color: "#94a3b8", letterSpacing: "0.06em" }}>VS</span>
+                                <select value={compareB} onChange={e => setCompareB(e.target.value)} style={SELECT_STYLE}>
+                                    {PACKAGE_NAMES.map(n => <option key={n} value={n}>{n}</option>)}
                                 </select>
                             </div>
                         </div>
 
-                        {/* Side-by-side Cards */}
-                        <div className="flex flex-col lg:flex-row gap-6">
-                            <ComparisonCard
-                                packageName={compareA}
-                                pkg={cityPackages[compareA]}
-                            />
-                            <ComparisonCard
-                                packageName={compareB}
-                                pkg={cityPackages[compareB]}
-                            />
+                        <div style={{ display: "flex", flexWrap: "wrap", gap: "12px" }}>
+                            <ComparisonCard packageName={compareA} pkg={cityPackages[compareA]} />
+                            <ComparisonCard packageName={compareB} pkg={cityPackages[compareB]} />
                         </div>
                     </div>
                 </div>
             </section>
 
-            {/* ——— CTA BANNER ——— */}
-            <section className="relative py-20 px-4 overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-r from-navy-dark to-navy" />
-                <div className="absolute top-0 right-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl" />
-                <div className="relative z-10 max-w-3xl mx-auto text-center">
-                    <h2 className="text-3xl sm:text-4xl font-bold text-white font-[family-name:var(--font-heading)] mb-4">
-                        Looking for Personalized Home Construction?
+            {/* CTA */}
+            <section style={{ background: "white", padding: "80px 24px", borderTop: "1px solid #e2e8f0", textAlign: "center" }}>
+                <div style={{ maxWidth: "600px", margin: "0 auto" }}>
+                    <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "11px", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "#e07b39", margin: "0 0 14px" }}>
+                        Custom Build
+                    </p>
+                    <h2 style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: "clamp(30px, 4vw, 50px)", fontWeight: 300, color: "#0a0f1a", margin: "0 0 16px", lineHeight: 1.1, letterSpacing: "-0.025em" }}>
+                        Looking for a<br />
+                        <em style={{ fontStyle: "italic", fontWeight: 400 }}>Personalised Package?</em>
                     </h2>
-                    <p className="text-gray-400 text-lg mb-8">
+                    <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "14px", color: "#64748b", lineHeight: 1.7, margin: "0 0 36px" }}>
                         Share your requirements and we&apos;ll create a custom package tailored just for you.
                     </p>
                     <Link
                         href="/contact"
-                        className="inline-block bg-accent hover:bg-accent-dark text-white px-8 py-3.5 rounded-lg text-lg font-semibold tracking-wide transition-all duration-300 hover:shadow-lg hover:shadow-accent/25 hover:-translate-y-0.5"
+                        style={{ display: "inline-block", background: "#0a0f1a", color: "white", fontFamily: "'DM Sans', sans-serif", fontSize: "12px", fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", padding: "14px 32px", textDecoration: "none", transition: "background 0.15s" }}
+                        onMouseOver={e => e.currentTarget.style.background = "#1e293b"}
+                        onMouseOut={e => e.currentTarget.style.background = "#0a0f1a"}
                     >
                         Contact Us
                     </Link>

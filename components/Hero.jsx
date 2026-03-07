@@ -101,28 +101,37 @@ export default function Hero() {
                     {/* On desktop: white panel covers left half */}
                     <div style={{
                         position: "absolute", inset: 0,
-                        background: "linear-gradient(to right, white 0%, white 48%, transparent 68%)",
+                        background: "linear-gradient(to right, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.95) 48%, rgba(255,255,255,0) 68%)",
                     }} />
-                    {/* On mobile: dark overlay over full image */}
+                    {/* On mobile: light overlay over left side so text is visible */}
                     <div style={{
                         position: "absolute", inset: 0,
-                        background: "rgba(10,15,26,0.72)",
+                        background: "linear-gradient(to right, rgba(255,255,255,0.90) 0%, rgba(255,255,255,0.80) 50%, rgba(255,255,255,0) 100%)",
                     }} className="mobile-overlay" />
                 </div>
 
                 <style>{`
-                    @media (min-width: 768px) { .mobile-overlay { display: none !important; } }
-                    @media (max-width: 767px) { .desktop-split { display: none !important; } .mobile-stats { display: grid !important; } }
-                    @media (min-width: 768px) { .mobile-stats { display: none !important; } }
+                    .hero-grid { display: grid; grid-template-columns: 1fr; }
+                    .hero-text-container { padding-right: 0; max-width: 90%; }
+                    @media (min-width: 768px) { 
+                        .hero-grid { grid-template-columns: 1fr 1fr; }
+                        .hero-text-container { padding-right: 48px; max-width: none; }
+                        .mobile-overlay { display: none !important; } 
+                        .mobile-stats { display: none !important; }
+                    }
+                    @media (max-width: 767px) { 
+                        .desktop-split { display: none !important; } 
+                        .mobile-stats { display: grid !important; } 
+                    }
                 `}</style>
 
                 {/* Content */}
                 <div style={{ position: "relative", zIndex: 10, flex: 1, display: "flex", alignItems: "center", paddingTop: "120px", paddingBottom: "60px" }}>
                     <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 24px", width: "100%" }}>
-                        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0", alignItems: "center" }}>
+                        <div className="hero-grid" style={{ gap: "0", alignItems: "center" }}>
 
                             {/* Left — text */}
-                            <div style={{ paddingRight: "48px" }}>
+                            <div className="hero-text-container">
                                 {/* Badge */}
                                 <div style={{
                                     display: "inline-flex", alignItems: "center", gap: "8px",
@@ -189,7 +198,7 @@ export default function Hero() {
                                         onMouseOver={e => e.currentTarget.style.borderColor = "#0a0f1a"}
                                         onMouseOut={e => e.currentTarget.style.borderColor = "#cbd5e1"}
                                     >
-                                        Free Consultation
+                                        Discuss Your Project
                                     </a>
                                 </div>
                             </div>

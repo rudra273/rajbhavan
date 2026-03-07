@@ -46,10 +46,14 @@ export default function AboutIntro() {
             <style>{`
                 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=DM+Sans:wght@400;500;600&display=swap');
                 .feat-item:not(:last-child) { border-bottom: 1px solid #f1f5f9; }
+                .a-grid { display: grid; grid-template-columns: 1fr; gap: 40px; align-items: start; }
+                @media (min-width: 768px) {
+                    .a-grid { grid-template-columns: 1fr 1fr; gap: 80px; }
+                }
             `}</style>
             <section style={{ background: "white", borderTop: "1px solid #e2e8f0", padding: "80px 24px" }}>
                 <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
-                    <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "80px", alignItems: "start" }}>
+                    <div className="a-grid">
 
                         {/* Left */}
                         <div>

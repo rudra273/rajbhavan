@@ -46,12 +46,20 @@ export default function Footer() {
                 .f-link { font-family: 'DM Sans', sans-serif; font-size: 13px; color: #475569; text-decoration: none; transition: color 0.15s; display: inline-block; padding: 3px 0; }
                 .f-link:hover { color: #0a0f1a; }
                 .f-dev:hover { color: var(--accent, #e07b39) !important; }
+                .f-grid { display: grid; grid-template-columns: 1fr; gap: 40px; padding-bottom: 48px; border-bottom: 1px solid #e2e8f0; }
+                @media (min-width: 768px) {
+                    .f-grid { grid-template-columns: 1.6fr 1fr 1.4fr; gap: 60px; }
+                }
+                .f-bottom { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 20px 0; gap: 12px; }
+                @media (min-width: 768px) {
+                    .f-bottom { flex-direction: row; justify-content: space-between; text-align: left; }
+                }
             `}</style>
             <footer style={{ background: "#f8fafc", borderTop: "1px solid #e2e8f0", fontFamily: "'DM Sans', sans-serif" }}>
                 <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "64px 24px 0" }}>
 
                     {/* Top grid */}
-                    <div style={{ display: "grid", gridTemplateColumns: "1.6fr 1fr 1.4fr", gap: "60px", paddingBottom: "48px", borderBottom: "1px solid #e2e8f0" }}>
+                    <div className="f-grid">
 
                         {/* Brand col */}
                         <div>
@@ -100,7 +108,7 @@ export default function Footer() {
                     </div>
 
                     {/* Bottom bar */}
-                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "20px 0", gap: "12px", flexWrap: "wrap" }}>
+                    <div className="f-bottom">
                         <p style={{ fontSize: "12px", color: "#94a3b8", margin: 0 }}>
                             &copy; {currentYear} {COPYRIGHT_TEXT}. All rights reserved.
                         </p>

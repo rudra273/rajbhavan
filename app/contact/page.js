@@ -1,273 +1,180 @@
 import Link from "next/link";
 import ContactForm from "@/components/ContactForm";
 
-// ─── Contact Data ────────────────────────────────────────
 const PHONE_NUMBER = "+917008039858";
 const PHONE_DISPLAY = "+91 70080 39858";
 const WHATSAPP_NUMBER = "917008039858";
-const WHATSAPP_MESSAGE = encodeURIComponent(
-    "Hi! I'm interested in your construction services. Can we discuss my project?"
-);
+const WHATSAPP_MESSAGE = encodeURIComponent("Hi! I'm interested in your construction services. Can we discuss my project?");
 const EMAIL = "rm955069@gmail.com";
 const OFFICE_ADDRESS = "Chatrapur, Odisha, India";
-const MAP_EMBED_URL =
-    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d60497.05!2d84.612!3d19.355!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a3d4e6b5d2b3b2d%3A0x4c6a4e17cd81f2e!2sChatrapur%2C%20Odisha!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin";
-
-// ─── Business Hours ──────────────────────────────────────
-const BUSINESS_HOURS = [
-    { days: "Everyday", time: "9:00 AM — 7:00 PM" },
-];
+const MAP_EMBED_URL = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d60497.05!2d84.612!3d19.355!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a3d4e6b5d2b3b2d%3A0x4c6a4e17cd81f2e!2sChatrapur%2C%20Odisha!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin";
 const HOURS_SHORT = "Everyday, 9am — 7pm";
 
 export const metadata = {
     title: "Contact Us | Raj Bhavan Construction",
-    description:
-        "Get in touch with Raj Bhavan Construction. Call us, WhatsApp us, or visit our office.",
+    description: "Get in touch with Raj Bhavan Construction. Call us, WhatsApp us, or visit our office.",
 };
 
+const contactDetails = [
+    {
+        icon: <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.56 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.4a16 16 0 0 0 6.29 6.29l.88-.88a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" /></svg>,
+        label: "Phone",
+        value: <a href={`tel:${PHONE_NUMBER}`} className="c-contact-link">{PHONE_DISPLAY}</a>,
+    },
+    {
+        icon: <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" /><polyline points="22,6 12,13 2,6" /></svg>,
+        label: "Email",
+        value: <a href={`mailto:${EMAIL}`} className="c-contact-link">{EMAIL}</a>,
+    },
+    {
+        icon: <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" /><circle cx="12" cy="10" r="3" /></svg>,
+        label: "Office",
+        value: <span style={{ color: "#475569" }}>{OFFICE_ADDRESS}</span>,
+    },
+    {
+        icon: <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" /></svg>,
+        label: "Hours",
+        value: <span style={{ color: "#475569" }}>{HOURS_SHORT}</span>,
+    },
+];
+
 export default function ContactPage() {
-
     return (
-        <div className="pt-20 md:pt-24">
-            {/* Page Header */}
-            <section className="bg-navy text-white py-10 px-4">
-                <div className="max-w-7xl mx-auto text-center">
-                    <p className="text-accent font-semibold text-sm uppercase tracking-wider mb-2">
-                        Get In Touch
-                    </p>
-                    <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold font-[family-name:var(--font-heading)] mb-4">
-                        Contact Us
-                    </h1>
-                    <p className="text-gray-400 max-w-xl mx-auto">
-                        Have a project in mind? We&apos;d love to hear from you. Reach out
-                        via phone or WhatsApp and let&apos;s get started.
-                    </p>
-                </div>
-            </section>
+        <>
+            <style>{`
+                @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=DM+Sans:wght@400;500;600;700&display=swap');
+                .c-wa-btn { display: block; background: #0a0f1a; color: white; text-align: center; padding: 13px; font-family: 'DM Sans', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; transition: background 0.15s; }
+                .c-wa-btn:hover { background: #1e293b; }
+                .c-call-btn { display: block; background: white; color: #0a0f1a; text-align: center; padding: 12px; font-family: 'DM Sans', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; border: 1px solid #e2e8f0; transition: border-color 0.15s; }
+                .c-call-btn:hover { border-color: #0a0f1a; }
+                .c-contact-link { color: #475569; text-decoration: none; transition: color 0.15s; }
+                .c-contact-link:hover { color: #0a0f1a; }
+                .c-grid-2 { display: grid; grid-template-columns: 1fr 1fr; }
+                .c-form-col { padding: 52px 48px 52px 24px; border-right: 1px solid #e2e8f0; }
+                .c-info-grid { gap: 64px; }
+                @media (max-width: 768px) {
+                    .c-grid-2 { grid-template-columns: 1fr !important; }
+                    .c-form-col { padding: 40px 24px !important; border-right: none !important; border-bottom: 1px solid #e2e8f0; }
+                    .c-info-grid { gap: 40px !important; }
+                }
+            `}</style>
 
-            {/* Enquiry Form + Map */}
-            <section className="py-8 md:py-10 px-4 md:px-8 bg-white">
-                <div className="max-w-6xl mx-auto">
-                    <div className="grid lg:grid-cols-2 gap-6 lg:gap-8 items-stretch">
+            <div style={{ paddingTop: "80px", fontFamily: "'DM Sans', sans-serif" }}>
+
+                {/* Header */}
+                <section style={{ background: "white", borderBottom: "1px solid #e2e8f0", padding: "56px 24px 48px" }}>
+                    <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
+                        <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", flexWrap: "wrap", gap: "16px" }}>
+                            <h1 style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: "clamp(40px, 6vw, 68px)", fontWeight: 300, color: "#0a0f1a", margin: 0, lineHeight: 1, letterSpacing: "-0.025em" }}>
+                                Contact Us
+                            </h1>
+                            <p style={{ fontSize: "14px", color: "#64748b", maxWidth: "360px", margin: 0, lineHeight: 1.65 }}>
+                                Have a project in mind? Reach out via phone or WhatsApp and let&apos;s get started.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                {/* Form + Map */}
+                <section style={{ background: "#f8fafc", borderBottom: "1px solid #e2e8f0", padding: "0" }}>
+                    <div className="c-grid-2" style={{ maxWidth: "1200px", margin: "0 auto" }}>
+
                         {/* Form */}
-                        <div className="bg-white p-4 sm:p-5">
-                            <h2 className="text-2xl sm:text-3xl font-bold text-navy font-[family-name:var(--font-heading)] mb-2">
+                        <div className="c-form-col">
+                            <p style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "#e07b39", margin: "0 0 12px" }}>
+                                Get In Touch
+                            </p>
+                            <h2 style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: "clamp(26px, 3vw, 38px)", fontWeight: 400, color: "#0a0f1a", margin: "0 0 8px", letterSpacing: "-0.02em" }}>
                                 Get a Free Quote
                             </h2>
-                            <p className="text-gray-500 mb-6">
-                                Fill in your details below and our team will get back to you shortly.
+                            <p style={{ fontSize: "13px", color: "#64748b", margin: "0 0 32px", lineHeight: 1.6 }}>
+                                Fill in your details and our team will get back to you shortly.
                             </p>
                             <ContactForm />
                         </div>
 
-                        {/* Google Map - Chatrapur */}
-                        <div className="overflow-hidden p-5 min-h-[350px] lg:min-h-0 h-full">
+                        {/* Map */}
+                        <div style={{ minHeight: "480px", overflow: "hidden" }}>
                             <iframe
                                 src={MAP_EMBED_URL}
                                 width="100%"
                                 height="100%"
-                                style={{ border: 0, minHeight: "100%" }}
+                                style={{ border: 0, display: "block", minHeight: "480px" }}
                                 allowFullScreen=""
                                 loading="lazy"
                                 referrerPolicy="no-referrer-when-downgrade"
                                 title="Raj Bhavan Construction - Chatrapur, Odisha"
-                            ></iframe>
+                            />
                         </div>
                     </div>
-                </div>
-            </section>
+                </section>
 
-            {/* Contact Content */}
-            <section className="py-10 md:py-12 px-4 md:px-8 bg-gray-100">
-                <div className="max-w-5xl mx-auto">
-                    <div className="grid md:grid-cols-2 gap-8 md:gap-12">
-                        {/* Left - Contact Info */}
-                        <div className="space-y-8">
-                            <div>
-                                <h2 className="text-2xl font-bold text-navy font-[family-name:var(--font-heading)] mb-4">
-                                    Let&apos;s Talk
-                                </h2>
-                                <p className="text-gray-500 leading-relaxed">
-                                    Whether you&apos;re planning a new home, renovating your
-                                    space, or need a commercial build — our team is ready to help
-                                    bring your vision to life.
-                                </p>
-                            </div>
+                {/* Contact info + CTAs */}
+                <section style={{ background: "white", padding: "64px 24px 80px" }}>
+                    <div className="c-grid-2 c-info-grid" style={{ maxWidth: "1200px", margin: "0 auto", alignItems: "start" }}>
 
-                            {/* Phone */}
-                            <div className="flex items-start gap-4">
-                                <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center shrink-0">
-                                    <svg
-                                        className="w-6 h-6 text-accent"
-                                        fill="none"
-                                        stroke="currentColor"
-                                        viewBox="0 0 24 24"
-                                    >
-                                        <path
-                                            strokeLinecap="round"
-                                            strokeLinejoin="round"
-                                            strokeWidth={2}
-                                            d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                                        />
-                                    </svg>
-                                </div>
-                                <div>
-                                    <h3 className="text-navy font-semibold mb-1">Phone</h3>
-                                    <a
-                                        href={`tel:${PHONE_NUMBER}`}
-                                        className="text-gray-500 hover:text-accent transition-colors duration-200"
-                                    >
-                                        {PHONE_DISPLAY}
-                                    </a>
-                                </div>
-                            </div>
+                        {/* Left — info */}
+                        <div>
+                            <p style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--accent, #e07b39)", margin: "0 0 14px" }}>
+                                Reach Us
+                            </p>
+                            <h2 style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: "clamp(28px, 3vw, 42px)", fontWeight: 400, color: "#0a0f1a", margin: "0 0 20px", letterSpacing: "-0.02em", lineHeight: 1.1 }}>
+                                Let&apos;s Talk
+                            </h2>
+                            <p style={{ fontSize: "14px", color: "#64748b", lineHeight: 1.75, margin: "0 0 36px", borderLeft: "2px solid #e2e8f0", paddingLeft: "16px", maxWidth: "380px" }}>
+                                Whether you&apos;re planning a new home, renovating your space, or need a commercial build — our team is ready to help.
+                            </p>
 
-                            {/* Email */}
-                            <div className="flex items-start gap-4">
-                                <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center shrink-0">
-                                    <svg
-                                        className="w-6 h-6 text-accent"
-                                        fill="none"
-                                        stroke="currentColor"
-                                        viewBox="0 0 24 24"
-                                    >
-                                        <path
-                                            strokeLinecap="round"
-                                            strokeLinejoin="round"
-                                            strokeWidth={2}
-                                            d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                                        />
-                                    </svg>
-                                </div>
-                                <div>
-                                    <h3 className="text-navy font-semibold mb-1">Email</h3>
-                                    <a
-                                        href={`mailto:${EMAIL}`}
-                                        className="text-gray-500 hover:text-accent transition-colors duration-200"
-                                    >
-                                        {EMAIL}
-                                    </a>
-                                </div>
-                            </div>
-
-                            {/* Address */}
-                            <div className="flex items-start gap-4">
-                                <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center shrink-0">
-                                    <svg
-                                        className="w-6 h-6 text-accent"
-                                        fill="none"
-                                        stroke="currentColor"
-                                        viewBox="0 0 24 24"
-                                    >
-                                        <path
-                                            strokeLinecap="round"
-                                            strokeLinejoin="round"
-                                            strokeWidth={2}
-                                            d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                                        />
-                                        <path
-                                            strokeLinecap="round"
-                                            strokeLinejoin="round"
-                                            strokeWidth={2}
-                                            d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                                        />
-                                    </svg>
-                                </div>
-                                <div>
-                                    <h3 className="text-navy font-semibold mb-1">Office</h3>
-                                    <p className="text-gray-500">
-                                        {OFFICE_ADDRESS}
-                                    </p>
-                                </div>
+                            <div style={{ display: "flex", flexDirection: "column", gap: "0" }}>
+                                {contactDetails.map((item, i) => (
+                                    <div key={i} style={{ display: "flex", alignItems: "center", gap: "16px", padding: "16px 0", borderBottom: i < contactDetails.length - 1 ? "1px solid #f1f5f9" : "none" }}>
+                                        <span style={{ color: "var(--accent, #e07b39)", flexShrink: 0 }}>{item.icon}</span>
+                                        <span style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "0.06em", textTransform: "uppercase", color: "#94a3b8", width: "48px", flexShrink: 0 }}>{item.label}</span>
+                                        <span style={{ fontSize: "13px" }}>{item.value}</span>
+                                    </div>
+                                ))}
                             </div>
                         </div>
 
-                        {/* Right - WhatsApp CTA + Call CTA */}
-                        <div className="flex flex-col gap-4">
-                            {/* WhatsApp Card */}
-                            <Link
-                                href={`https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_MESSAGE}`}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="bg-white rounded-xl p-4 border border-gray-200 hover:border-[#25D366]/40 shadow-sm hover:shadow-lg transition-all duration-300 group"
-                            >
-                                <div className="flex items-center gap-3 mb-3">
-                                    <div className="w-11 h-11 bg-[#25D366]/10 rounded-xl flex items-center justify-center group-hover:bg-[#25D366]/20 transition-colors duration-200">
-                                        <svg
-                                            className="w-6 h-6 text-[#25D366]"
-                                            fill="currentColor"
-                                            viewBox="0 0 24 24"
-                                        >
-                                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
-                                        </svg>
+                        {/* Right — CTAs */}
+                        <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+
+                            {/* WhatsApp */}
+                            <div style={{ border: "1px solid #e2e8f0", overflow: "hidden" }}>
+                                <div style={{ padding: "20px 20px 16px", display: "flex", alignItems: "center", gap: "14px" }}>
+                                    <div style={{ width: "40px", height: "40px", background: "#f0fdf4", border: "1px solid #bbf7d0", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="#16a34a"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" /></svg>
                                     </div>
                                     <div>
-                                        <h3 className="text-navy text-base font-bold font-[family-name:var(--font-heading)]">
-                                            WhatsApp Us
-                                        </h3>
-                                        <p className="text-gray-400 text-xs">
-                                            Quick response, usually within minutes
-                                        </p>
+                                        <p style={{ fontSize: "14px", fontWeight: 700, color: "#0a0f1a", margin: 0 }}>WhatsApp Us</p>
+                                        <p style={{ fontSize: "12px", color: "#94a3b8", margin: "2px 0 0" }}>Quick response, usually within minutes</p>
                                     </div>
                                 </div>
-                                <div className="bg-[#25D366] text-white text-center py-2.5 rounded-lg font-semibold text-sm group-hover:bg-[#1ebe5d] transition-colors duration-200">
-                                    Start WhatsApp Chat →
-                                </div>
-                            </Link>
-
-                            {/* Call Card */}
-                            <a
-                                href={`tel:${PHONE_NUMBER}`}
-                                className="bg-white rounded-xl p-4 border border-gray-200 hover:border-accent/40 shadow-sm hover:shadow-lg transition-all duration-300 group"
-                            >
-                                <div className="flex items-center gap-3 mb-3">
-                                    <div className="w-11 h-11 bg-accent/10 rounded-xl flex items-center justify-center group-hover:bg-accent/20 transition-colors duration-200">
-                                        <svg
-                                            className="w-6 h-6 text-accent"
-                                            fill="none"
-                                            stroke="currentColor"
-                                            viewBox="0 0 24 24"
-                                        >
-                                            <path
-                                                strokeLinecap="round"
-                                                strokeLinejoin="round"
-                                                strokeWidth={2}
-                                                d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                                            />
-                                        </svg>
-                                    </div>
-                                    <div>
-                                        <h3 className="text-navy text-base font-bold font-[family-name:var(--font-heading)]">
-                                            Call Us
-                                        </h3>
-                                        <p className="text-gray-400 text-xs">
-                                            Available {HOURS_SHORT}
-                                        </p>
-                                    </div>
-                                </div>
-                                <div className="bg-accent text-white text-center py-2.5 rounded-lg font-semibold text-sm group-hover:bg-accent-dark transition-colors duration-200">
-                                    Call {PHONE_DISPLAY} →
-                                </div>
-                            </a>
-
-                            {/* Business hours */}
-                            <div className="bg-cream rounded-xl p-5 border border-gray-200/60">
-                                <h4 className="text-navy font-semibold text-sm mb-3 font-[family-name:var(--font-heading)]">
-                                    🕐 Business Hours
-                                </h4>
-                                <div className="space-y-2 text-sm">
-                                    {BUSINESS_HOURS.map((item) => (
-                                        <div key={item.days} className="flex justify-between">
-                                            <span className="text-gray-500">{item.days}</span>
-                                            <span className="text-navy font-medium">{item.time}</span>
-                                        </div>
-                                    ))}
-                                </div>
+                                <a href={`https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_MESSAGE}`} target="_blank" rel="noopener noreferrer" className="c-wa-btn">
+                                    Start WhatsApp Chat
+                                </a>
                             </div>
+
+                            {/* Call */}
+                            <div style={{ border: "1px solid #e2e8f0", overflow: "hidden" }}>
+                                <div style={{ padding: "20px 20px 16px", display: "flex", alignItems: "center", gap: "14px" }}>
+                                    <div style={{ width: "40px", height: "40px", background: "#fff7ed", border: "1px solid #fed7aa", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent, #e07b39)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.56 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.4a16 16 0 0 0 6.29 6.29l.88-.88a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" /></svg>
+                                    </div>
+                                    <div>
+                                        <p style={{ fontSize: "14px", fontWeight: 700, color: "#0a0f1a", margin: 0 }}>Call Us</p>
+                                        <p style={{ fontSize: "12px", color: "#94a3b8", margin: "2px 0 0" }}>{HOURS_SHORT}</p>
+                                    </div>
+                                </div>
+                                <a href={`tel:${PHONE_NUMBER}`} className="c-call-btn">
+                                    Call {PHONE_DISPLAY}
+                                </a>
+                            </div>
+
                         </div>
                     </div>
-                </div>
-            </section>
-        </div>
+                </section>
+            </div>
+        </>
     );
 }

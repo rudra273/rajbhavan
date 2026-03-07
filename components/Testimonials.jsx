@@ -43,11 +43,15 @@ export default function Testimonials() {
                 .t-viewmore:hover { border-color: #0a0f1a; }
                 .t-viewmore svg { transition: transform 0.15s; }
                 .t-viewmore:hover svg { transform: translateX(3px); }
+                .t-grid { display: grid; grid-template-columns: 1fr; gap: 40px; align-items: start; }
+                @media (min-width: 768px) {
+                    .t-grid { grid-template-columns: 1fr 1.4fr; gap: 80px; }
+                }
             `}</style>
 
             <section style={{ background: "linear-gradient(135deg, #f1f5f9 0%, #f8fafc 50%, #f0f4f8 100%)", borderTop: "1px solid #e2e8f0", padding: "80px 24px" }}>
                 <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
-                    <div style={{ display: "grid", gridTemplateColumns: "1fr 1.4fr", gap: "80px", alignItems: "start" }}>
+                    <div className="t-grid">
 
                         {/* Left */}
                         <div>
