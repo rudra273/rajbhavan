@@ -1,10 +1,10 @@
-import { getCachedProjects } from "@/lib/dataCache";
+import { getProjects } from "@/lib/googleSheets";
 import ProjectDetail from "@/components/ProjectDetail";
 import { notFound } from "next/navigation";
 
 export async function generateMetadata({ params }) {
     const { id } = await params;
-    const projects = getCachedProjects();
+    const projects = await getProjects();
     const project = projects.find((p) => p.id === id);
 
     if (!project) {
@@ -19,7 +19,7 @@ export async function generateMetadata({ params }) {
 
 export default async function ProjectDetailPage({ params }) {
     const { id } = await params;
-    const projects = getCachedProjects();
+    const projects = await getProjects();
     const project = projects.find((p) => p.id === id);
 
     if (!project) notFound();

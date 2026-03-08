@@ -4,8 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "seed": "node scripts/seed-data.mjs",
-    "build": "node scripts/seed-data.mjs && next build",
+    "build": "next build",
     "start": "next start",
     "lint": "eslint"
   },

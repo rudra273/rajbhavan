@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { getProjects, createProject } from "@/lib/googleSheets";
+import { revalidatePath } from "next/cache";
 
 // Helper for auth validation
 function isAdminAuthenticated(req) {
@@ -36,9 +37,9 @@ export async function POST(req) {
 
         const result = await createProject(body);
 
-        // Refresh project cache
-        const { refreshProjects } = await import("@/lib/dataCache");
-        await refreshProjects();
+        // Revalidate cache
+        revalidatePath("/projects");
+        revalidatePath("/");
 
         return NextResponse.json(result);
     } catch (error) {

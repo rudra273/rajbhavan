@@ -1,46 +1,43 @@
 import { NextResponse } from "next/server";
-import {
-    refreshProjects,
-    refreshReviews,
-    refreshPackages,
-    refreshAll,
-} from "@/lib/dataCache";
+import { revalidatePath } from "next/cache";
+import { getProjects, getReviews, getAllPackagesData } from "@/lib/googleSheets";
 
 export async function POST(request) {
-    // ── Auth check ──────────────────────────────────────────
     const secret = process.env.ADMIN_SECRET;
     const authHeader = request.headers.get("authorization") || "";
     const token = authHeader.replace("Bearer ", "").trim();
 
     if (!secret || token !== secret) {
-        return NextResponse.json(
-            { error: "Unauthorized" },
-            { status: 401 }
-        );
+        return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
-    // ── Refresh the requested data type ─────────────────────
     try {
         const { type } = await request.json();
 
         switch (type) {
             case "projects":
-                await refreshProjects();
+                await getProjects(); // ← fetch fresh data first
+                revalidatePath("/projects");
+                revalidatePath("/");
                 break;
             case "reviews":
-                await refreshReviews();
+                await getReviews(); // ← fetch fresh data first
+                revalidatePath("/reviews");
+                revalidatePath("/");
                 break;
             case "packages":
-                await refreshPackages();
+                await getAllPackagesData(); // ← fetch fresh data first
+                revalidatePath("/packages");
                 break;
             case "all":
-                await refreshAll();
+                await Promise.all([getProjects(), getReviews(), getAllPackagesData()]);
+                revalidatePath("/projects");
+                revalidatePath("/reviews");
+                revalidatePath("/packages");
+                revalidatePath("/");
                 break;
             default:
-                return NextResponse.json(
-                    { error: `Unknown type: ${type}` },
-                    { status: 400 }
-                );
+                return NextResponse.json({ error: `Unknown type: ${type}` }, { status: 400 });
         }
 
         return NextResponse.json({
@@ -50,9 +47,6 @@ export async function POST(request) {
         });
     } catch (error) {
         console.error("Admin refresh error:", error);
-        return NextResponse.json(
-            { error: "Refresh failed: " + error.message },
-            { status: 500 }
-        );
+        return NextResponse.json({ error: "Refresh failed: " + error.message }, { status: 500 });
     }
 }

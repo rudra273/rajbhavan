@@ -1,5 +1,5 @@
 import ProjectCard from "@/components/ProjectCard";
-import { getCachedProjects } from "@/lib/dataCache";
+import { getProjects } from "@/lib/googleSheets";
 
 export const metadata = {
     title: "Our Projects | Raj Bhavan Construction",
@@ -9,7 +9,7 @@ export const metadata = {
 export default async function ProjectsPage() {
     let projects = [];
     try {
-        projects = getCachedProjects();
+        projects = await getProjects();
     } catch (error) {
         console.error("Error fetching projects:", error);
     }
