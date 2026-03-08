@@ -34,7 +34,7 @@ export default async function Home() {
       <AboutIntro />
       <Brands />
 
-      {/* Featured Projects */}
+      {/* Featured Projects  test*/}
       <section style={{ background: "#f8fafc", padding: "80px 0", overflow: "hidden", borderTop: "1px solid #e2e8f0" }}>
         <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 24px" }}>
           <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", marginBottom: "36px", gap: "16px", flexWrap: "wrap" }}>
