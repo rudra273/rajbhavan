@@ -8,6 +8,10 @@ export default function Testimonials({ reviews = [] }) {
     const [isTransitioning, setIsTransitioning] = useState(false);
     const [isPaused, setIsPaused] = useState(false);
 
+    // Touch swipe states
+    const [touchStart, setTouchStart] = useState(null);
+    const [touchEnd, setTouchEnd] = useState(null);
+
     const displayReviews = reviews.slice(0, 6);
     const total = displayReviews.length;
 
@@ -20,6 +24,31 @@ export default function Testimonials({ reviews = [] }) {
 
     const next = useCallback(() => goTo((current + 1) % total), [current, total, goTo]);
     const prev = useCallback(() => goTo((current - 1 + total) % total), [current, total, goTo]);
+
+    const minSwipeDistance = 50;
+
+    const onTouchStart = (e) => {
+        setTouchEnd(null);
+        setTouchStart(e.targetTouches[0].clientX);
+    };
+
+    const onTouchMove = (e) => {
+        setTouchEnd(e.targetTouches[0].clientX);
+    };
+
+    const onTouchEnd = () => {
+        if (!touchStart || !touchEnd) return;
+        const distance = touchStart - touchEnd;
+        const isLeftSwipe = distance > minSwipeDistance;
+        const isRightSwipe = distance < -minSwipeDistance;
+
+        if (isLeftSwipe) {
+            next();
+        }
+        if (isRightSwipe) {
+            prev();
+        }
+    };
 
     useEffect(() => {
         if (isPaused || total <= 1) return;
@@ -73,6 +102,9 @@ export default function Testimonials({ reviews = [] }) {
                         <div
                             onMouseEnter={() => setIsPaused(true)}
                             onMouseLeave={() => setIsPaused(false)}
+                            onTouchStart={onTouchStart}
+                            onTouchMove={onTouchMove}
+                            onTouchEnd={onTouchEnd}
                         >
                             {/* Card window */}
                             <div style={{ position: "relative", overflow: "hidden", minHeight: "260px", border: "1px solid rgba(255,255,255,0.8)", background: "rgba(255,255,255,0.6)", backdropFilter: "blur(12px)", WebkitBackdropFilter: "blur(12px)", boxShadow: "0 4px 24px rgba(0,0,0,0.06)" }}>
