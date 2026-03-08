@@ -1,5 +1,5 @@
 import ReviewCard from "@/components/ReviewCard";
-import { getCachedReviews } from "@/lib/dataCache";
+import { getReviews } from "@/lib/googleSheets";
 
 
 export const metadata = {
@@ -10,7 +10,7 @@ export const metadata = {
 export default async function ReviewsPage() {
     let reviews = [];
     try {
-        reviews = getCachedReviews();
+        reviews = await getReviews();
     } catch (error) {
         console.error("Error fetching reviews:", error);
     }

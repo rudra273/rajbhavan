@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { updateProject, deleteProject } from "@/lib/googleSheets";
+import { revalidatePath } from "next/cache";
 
 // Helper for auth validation
 function isAdminAuthenticated(req) {
@@ -19,9 +20,9 @@ export async function PUT(req, { params }) {
         const body = await req.json();
         const result = await updateProject(id, body);
 
-        // Refresh project cache
-        const { refreshProjects } = await import("@/lib/dataCache");
-        await refreshProjects();
+        // Revalidate cache
+        revalidatePath("/projects");
+        revalidatePath("/");
 
         return NextResponse.json(result);
     } catch (error) {
@@ -40,9 +41,9 @@ export async function DELETE(req, { params }) {
     try {
         const result = await deleteProject(id);
 
-        // Refresh project cache
-        const { refreshProjects } = await import("@/lib/dataCache");
-        await refreshProjects();
+        // Revalidate cache
+        revalidatePath("/projects");
+        revalidatePath("/");
 
         return NextResponse.json(result);
     } catch (error) {

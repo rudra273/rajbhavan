@@ -2,9 +2,8 @@
 
 import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
-import reviews from "@/data/reviews.json";
 
-export default function Testimonials() {
+export default function Testimonials({ reviews = [] }) {
     const [current, setCurrent] = useState(0);
     const [isTransitioning, setIsTransitioning] = useState(false);
     const [isPaused, setIsPaused] = useState(false);

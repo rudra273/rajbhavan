@@ -5,15 +5,19 @@ import Brands from "@/components/Brands";
 import Testimonials from "@/components/Testimonials";
 import FeaturedProjects from "@/components/FeaturedProjects";
 import Link from "next/link";
-import { getCachedProjects } from "@/lib/dataCache";
-
+import { getProjects, getReviews } from "@/lib/googleSheets";
 export default async function Home() {
   let projects = [];
+  let reviews = [];
   try {
-    const allProjects = getCachedProjects();
+    const [allProjects, allReviews] = await Promise.all([
+      getProjects(),
+      getReviews()
+    ]);
     projects = allProjects.filter(p => p.is_featured === true || p.is_featured === "true" || p.is_featured === "TRUE").slice(0, 8);
+    reviews = allReviews || [];
   } catch (error) {
-    console.error("Error fetching projects:", error);
+    console.error("Error fetching data:", error);
   }
 
   return (
@@ -58,7 +62,7 @@ export default async function Home() {
         </div>
       </section>
 
-      <Testimonials />
+      <Testimonials reviews={reviews} />
 
       {/* CTA Section */}
       <section style={{ background: "white", borderTop: "1px solid #e2e8f0", padding: "100px 24px" }}>

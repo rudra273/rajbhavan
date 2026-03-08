@@ -1,9 +1,9 @@
-import { getCachedReviews } from "@/lib/dataCache";
+import { getReviews } from "@/lib/googleSheets";
 import { NextResponse } from "next/server";
 
 export async function GET() {
     try {
-        const reviews = getCachedReviews();
+        const reviews = await getReviews();
         return NextResponse.json({ reviews }, { status: 200 });
     } catch (error) {
         console.error("Error fetching reviews:", error);

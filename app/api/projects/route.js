@@ -1,9 +1,9 @@
-import { getCachedProjects } from "@/lib/dataCache";
+import { getProjects } from "@/lib/googleSheets";
 import { NextResponse } from "next/server";
 
 export async function GET() {
     try {
-        const projects = getCachedProjects();
+        const projects = await getProjects();
         return NextResponse.json({ projects }, { status: 200 });
     } catch (error) {
         console.error("Error fetching projects:", error);
