@@ -32,6 +32,8 @@ export default async function Home() {
                 .view-all:hover { color: #0a0f1a; }
                 .view-all svg { transition: transform 0.15s; }
                 .view-all:hover svg { transform: translateX(3px); }
+                .btn-packages { display: inline-flex; align-items: center; gap: 8px; background: #0a0f1a; color: white; font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 16px 32px; text-decoration: none; border-radius: 2px; transition: background 0.2s; }
+                .btn-packages:hover { background: #1e293b; }
             `}</style>
 
       <Hero />
@@ -59,6 +61,22 @@ export default async function Home() {
             </Link>
           </div>
           <FeaturedProjects projects={projects} />
+        </div>
+      </section>
+
+      {/* Packages Teaser Section */}
+      <section style={{ background: "white", padding: "60px 24px", textAlign: "center", borderTop: "1px solid #e2e8f0" }}>
+        <div style={{ maxWidth: "600px", margin: "0 auto" }}>
+          <h2 style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: "clamp(24px, 3vw, 36px)", fontWeight: 400, color: "#0a0f1a", margin: "0 0 16px", lineHeight: 1.1 }}>
+            Looking for a Complete Solution<span style={{ color: "#e07b39", fontSize: "1.2em", fontStyle: "italic", marginLeft: "2px" }}>?</span>
+          </h2>
+          <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "15px", color: "#64748b", margin: "0 0 32px", lineHeight: 1.6 }}>
+            Explore our carefully curated construction packages designed to fit your vision and budget.
+          </p>
+          <Link href="/packages" className="btn-packages">
+            View Our Packages
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
+          </Link>
         </div>
       </section>
 
