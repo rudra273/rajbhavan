@@ -14,5 +14,21 @@
     "gallery_images": [
       "b4hy2udr8xxqfau4wdm7"
     ]
+  },
+  {
+    "id": "7",
+    "title": "Test Name",
+    "cloudinary_url": "tnmowtkqtxw4iir4sruc",
+    "category": "Industrial",
+    "is_featured": true,
+    "location": "Chatrapur ",
+    "total_area": "2400 Square feet ",
+    "floors": "G+2.5",
+    "price": "80 lakhs",
+    "package": "Standard",
+    "duration": "11 Months ",
+    "gallery_images": [
+      "e2hbsvpo8gagkeijwawf"
+    ]
   }
 ]

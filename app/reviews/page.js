@@ -1,6 +1,7 @@
 import ReviewCard from "@/components/ReviewCard";
 import { getCachedReviews } from "@/lib/dataCache";
 
+
 export const metadata = {
     title: "Customer Reviews | Raj Bhavan Construction",
     description: "See what our clients say about our work. Real reviews from real customers.",
