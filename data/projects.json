@@ -1,35 +1,18 @@
 [
   {
-    "id": "1",
-    "title": "new project testing",
-    "cloudinary_url": "cihdjo6ciouvqoamrbfn",
-    "category": "Commercial",
-    "is_featured": true,
-    "location": "abc",
-    "total_area": "22",
-    "floors": "24",
-    "price": "31243",
-    "package": "Standard",
-    "duration": "4",
-    "gallery_images": [
-      "nmut1f3xd9pfwnuu96yz",
-      "jmdpk0hz81oufjmug8ce"
-    ]
-  },
-  {
-    "id": "2",
-    "title": "test 02",
-    "cloudinary_url": "nj3rxaeps61g6prwjfhd",
+    "id": "6",
+    "title": "Dambru's Home",
+    "cloudinary_url": "lvjcrpft0rrorxq0mrth",
     "category": "Residential",
     "is_featured": true,
-    "location": "chatrapur",
-    "total_area": "3200 sq/ft",
-    "floors": "G+2",
-    "price": "80 lakhs",
+    "location": "Chatrapur ",
+    "total_area": "2600 Square feet ",
+    "floors": "G+2.5",
+    "price": "1 core",
     "package": "Premium",
-    "duration": "12 Months",
+    "duration": "12 Month's ",
     "gallery_images": [
-      "avsrq176o5hn3ohx9fm2"
+      "b4hy2udr8xxqfau4wdm7"
     ]
   }
 ]

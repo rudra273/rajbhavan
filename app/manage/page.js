@@ -219,12 +219,29 @@ export default function ManagePage() {
                 ::-webkit-scrollbar-track { background: transparent; }
                 ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
                 input[type=checkbox] { accent-color: #0f172a; width:15px; height:15px; cursor:pointer; }
+                @media (max-width: 768px) {
+                    .sync-grid { grid-template-columns: repeat(2, 1fr) !important; }
+                    .modal-grid-2 { grid-template-columns: 1fr !important; }
+                    .modal-grid-3 { grid-template-columns: 1fr !important; }
+                    .gallery-grid { grid-template-columns: repeat(3, 1fr) !important; }
+                    .header-flex { flex-direction: column; align-items: flex-start !important; gap: 16px; }
+                    .table-wrapper { display: none !important; }
+                    .mobile-cards { display: grid !important; grid-template-columns: 1fr; gap: 16px; }
+                    .content-padding { padding: 0 16px !important; }
+                }
+                @media (min-width: 769px) {
+                    .mobile-cards { display: none !important; }
+                }
+                @media (max-width: 480px) {
+                    .sync-grid { grid-template-columns: 1fr !important; }
+                    .gallery-grid { grid-template-columns: repeat(2, 1fr) !important; }
+                }
             `}</style>
 
-            <div style={{ maxWidth: "1100px", margin: "0 auto", padding: "0 24px" }}>
+            <div className="content-padding" style={{ maxWidth: "1100px", margin: "0 auto", padding: "0 24px" }}>
 
                 {/* Header */}
-                <div style={{ marginBottom: "40px", borderBottom: "1px solid #e2e8f0", paddingBottom: "24px", display: "flex", justifyContent: "space-between", alignItems: "flex-end" }}>
+                <div className="header-flex" style={{ marginBottom: "40px", borderBottom: "1px solid #e2e8f0", paddingBottom: "24px", display: "flex", justifyContent: "space-between", alignItems: "flex-end" }}>
                     <div>
                         <p style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "#94a3b8", margin: "0 0 6px" }}>Admin Panel</p>
                         <h1 style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: "32px", fontWeight: 400, color: "#0f172a", margin: 0, lineHeight: 1 }}>
@@ -244,7 +261,7 @@ export default function ManagePage() {
                 {/* Sync Bar */}
                 <div style={{ marginBottom: "40px" }}>
                     <p style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", color: "#94a3b8", margin: "0 0 14px" }}>Data Sync</p>
-                    <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "10px" }}>
+                    <div className="sync-grid" style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "10px" }}>
                         {DATA_TYPES.map((item) => {
                             const isLoading = loading[item.type];
                             const result = results[item.type];
@@ -312,22 +329,84 @@ export default function ManagePage() {
                             <p style={{ fontSize: "14px", margin: 0 }}>No projects yet. Add your first one.</p>
                         </div>
                     ) : (
-                        <table style={{ width: "100%", borderCollapse: "collapse" }}>
-                            <thead>
-                                <tr style={{ background: "#f8fafc" }}>
-                                    {["Project", "Category", "Location", "Package", "Status", ""].map((h, i) => (
-                                        <th key={i} style={{ padding: "10px 16px", textAlign: "left", fontSize: "11px", fontWeight: 700, letterSpacing: "0.06em", textTransform: "uppercase", color: "#94a3b8", borderBottom: "1px solid #e2e8f0", whiteSpace: "nowrap" }}>
-                                            {h}
-                                        </th>
-                                    ))}
-                                </tr>
-                            </thead>
-                            <tbody>
+                        <>
+                            <div className="table-wrapper">
+                                <table style={{ width: "100%", borderCollapse: "collapse", minWidth: "800px" }}>
+                                    <thead>
+                                        <tr style={{ background: "#f8fafc" }}>
+                                            {["Project", "Category", "Location", "Package", "Status", ""].map((h, i) => (
+                                                <th key={i} style={{ padding: "10px 16px", textAlign: "left", fontSize: "11px", fontWeight: 700, letterSpacing: "0.06em", textTransform: "uppercase", color: "#94a3b8", borderBottom: "1px solid #e2e8f0", whiteSpace: "nowrap" }}>
+                                                    {h}
+                                                </th>
+                                            ))}
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {projects.map((project, idx) => (
+                                            <tr key={project.id} className="row-hover" style={{ borderBottom: idx < projects.length - 1 ? "1px solid #f1f5f9" : "none", transition: "background 0.1s" }}>
+                                                <td style={{ padding: "14px 16px" }}>
+                                                    <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+                                                        <div style={{ width: "44px", height: "44px", borderRadius: "8px", overflow: "hidden", background: "#f1f5f9", flexShrink: 0, position: "relative" }}>
+                                                            {project.cloudinary_url ? (
+                                                                <CldImage src={project.cloudinary_url} alt={project.title} fill style={{ objectFit: "cover" }} />
+                                                            ) : (
+                                                                <div style={{ width: "100%", height: "100%", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#cbd5e1" strokeWidth="1.5"><rect x="3" y="3" width="18" height="18" rx="2" /><circle cx="8.5" cy="8.5" r="1.5" /><polyline points="21 15 16 10 5 21" /></svg>
+                                                                </div>
+                                                            )}
+                                                        </div>
+                                                        <span style={{ fontSize: "13px", fontWeight: 600, color: "#0f172a", lineHeight: 1.3 }}>{project.title}</span>
+                                                    </div>
+                                                </td>
+                                                <td style={{ padding: "14px 16px" }}>
+                                                    <span style={{ fontSize: "12px", color: "#475569", background: "#f1f5f9", padding: "3px 10px", borderRadius: "100px", fontWeight: 500 }}>
+                                                        {project.category || "—"}
+                                                    </span>
+                                                </td>
+                                                <td style={{ padding: "14px 16px", fontSize: "13px", color: "#64748b" }}>{project.location || "—"}</td>
+                                                <td style={{ padding: "14px 16px", fontSize: "13px", color: "#64748b" }}>{project.package || "—"}</td>
+                                                <td style={{ padding: "14px 16px" }}>
+                                                    {(project.is_featured === true || project.is_featured === "true" || project.is_featured === "TRUE") && (
+                                                        <span style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "0.06em", textTransform: "uppercase", color: "#b45309", background: "#fef3c7", padding: "3px 10px", borderRadius: "100px" }}>
+                                                            Featured
+                                                        </span>
+                                                    )}
+                                                </td>
+                                                <td style={{ padding: "14px 16px", textAlign: "right" }}>
+                                                    <div style={{ display: "flex", gap: "6px", justifyContent: "flex-end" }}>
+                                                        <button
+                                                            className="action-btn"
+                                                            onClick={() => handleOpenModal(project)}
+                                                            style={{ fontSize: "12px", fontWeight: 600, color: "#475569", background: "none", border: "1px solid #e2e8f0", borderRadius: "7px", padding: "6px 14px", cursor: "pointer", fontFamily: "inherit", transition: "all 0.15s", opacity: 0.8 }}
+                                                            onMouseOver={e => { e.currentTarget.style.borderColor = "#0f172a"; e.currentTarget.style.color = "#0f172a"; }}
+                                                            onMouseOut={e => { e.currentTarget.style.borderColor = "#e2e8f0"; e.currentTarget.style.color = "#475569"; }}
+                                                        >
+                                                            Edit
+                                                        </button>
+                                                        <button
+                                                            className="action-btn"
+                                                            onClick={() => handleDelete(project.id)}
+                                                            style={{ fontSize: "12px", fontWeight: 600, color: "#ef4444", background: "none", border: "1px solid #fecaca", borderRadius: "7px", padding: "6px 14px", cursor: "pointer", fontFamily: "inherit", transition: "all 0.15s", opacity: 0.8 }}
+                                                            onMouseOver={e => { e.currentTarget.style.background = "#fef2f2"; }}
+                                                            onMouseOut={e => { e.currentTarget.style.background = "none"; }}
+                                                        >
+                                                            Delete
+                                                        </button>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        ))}
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            {/* Mobile Cards View */}
+                            <div className="mobile-cards">
                                 {projects.map((project, idx) => (
-                                    <tr key={project.id} className="row-hover" style={{ borderBottom: idx < projects.length - 1 ? "1px solid #f1f5f9" : "none", transition: "background 0.1s" }}>
-                                        <td style={{ padding: "14px 16px" }}>
-                                            <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-                                                <div style={{ width: "44px", height: "44px", borderRadius: "8px", overflow: "hidden", background: "#f1f5f9", flexShrink: 0, position: "relative" }}>
+                                    <div key={project.id} style={{ borderBottom: idx < projects.length - 1 ? "1px solid #e2e8f0" : "none", padding: "12px 10px" }}>
+                                        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "12px" }}>
+                                            <div style={{ display: "flex", gap: "12px" }}>
+                                                <div style={{ width: "48px", height: "48px", borderRadius: "8px", overflow: "hidden", background: "#e2e8f0", flexShrink: 0, position: "relative" }}>
                                                     {project.cloudinary_url ? (
                                                         <CldImage src={project.cloudinary_url} alt={project.title} fill style={{ objectFit: "cover" }} />
                                                     ) : (
@@ -336,217 +415,196 @@ export default function ManagePage() {
                                                         </div>
                                                     )}
                                                 </div>
-                                                <span style={{ fontSize: "13px", fontWeight: 600, color: "#0f172a", lineHeight: 1.3 }}>{project.title}</span>
+                                                <div>
+                                                    <h3 style={{ margin: "0 0 4px", fontSize: "14px", color: "#0f172a" }}>{project.title}</h3>
+                                                    <span style={{ fontSize: "11px", color: "#475569", background: "#f1f5f9", padding: "3px 8px", borderRadius: "100px", border: "1px solid #e2e8f0" }}>
+                                                        {project.category || "No Category"}
+                                                    </span>
+                                                </div>
                                             </div>
-                                        </td>
-                                        <td style={{ padding: "14px 16px" }}>
-                                            <span style={{ fontSize: "12px", color: "#475569", background: "#f1f5f9", padding: "3px 10px", borderRadius: "100px", fontWeight: 500 }}>
-                                                {project.category || "—"}
-                                            </span>
-                                        </td>
-                                        <td style={{ padding: "14px 16px", fontSize: "13px", color: "#64748b" }}>{project.location || "—"}</td>
-                                        <td style={{ padding: "14px 16px", fontSize: "13px", color: "#64748b" }}>{project.package || "—"}</td>
-                                        <td style={{ padding: "14px 16px" }}>
                                             {(project.is_featured === true || project.is_featured === "true" || project.is_featured === "TRUE") && (
-                                                <span style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "0.06em", textTransform: "uppercase", color: "#b45309", background: "#fef3c7", padding: "3px 10px", borderRadius: "100px" }}>
-                                                    Featured
-                                                </span>
+                                                <span style={{ color: "#b45309", fontSize: "16px", background: "#fef3c7", borderRadius: "50%", width: "24px", height: "24px", display: "flex", alignItems: "center", justifyContent: "center" }}>★</span>
                                             )}
-                                        </td>
-                                        <td style={{ padding: "14px 16px", textAlign: "right" }}>
-                                            <div style={{ display: "flex", gap: "6px", justifyContent: "flex-end" }}>
-                                                <button
-                                                    className="action-btn"
-                                                    onClick={() => handleOpenModal(project)}
-                                                    style={{ fontSize: "12px", fontWeight: 600, color: "#475569", background: "none", border: "1px solid #e2e8f0", borderRadius: "7px", padding: "6px 14px", cursor: "pointer", fontFamily: "inherit", transition: "all 0.15s", opacity: 0.8 }}
-                                                    onMouseOver={e => { e.currentTarget.style.borderColor = "#0f172a"; e.currentTarget.style.color = "#0f172a"; }}
-                                                    onMouseOut={e => { e.currentTarget.style.borderColor = "#e2e8f0"; e.currentTarget.style.color = "#475569"; }}
-                                                >
-                                                    Edit
-                                                </button>
-                                                <button
-                                                    className="action-btn"
-                                                    onClick={() => handleDelete(project.id)}
-                                                    style={{ fontSize: "12px", fontWeight: 600, color: "#ef4444", background: "none", border: "1px solid #fecaca", borderRadius: "7px", padding: "6px 14px", cursor: "pointer", fontFamily: "inherit", transition: "all 0.15s", opacity: 0.8 }}
-                                                    onMouseOver={e => { e.currentTarget.style.background = "#fef2f2"; }}
-                                                    onMouseOut={e => { e.currentTarget.style.background = "none"; }}
-                                                >
-                                                    Delete
-                                                </button>
-                                            </div>
-                                        </td>
-                                    </tr>
+                                        </div>
+                                        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "8px", marginBottom: "16px", fontSize: "12px", color: "#64748b" }}>
+                                            <div><strong>Loc:</strong> {project.location || "—"}</div>
+                                            <div><strong>Pkg:</strong> {project.package || "—"}</div>
+                                        </div>
+                                        <div style={{ display: "flex", gap: "8px" }}>
+                                            <button type="button" className="action-btn" onClick={() => handleOpenModal(project)} style={{ flex: 1, fontSize: "12px", fontWeight: 600, color: "#475569", background: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "6px", padding: "8px", cursor: "pointer", transition: "0.15s" }}>Edit</button>
+                                            <button type="button" className="action-btn" onClick={() => handleDelete(project.id)} style={{ flex: 1, fontSize: "12px", fontWeight: 600, color: "#ef4444", background: "white", border: "1px solid #fecaca", borderRadius: "6px", padding: "8px", cursor: "pointer", transition: "0.15s" }}>Delete</button>
+                                        </div>
+                                    </div>
                                 ))}
-                            </tbody>
-                        </table>
+                            </div>
+                        </>
                     )}
                 </div>
             </div>
 
             {/* ── Modal ── */}
-            {isModalOpen && (
-                <div style={{ position: "fixed", inset: 0, zIndex: 50, display: "flex", alignItems: "center", justifyContent: "center", background: "rgba(15,23,42,0.4)", backdropFilter: "blur(4px)", padding: "20px" }}>
-                    <div className="modal-in" style={{ background: "white", borderRadius: "20px", width: "100%", maxWidth: "680px", maxHeight: "90vh", display: "flex", flexDirection: "column", boxShadow: "0 24px 64px rgba(0,0,0,0.16)", overflow: "hidden" }}>
+            {
+                isModalOpen && (
+                    <div style={{ position: "fixed", inset: 0, zIndex: 50, display: "flex", alignItems: "center", justifyContent: "center", background: "rgba(15,23,42,0.4)", backdropFilter: "blur(4px)", padding: "16px" }}>
+                        <div className="modal-in" style={{ background: "white", borderRadius: "20px", width: "100%", maxWidth: "680px", maxHeight: "90vh", display: "flex", flexDirection: "column", boxShadow: "0 24px 64px rgba(0,0,0,0.16)", overflow: "hidden" }}>
 
-                        {/* Modal Header */}
-                        <div style={{ padding: "20px 24px", borderBottom: "1px solid #f1f5f9", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                            <div>
-                                <p style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", color: "#94a3b8", margin: "0 0 2px" }}>
-                                    {editingProject ? "Editing" : "New Entry"}
-                                </p>
-                                <h2 style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: "22px", fontWeight: 400, color: "#0f172a", margin: 0 }}>
-                                    {editingProject ? editingProject.title : "Add Project"}
-                                </h2>
+                            {/* Modal Header */}
+                            <div style={{ padding: "20px 24px", borderBottom: "1px solid #f1f5f9", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                                <div>
+                                    <p style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", color: "#94a3b8", margin: "0 0 2px" }}>
+                                        {editingProject ? "Editing" : "New Entry"}
+                                    </p>
+                                    <h2 style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: "22px", fontWeight: 400, color: "#0f172a", margin: 0 }}>
+                                        {editingProject ? editingProject.title : "Add Project"}
+                                    </h2>
+                                </div>
+                                <button type="button" aria-label="Close" onClick={() => setIsModalOpen(false)} style={{ width: "40px", height: "40px", background: "#f1f5f9", border: "none", borderRadius: "8px", cursor: "pointer", color: "#475569", display: "flex", alignItems: "center", justifyContent: "center", transition: "background 0.15s", zIndex: 10 }}>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                                </button>
                             </div>
-                            <button onClick={() => setIsModalOpen(false)} style={{ width: "32px", height: "32px", background: "#f1f5f9", border: "none", borderRadius: "8px", cursor: "pointer", color: "#475569", display: "flex", alignItems: "center", justifyContent: "center", transition: "background 0.15s" }}
-                                onMouseOver={e => e.currentTarget.style.background = "#e2e8f0"}
-                                onMouseOut={e => e.currentTarget.style.background = "#f1f5f9"}
-                            >
-                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-                            </button>
-                        </div>
 
-                        {/* Modal Body */}
-                        <div style={{ flex: 1, overflowY: "auto", padding: "24px" }}>
-                            <form id="project-form" onSubmit={handleSubmit}>
-                                <div style={{ display: "grid", gap: "20px" }}>
+                            {/* Modal Body */}
+                            <div style={{ flex: 1, overflowY: "auto", padding: "24px" }}>
+                                <form id="project-form" onSubmit={handleSubmit}>
+                                    <div style={{ display: "grid", gap: "20px" }}>
 
-                                    {/* Title + Category + Image row */}
-                                    <FIELD label="Project Title *">
-                                        <input type="text" required value={formData.title} onChange={e => fd("title", e.target.value)} className="modal-input" style={{ ...INPUT_STYLE }} placeholder="e.g. Whitefield Residence" />
-                                    </FIELD>
-
-                                    <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>
-                                        <FIELD label="Category">
-                                            <select value={formData.category} onChange={e => fd("category", e.target.value)} className="modal-input" style={SELECT_STYLE}>
-                                                <option value="" disabled>Select category</option>
-                                                <option value="Residential">Residential</option>
-                                                <option value="Commercial">Commercial</option>
-                                                <option value="Industrial">Industrial</option>
-                                                <option value="Interior Design">Interior Design</option>
-                                                <option value="Renovation">Renovation</option>
-                                            </select>
+                                        {/* Title + Category + Image row */}
+                                        <FIELD label="Project Title *">
+                                            <input type="text" required value={formData.title} onChange={e => fd("title", e.target.value)} className="modal-input" style={{ ...INPUT_STYLE }} placeholder="e.g. Whitefield Residence" />
                                         </FIELD>
 
-                                        <FIELD label="Main Image *">
-                                            <CldUploadWidget
-                                                uploadPreset={process.env.NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET || "cloudi"}
-                                                onSuccess={(result) => { if (result?.info?.public_id) fd("cloudinary_url", result.info.public_id); }}
-                                            >
-                                                {({ open }) => (
-                                                    <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-                                                        <button type="button" onClick={() => open()} style={{ background: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "8px", padding: "8px 14px", fontSize: "13px", fontWeight: 500, color: "#475569", cursor: "pointer", fontFamily: "inherit", transition: "all 0.15s" }}
+                                        <div className="modal-grid-2" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>
+                                            <FIELD label="Category">
+                                                <select value={formData.category} onChange={e => fd("category", e.target.value)} className="modal-input" style={SELECT_STYLE}>
+                                                    <option value="" disabled>Select category</option>
+                                                    <option value="Residential">Residential</option>
+                                                    <option value="Commercial">Commercial</option>
+                                                    <option value="Industrial">Industrial</option>
+                                                    <option value="Interior Design">Interior Design</option>
+                                                    <option value="Renovation">Renovation</option>
+                                                </select>
+                                            </FIELD>
+
+                                            <FIELD label="Main Image *">
+                                                <CldUploadWidget
+                                                    uploadPreset={process.env.NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET || "cloudi"}
+                                                    onSuccess={(result) => { if (result?.info?.public_id) fd("cloudinary_url", result.info.public_id); }}
+                                                >
+                                                    {({ open }) => (
+                                                        <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+                                                            <button type="button" onClick={() => open()} style={{ background: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "8px", padding: "8px 14px", fontSize: "13px", fontWeight: 500, color: "#475569", cursor: "pointer", fontFamily: "inherit", transition: "all 0.15s" }}
+                                                                onMouseOver={e => e.currentTarget.style.borderColor = "#0f172a"}
+                                                                onMouseOut={e => e.currentTarget.style.borderColor = "#e2e8f0"}
+                                                            >
+                                                                Upload image
+                                                            </button>
+                                                            {formData.cloudinary_url && (
+                                                                <span style={{ display: "flex", alignItems: "center", gap: "5px", fontSize: "12px", color: "#16a34a", fontWeight: 500 }}>
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                                                    Uploaded
+                                                                </span>
+                                                            )}
+                                                        </div>
+                                                    )}
+                                                </CldUploadWidget>
+                                            </FIELD>
+                                        </div>
+
+                                        {/* Divider */}
+                                        <div style={{ borderTop: "1px solid #f1f5f9", paddingTop: "20px" }}>
+                                            <p style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", color: "#94a3b8", margin: "0 0 16px" }}>Project Details</p>
+                                            <div className="modal-grid-3" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "14px" }}>
+                                                {[
+                                                    { label: "Location", key: "location", placeholder: "e.g. Old Airport" },
+                                                    { label: "Total Area", key: "total_area", placeholder: "e.g. 5,730 sqft" },
+                                                    { label: "Floors", key: "floors", placeholder: "e.g. G+4" },
+                                                    { label: "Price", key: "price", placeholder: "e.g. ₹1.01 Cr" },
+                                                    { label: "Duration", key: "duration", placeholder: "e.g. 12 Months" },
+                                                ].map(({ label, key, placeholder }) => (
+                                                    <FIELD key={key} label={label}>
+                                                        <input type="text" value={formData[key]} onChange={e => fd(key, e.target.value)} className="modal-input" style={{ ...INPUT_STYLE, fontSize: "13px" }} placeholder={placeholder} />
+                                                    </FIELD>
+                                                ))}
+                                                <FIELD label="Package">
+                                                    <select value={formData.package} onChange={e => fd("package", e.target.value)} className="modal-input" style={{ ...SELECT_STYLE, fontSize: "13px" }}>
+                                                        <option value="">Select</option>
+                                                        <option value="Essential">Essential</option>
+                                                        <option value="Standard">Standard</option>
+                                                        <option value="Premium">Premium</option>
+                                                        <option value="Luxury">Luxury</option>
+                                                    </select>
+                                                </FIELD>
+                                            </div>
+                                        </div>
+
+                                        {/* Featured toggle */}
+                                        <label style={{ display: "flex", alignItems: "center", gap: "10px", padding: "14px 16px", background: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "10px", cursor: "pointer" }}>
+                                            <input type="checkbox" id="is_featured" checked={formData.is_featured} onChange={e => fd("is_featured", e.target.checked)} />
+                                            <div>
+                                                <p style={{ fontSize: "13px", fontWeight: 600, color: "#0f172a", margin: 0 }}>Featured Project</p>
+                                                <p style={{ fontSize: "12px", color: "#64748b", margin: "2px 0 0" }}>Highlighted across the site</p>
+                                            </div>
+                                        </label>
+
+                                        {/* Gallery */}
+                                        <div style={{ borderTop: "1px solid #f1f5f9", paddingTop: "20px" }}>
+                                            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "14px" }}>
+                                                <p style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", color: "#94a3b8", margin: 0 }}>Gallery Images</p>
+                                                <CldUploadWidget
+                                                    uploadPreset={process.env.NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET || "cloudi"}
+                                                    onSuccess={(result) => { if (result?.info?.public_id) setFormData(prev => ({ ...prev, gallery_images: [...prev.gallery_images, result.info.public_id] })); }}
+                                                >
+                                                    {({ open }) => (
+                                                        <button type="button" onClick={() => open()} style={{ fontSize: "12px", fontWeight: 600, color: "#0f172a", background: "none", border: "1px solid #e2e8f0", borderRadius: "7px", padding: "6px 12px", cursor: "pointer", fontFamily: "inherit", transition: "border-color 0.15s" }}
                                                             onMouseOver={e => e.currentTarget.style.borderColor = "#0f172a"}
                                                             onMouseOut={e => e.currentTarget.style.borderColor = "#e2e8f0"}
                                                         >
-                                                            Upload image
+                                                            + Add images
                                                         </button>
-                                                        {formData.cloudinary_url && (
-                                                            <span style={{ display: "flex", alignItems: "center", gap: "5px", fontSize: "12px", color: "#16a34a", fontWeight: 500 }}>
-                                                                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                                                Uploaded
-                                                            </span>
-                                                        )}
-                                                    </div>
-                                                )}
-                                            </CldUploadWidget>
-                                        </FIELD>
-                                    </div>
-
-                                    {/* Divider */}
-                                    <div style={{ borderTop: "1px solid #f1f5f9", paddingTop: "20px" }}>
-                                        <p style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", color: "#94a3b8", margin: "0 0 16px" }}>Project Details</p>
-                                        <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "14px" }}>
-                                            {[
-                                                { label: "Location", key: "location", placeholder: "e.g. Old Airport" },
-                                                { label: "Total Area", key: "total_area", placeholder: "e.g. 5,730 sqft" },
-                                                { label: "Floors", key: "floors", placeholder: "e.g. G+4" },
-                                                { label: "Price", key: "price", placeholder: "e.g. ₹1.01 Cr" },
-                                                { label: "Duration", key: "duration", placeholder: "e.g. 12 Months" },
-                                            ].map(({ label, key, placeholder }) => (
-                                                <FIELD key={key} label={label}>
-                                                    <input type="text" value={formData[key]} onChange={e => fd(key, e.target.value)} className="modal-input" style={{ ...INPUT_STYLE, fontSize: "13px" }} placeholder={placeholder} />
-                                                </FIELD>
-                                            ))}
-                                            <FIELD label="Package">
-                                                <select value={formData.package} onChange={e => fd("package", e.target.value)} className="modal-input" style={{ ...SELECT_STYLE, fontSize: "13px" }}>
-                                                    <option value="">Select</option>
-                                                    <option value="Essential">Essential</option>
-                                                    <option value="Standard">Standard</option>
-                                                    <option value="Premium">Premium</option>
-                                                    <option value="Luxury">Luxury</option>
-                                                </select>
-                                            </FIELD>
-                                        </div>
-                                    </div>
-
-                                    {/* Featured toggle */}
-                                    <label style={{ display: "flex", alignItems: "center", gap: "10px", padding: "14px 16px", background: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "10px", cursor: "pointer" }}>
-                                        <input type="checkbox" id="is_featured" checked={formData.is_featured} onChange={e => fd("is_featured", e.target.checked)} />
-                                        <div>
-                                            <p style={{ fontSize: "13px", fontWeight: 600, color: "#0f172a", margin: 0 }}>Featured Project</p>
-                                            <p style={{ fontSize: "12px", color: "#64748b", margin: "2px 0 0" }}>Highlighted across the site</p>
-                                        </div>
-                                    </label>
-
-                                    {/* Gallery */}
-                                    <div style={{ borderTop: "1px solid #f1f5f9", paddingTop: "20px" }}>
-                                        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "14px" }}>
-                                            <p style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", color: "#94a3b8", margin: 0 }}>Gallery Images</p>
-                                            <CldUploadWidget
-                                                uploadPreset={process.env.NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET || "cloudi"}
-                                                onSuccess={(result) => { if (result?.info?.public_id) setFormData(prev => ({ ...prev, gallery_images: [...prev.gallery_images, result.info.public_id] })); }}
-                                            >
-                                                {({ open }) => (
-                                                    <button type="button" onClick={() => open()} style={{ fontSize: "12px", fontWeight: 600, color: "#0f172a", background: "none", border: "1px solid #e2e8f0", borderRadius: "7px", padding: "6px 12px", cursor: "pointer", fontFamily: "inherit", transition: "border-color 0.15s" }}
-                                                        onMouseOver={e => e.currentTarget.style.borderColor = "#0f172a"}
-                                                        onMouseOut={e => e.currentTarget.style.borderColor = "#e2e8f0"}
-                                                    >
-                                                        + Add images
-                                                    </button>
-                                                )}
-                                            </CldUploadWidget>
-                                        </div>
-
-                                        {formData.gallery_images.length > 0 ? (
-                                            <div style={{ display: "grid", gridTemplateColumns: "repeat(5, 1fr)", gap: "8px" }}>
-                                                {formData.gallery_images.map((imgId, index) => (
-                                                    <div key={index} style={{ position: "relative", borderRadius: "8px", overflow: "hidden", background: "#f1f5f9", aspectRatio: "1", border: "1px solid #e2e8f0" }}>
-                                                        <CldImage src={imgId} alt="Gallery" fill style={{ objectFit: "cover" }} />
-                                                        <button type="button" onClick={() => removeGalleryImage(index)} style={{ position: "absolute", top: "4px", right: "4px", width: "18px", height: "18px", background: "rgba(15,23,42,0.75)", border: "none", borderRadius: "50%", color: "white", fontSize: "10px", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", backdropFilter: "blur(4px)" }}>
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-                                                        </button>
-                                                    </div>
-                                                ))}
+                                                    )}
+                                                </CldUploadWidget>
                                             </div>
-                                        ) : (
-                                            <div style={{ border: "1px dashed #e2e8f0", borderRadius: "10px", padding: "24px", textAlign: "center", color: "#94a3b8", fontSize: "13px" }}>
-                                                No gallery images added
-                                            </div>
-                                        )}
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
 
-                        {/* Modal Footer */}
-                        <div style={{ padding: "16px 24px", borderTop: "1px solid #f1f5f9", display: "flex", justifyContent: "flex-end", gap: "10px", background: "#fafafa" }}>
-                            <button type="button" onClick={() => setIsModalOpen(false)} style={{ fontSize: "13px", fontWeight: 500, color: "#64748b", background: "none", border: "1px solid #e2e8f0", borderRadius: "9px", padding: "9px 20px", cursor: "pointer", fontFamily: "inherit", transition: "all 0.15s" }}
-                                onMouseOver={e => e.currentTarget.style.color = "#0f172a"}
-                                onMouseOut={e => e.currentTarget.style.color = "#64748b"}
-                            >
-                                Cancel
-                            </button>
-                            <button type="submit" form="project-form" disabled={isSaving} style={{ fontSize: "13px", fontWeight: 700, color: "white", background: isSaving ? "#94a3b8" : "#0f172a", border: "none", borderRadius: "9px", padding: "9px 24px", cursor: isSaving ? "not-allowed" : "pointer", fontFamily: "inherit", letterSpacing: "0.02em", transition: "background 0.15s" }}
-                                onMouseOver={e => { if (!isSaving) e.currentTarget.style.background = "#1e293b"; }}
-                                onMouseOut={e => { if (!isSaving) e.currentTarget.style.background = "#0f172a"; }}
-                            >
-                                {isSaving ? "Saving..." : "Save Project"}
-                            </button>
+                                            {formData.gallery_images.length > 0 ? (
+                                                <div className="gallery-grid" style={{ display: "grid", gridTemplateColumns: "repeat(5, 1fr)", gap: "8px" }}>
+                                                    {formData.gallery_images.map((imgId, index) => (
+                                                        <div key={index} style={{ position: "relative", borderRadius: "8px", overflow: "hidden", background: "#f1f5f9", aspectRatio: "1", border: "1px solid #e2e8f0" }}>
+                                                            <CldImage src={imgId} alt="Gallery" fill style={{ objectFit: "cover" }} />
+                                                            <button type="button" onClick={() => removeGalleryImage(index)} style={{ position: "absolute", top: "4px", right: "4px", width: "18px", height: "18px", background: "rgba(15,23,42,0.75)", border: "none", borderRadius: "50%", color: "white", fontSize: "10px", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", backdropFilter: "blur(4px)" }}>
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                                                            </button>
+                                                        </div>
+                                                    ))}
+                                                </div>
+                                            ) : (
+                                                <div style={{ border: "1px dashed #e2e8f0", borderRadius: "10px", padding: "24px", textAlign: "center", color: "#94a3b8", fontSize: "13px" }}>
+                                                    No gallery images added
+                                                </div>
+                                            )}
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+
+                            {/* Modal Footer */}
+                            <div style={{ padding: "16px 24px", borderTop: "1px solid #f1f5f9", display: "flex", justifyContent: "flex-end", gap: "10px", background: "#fafafa" }}>
+                                <button type="button" onClick={() => setIsModalOpen(false)} style={{ fontSize: "13px", fontWeight: 500, color: "#64748b", background: "none", border: "1px solid #e2e8f0", borderRadius: "9px", padding: "9px 20px", cursor: "pointer", fontFamily: "inherit", transition: "all 0.15s" }}
+                                    onMouseOver={e => e.currentTarget.style.color = "#0f172a"}
+                                    onMouseOut={e => e.currentTarget.style.color = "#64748b"}
+                                >
+                                    Cancel
+                                </button>
+                                <button type="submit" form="project-form" disabled={isSaving} style={{ fontSize: "13px", fontWeight: 700, color: "white", background: isSaving ? "#94a3b8" : "#0f172a", border: "none", borderRadius: "9px", padding: "9px 24px", cursor: isSaving ? "not-allowed" : "pointer", fontFamily: "inherit", letterSpacing: "0.02em", transition: "background 0.15s" }}
+                                    onMouseOver={e => { if (!isSaving) e.currentTarget.style.background = "#1e293b"; }}
+                                    onMouseOut={e => { if (!isSaving) e.currentTarget.style.background = "#0f172a"; }}
+                                >
+                                    {isSaving ? "Saving..." : "Save Project"}
+                                </button>
+                            </div>
                         </div>
                     </div>
-                </div>
-            )}
-        </div>
+                )
+            }
+        </div >
     );
 }
