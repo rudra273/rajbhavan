@@ -31,10 +31,8 @@ function BrandItem({ brand }) {
                 alt={brand.name}
                 width={90}
                 height={44}
-                style={{ objectFit: "contain", filter: "grayscale(100%)", opacity: 0.7, transition: "opacity 0.2s" }}
+                style={{ objectFit: "contain", opacity: 0.8 }}
                 draggable={false}
-                onMouseOver={e => { e.currentTarget.style.opacity = "0.7"; e.currentTarget.style.filter = "grayscale(0%)"; }}
-                onMouseOut={e => { e.currentTarget.style.opacity = "0.7"; e.currentTarget.style.filter = "grayscale(100%)"; }}
             />
         </div>
     );

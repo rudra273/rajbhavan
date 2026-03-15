@@ -32,8 +32,9 @@ export default async function Home() {
                 .view-all:hover { color: #0a0f1a; }
                 .view-all svg { transition: transform 0.15s; }
                 .view-all:hover svg { transform: translateX(3px); }
-                .btn-packages { display: inline-flex; align-items: center; gap: 8px; background: #0a0f1a; color: white; font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 16px 32px; text-decoration: none; border-radius: 2px; transition: background 0.2s; }
-                .btn-packages:hover { background: #1e293b; }
+                .btn-packages { display: inline-flex; align-items: center; gap: 8px; background: #e07b39; color: white; font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 16px 32px; text-decoration: none; border-radius: 2px; transition: all 0.2s; animation: btn-pulse 2s ease-in-out infinite; }
+                .btn-packages:hover { background: #c96a2e; animation: none; box-shadow: 0 4px 20px rgba(224,123,57,0.5); }
+                @keyframes btn-pulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(224,123,57,0.5); } 50% { box-shadow: 0 0 0 12px rgba(224,123,57,0); } }
             `}</style>
 
       <Hero />

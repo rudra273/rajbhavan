@@ -5,7 +5,7 @@ const PHONE_NUMBER = "+917008039858";
 const PHONE_DISPLAY = "+91 70080 39858";
 const WHATSAPP_NUMBER = "917008039858";
 const WHATSAPP_MESSAGE = encodeURIComponent("Hi! I'm interested in your construction services. Can we discuss my project?");
-const EMAIL = "rm955069@gmail.com";
+const EMAIL = "akashchandramohanty@gmail.com";
 const OFFICE_ADDRESS = "Chatrapur, Odisha, India";
 const MAP_EMBED_URL = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d60497.05!2d84.612!3d19.355!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a3d4e6b5d2b3b2d%3A0x4c6a4e17cd81f2e!2sChatrapur%2C%20Odisha!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin";
 const HOURS_SHORT = "Everyday, 9am — 7pm";

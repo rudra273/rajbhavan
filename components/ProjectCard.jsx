@@ -34,7 +34,6 @@ export default function ProjectCard({ id, title, cloudinary_url, category, locat
 
                 .mobile-hidden-link { position: absolute; inset: 0; z-index: 1; display: block; cursor: pointer; }
                 @media (max-width: 768px) {
-                    .mobile-hidden-link { display: none; }
                     .proj-stats { max-height: 120px; opacity: 1; margin-top: 14px; }
                     .proj-divider { width: 100%; background: rgba(255,255,255,0.12); }
                     .proj-arrow { opacity: 1; transform: translateX(0); }
