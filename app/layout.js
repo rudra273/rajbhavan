@@ -21,6 +21,9 @@ export const metadata = {
   description:
     "Raj Bhavan Construction — trusted builders delivering quality residential and commercial construction projects with craftsmanship and integrity.",
   keywords: "construction, builder, contractor, residential, commercial, Raj Bhavan",
+  verification: {
+    google: "76640fc266209747",
+  },
 };
 
 export default function RootLayout({ children }) {
