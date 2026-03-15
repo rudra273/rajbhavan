@@ -2,8 +2,19 @@ import ProjectCard from "@/components/ProjectCard";
 import { getProjects } from "@/lib/googleSheets";
 
 export const metadata = {
-    title: "Our Projects | Raj Bhavan Construction",
-    description: "Browse our portfolio of completed residential and commercial construction projects.",
+    title: "Our Construction Projects in Chatrapur & Berhampur | Raj Bhavan Construction",
+    description:
+        "Explore 400+ completed house construction projects by Raj Bhavan Construction in Chatrapur, Berhampur & Ganjam, Odisha. Residential homes, commercial buildings & more.",
+    keywords:
+        "construction projects Chatrapur, completed houses Berhampur, building projects Ganjam, residential projects Odisha, Raj Bhavan projects",
+    alternates: {
+        canonical: "/projects",
+    },
+    openGraph: {
+        title: "Our Construction Projects | Raj Bhavan Construction",
+        description:
+            "Browse our portfolio of 400+ completed residential and commercial construction projects in Chatrapur & Berhampur.",
+    },
 };
 
 export default async function ProjectsPage() {

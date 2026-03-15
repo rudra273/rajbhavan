@@ -6,6 +6,18 @@ import Testimonials from "@/components/Testimonials";
 import FeaturedProjects from "@/components/FeaturedProjects";
 import Link from "next/link";
 import { getProjects, getReviews } from "@/lib/googleSheets";
+
+export const metadata = {
+  title: "Raj Bhavan Construction | Best House Construction Contractor & Builder in Chatrapur & Berhampur, Odisha",
+  description:
+    "Raj Bhavan Construction — #1 house construction contractor and builder in Chatrapur & Berhampur, Ganjam, Odisha. 18+ years experience, 400+ projects, residential & commercial building construction. Call +91 70080 39858 for free quote.",
+  keywords:
+    "house construction Chatrapur, builder in Berhampur, construction contractor Ganjam, home builder Odisha, civil contractor Chatrapur, best construction company Berhampur, residential building contractor, commercial construction Chatrapur, affordable house building Odisha, Raj Bhavan Construction",
+  alternates: {
+    canonical: "/",
+  },
+};
+
 export default async function Home() {
   let projects = [];
   let reviews = [];

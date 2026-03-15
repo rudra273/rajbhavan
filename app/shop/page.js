@@ -188,8 +188,19 @@ const finishes = [
 ];
 
 export const metadata = {
-  title: "Hardware Shop — Raj Bhavan",
-  description: "Premium interior hardware — door handles, locks, hinges, cabinet fittings, and more. Visit our shop in Chatrapur or Berhampur.",
+  title: "Hardware Shop in Chatrapur \u2014 Door Handles, Locks & Fittings | Raj Bhavan",
+  description:
+    "Buy premium interior hardware in Chatrapur & Berhampur \u2014 door handles, locks, hinges, cabinet fittings & sliding hardware. Visit Maa Home Interior on NH-16, Chatrapur, Ganjam.",
+  keywords:
+    "hardware shop Chatrapur, door handles Berhampur, locks and hinges Ganjam, cabinet fittings Odisha, interior hardware store near me, Maa Home Interior Chatrapur",
+  alternates: {
+    canonical: "/shop",
+  },
+  openGraph: {
+    title: "Hardware Shop \u2014 Door Handles, Locks & Fittings | Raj Bhavan",
+    description:
+      "Premium interior hardware in Chatrapur & Berhampur. Door handles, locks, hinges, cabinet fittings & more.",
+  },
 };
 
 export default function ShopPage() {

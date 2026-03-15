@@ -11,8 +11,19 @@ const MAP_EMBED_URL = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d604
 const HOURS_SHORT = "Everyday, 9am — 7pm";
 
 export const metadata = {
-    title: "Contact Us | Raj Bhavan Construction",
-    description: "Get in touch with Raj Bhavan Construction. Call us, WhatsApp us, or visit our office.",
+    title: "Contact Raj Bhavan Construction — Builder in Chatrapur & Berhampur",
+    description:
+        "Contact Raj Bhavan Construction for house building, renovation or commercial construction in Chatrapur, Berhampur & Ganjam. Call +91 70080 39858 or visit our office.",
+    keywords:
+        "contact builder Chatrapur, construction enquiry Berhampur, Raj Bhavan phone number, building contractor contact Ganjam, free construction quote Odisha",
+    alternates: {
+        canonical: "/contact",
+    },
+    openGraph: {
+        title: "Contact Us | Raj Bhavan Construction",
+        description:
+            "Get in touch for house construction in Chatrapur & Berhampur. Call, WhatsApp or visit our Chatrapur office.",
+    },
 };
 
 const contactDetails = [

@@ -3,8 +3,19 @@ import { getReviews } from "@/lib/googleSheets";
 
 
 export const metadata = {
-    title: "Customer Reviews | Raj Bhavan Construction",
-    description: "See what our clients say about our work. Real reviews from real customers.",
+    title: "Customer Reviews — Trusted Builder in Chatrapur & Berhampur",
+    description:
+        "Read real reviews from homeowners in Chatrapur, Berhampur & Ganjam who built their dream homes with Raj Bhavan Construction. 200+ happy clients.",
+    keywords:
+        "Raj Bhavan Construction reviews, builder reviews Chatrapur, construction feedback Berhampur, trusted contractor Ganjam, customer testimonials",
+    alternates: {
+        canonical: "/reviews",
+    },
+    openGraph: {
+        title: "Customer Reviews | Raj Bhavan Construction",
+        description:
+            "200+ happy clients. Read what homeowners in Chatrapur & Berhampur say about Raj Bhavan Construction.",
+    },
 };
 
 export default async function ReviewsPage() {

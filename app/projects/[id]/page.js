@@ -12,8 +12,16 @@ export async function generateMetadata({ params }) {
     }
 
     return {
-        title: `${project.title} | Raj Bhavan Construction`,
-        description: `View details of ${project.title} — a ${project.category || "construction"} project by Raj Bhavan Construction.`,
+        title: `${project.title} — ${project.category || "Construction"} Project in ${project.location || "Chatrapur & Berhampur"}`,
+        description: `${project.title} — a ${project.category || "construction"} project by Raj Bhavan Construction in ${project.location || "Chatrapur, Berhampur, Ganjam, Odisha"}. View photos, details and specifications.`,
+        openGraph: {
+            title: `${project.title} | Raj Bhavan Construction`,
+            description: `${project.category || "Construction"} project by Raj Bhavan Construction in ${project.location || "Chatrapur & Berhampur"}.`,
+            images: project.gallery_images?.[0] ? [{ url: project.gallery_images[0], alt: project.title }] : [],
+        },
+        alternates: {
+            canonical: `/projects/${id}`,
+        },
     };
 }
 
