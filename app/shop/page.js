@@ -75,19 +75,7 @@ const products = [
     items: ["Mortise Locks", "Cylindrical Deadbolts", "Rim Locks", "Digital & Smart Locks", "Bathroom Latches", "Security Chains & Bolts"],
     desc: "High-security locks from trusted brands. From classic key locks to smart digital entry systems.",
   },
-  {
-    category: "Hinges",
-    icon: (
-      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <rect x="2" y="3" width="8" height="18" rx="1" />
-        <rect x="14" y="3" width="8" height="18" rx="1" />
-        <line x1="10" y1="12" x2="14" y2="12" />
-        <circle cx="12" cy="12" r="1.5" fill="currentColor" />
-      </svg>
-    ),
-    items: ["Butt Hinges", "Concealed / Soss Hinges", "Piano Hinges", "Spring Hinges (Self-Closing)", "Heavy-Duty Weld-On Hinges", "Pivot Hinges"],
-    desc: "Full range from standard butt hinges to concealed European hinges for a clean, modern look.",
-  },
+
   {
     category: "Sliding & Folding Hardware",
     icon: (
@@ -208,18 +196,18 @@ export default function ShopPage() {
     <>
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=DM+Sans:wght@400;500;600;700&display=swap');
-        .shop-card { background: white; border: 1px solid #e2e8f0; padding: 32px; transition: box-shadow 0.2s, border-color 0.2s; }
-        .shop-card:hover { box-shadow: 0 8px 32px rgba(10,15,26,0.08); border-color: #cbd5e1; }
-        .shop-pill { display: inline-block; font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 600; background: #f1f5f9; color: #475569; padding: 4px 10px; margin: 3px 3px 3px 0; border-radius: 2px; letter-spacing: 0.02em; }
-        .shop-cta-btn { display: inline-flex; align-items: center; gap: 10px; background: #0a0f1a; color: white; border: 1px solid white; font-family: 'DM Sans', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 14px 28px; text-decoration: none; transition: background 0.15s; }
-        .shop-cta-btn:hover { background: #1e293b; }
-        .shop-cta-outline { display: inline-flex; align-items: center; gap: 10px; background: white; color: #0a0f1a; font-family: 'DM Sans', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 13px 28px; text-decoration: none; border: 1px solid #e2e8f0; transition: border-color 0.15s; }
-        .shop-cta-outline:hover { border-color: #0a0f1a; }
-        .finish-dot { width: 28px; height: 28px; border-radius: 50%; border: 2px solid #e2e8f0; display: inline-block; }
+        .shop-card { background: white; border: 1px solid #e5e5e5; padding: 32px; transition: box-shadow 0.2s, border-color 0.2s; }
+        .shop-card:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.08); border-color: #c8c8c8; }
+        .shop-pill { display: inline-block; font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 600; background: #f2f2f2; color: #555555; padding: 4px 10px; margin: 3px 3px 3px 0; border-radius: 2px; letter-spacing: 0.02em; }
+        .shop-cta-btn { display: inline-flex; align-items: center; gap: 10px; background: #111111; color: white; border: 1px solid white; font-family: 'DM Sans', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 14px 28px; text-decoration: none; transition: background 0.15s; }
+        .shop-cta-btn:hover { background: #2a2a2a; }
+        .shop-cta-outline { display: inline-flex; align-items: center; gap: 10px; background: white; color: #111111; font-family: 'DM Sans', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 13px 28px; text-decoration: none; border: 1px solid #e5e5e5; transition: border-color 0.15s; }
+        .shop-cta-outline:hover { border-color: #111111; }
+        .finish-dot { width: 28px; height: 28px; border-radius: 50%; border: 2px solid #e5e5e5; display: inline-block; }
       `}</style>
 
       {/* Hero */}
-      <section style={{ background: "#0a0f1a", paddingTop: "140px", paddingBottom: "80px", paddingLeft: "24px", paddingRight: "24px" }}>
+      <section style={{ background: "#0d0d0d", paddingTop: "140px", paddingBottom: "80px", paddingLeft: "24px", paddingRight: "24px" }}>
         <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
           <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "11px", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "#e07b39", margin: "0 0 16px" }}>
             {content.hero.label}
@@ -228,7 +216,7 @@ export default function ShopPage() {
             {content.hero.titleLine1}<br />
             <em style={{ fontStyle: "italic", fontWeight: 400, color: "#e07b39" }}>{content.hero.titleLine2}</em>
           </h1>
-          <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "15px", color: "#94a3b8", maxWidth: "520px", lineHeight: 1.7, margin: "0 0 40px" }}>
+          <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "15px", color: "#a3a3a3", maxWidth: "520px", lineHeight: 1.7, margin: "0 0 40px" }}>
             {content.hero.subtitle}
           </p>
           <div style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
@@ -241,7 +229,7 @@ export default function ShopPage() {
               target="_blank"
               rel="noopener noreferrer"
               className="shop-cta-outline"
-              style={{ borderColor: "#334155" }}
+              style={{ borderColor: "#333333" }}
             >
               <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" /></svg>
               WhatsApp Us
@@ -251,16 +239,16 @@ export default function ShopPage() {
       </section>
 
       {/* Available Finishes */}
-      <section style={{ background: "#f8fafc", borderTop: "1px solid #e2e8f0", borderBottom: "1px solid #e2e8f0", padding: "32px 24px" }}>
+      <section style={{ background: "#f7f7f7", borderTop: "1px solid #e5e5e5", borderBottom: "1px solid #e5e5e5", padding: "32px 24px" }}>
         <div style={{ maxWidth: "1200px", margin: "0 auto", display: "flex", alignItems: "center", gap: "24px", flexWrap: "wrap" }}>
-          <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "11px", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "#94a3b8", whiteSpace: "nowrap" }}>
+          <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "11px", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "#999999", whiteSpace: "nowrap" }}>
             Available Finishes
           </span>
           <div style={{ display: "flex", gap: "12px", flexWrap: "wrap", alignItems: "center" }}>
             {finishes.map(f => (
               <div key={f.name} style={{ display: "flex", alignItems: "center", gap: "7px" }}>
                 <span className="finish-dot" style={{ background: f.hex }} title={f.name} />
-                <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "12px", color: "#64748b" }}>{f.name}</span>
+                <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "12px", color: "#6b6b6b" }}>{f.name}</span>
               </div>
             ))}
           </div>
@@ -268,16 +256,16 @@ export default function ShopPage() {
       </section>
 
       {/* Products Grid */}
-      <section style={{ background: "#f8fafc", padding: "80px 24px" }}>
+      <section style={{ background: "#f7f7f7", padding: "80px 24px" }}>
         <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
           <div style={{ marginBottom: "52px" }}>
             <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "11px", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "#e07b39", margin: "0 0 12px" }}>
               {content.categories.label}
             </p>
-            <h2 style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: "clamp(28px, 4vw, 48px)", fontWeight: 400, color: "#0a0f1a", margin: "0 0 12px", letterSpacing: "-0.02em" }}>
+            <h2 style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: "clamp(28px, 4vw, 48px)", fontWeight: 400, color: "#111111", margin: "0 0 12px", letterSpacing: "-0.02em" }}>
               {content.categories.heading}
             </h2>
-            <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "14px", color: "#64748b", maxWidth: "480px", lineHeight: 1.6, margin: 0 }}>
+            <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "14px", color: "#6b6b6b", maxWidth: "480px", lineHeight: 1.6, margin: 0 }}>
               {content.categories.desc}
             </p>
           </div>
@@ -286,10 +274,10 @@ export default function ShopPage() {
             {products.map(p => (
               <div key={p.category} className="shop-card">
                 <div style={{ color: "#e07b39", marginBottom: "16px" }}>{p.icon}</div>
-                <h3 style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: "22px", fontWeight: 500, color: "#0a0f1a", margin: "0 0 8px", letterSpacing: "-0.01em" }}>
+                <h3 style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: "22px", fontWeight: 500, color: "#111111", margin: "0 0 8px", letterSpacing: "-0.01em" }}>
                   {p.category}
                 </h3>
-                <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "13px", color: "#64748b", lineHeight: 1.6, margin: "0 0 16px" }}>
+                <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "13px", color: "#6b6b6b", lineHeight: 1.6, margin: "0 0 16px" }}>
                   {p.desc}
                 </p>
                 <div>
@@ -304,17 +292,17 @@ export default function ShopPage() {
       </section>
 
       {/* Visit Our Shop */}
-      <section style={{ background: "white", borderTop: "1px solid #e2e8f0", padding: "80px 24px" }}>
+      <section style={{ background: "white", borderTop: "1px solid #e5e5e5", padding: "80px 24px" }}>
         <div style={{ maxWidth: "1200px", margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "60px", alignItems: "center" }}>
           <div>
             <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "11px", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "#e07b39", margin: "0 0 16px" }}>
               {content.visit.label}
             </p>
-            <h2 style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: "clamp(28px, 4vw, 44px)", fontWeight: 400, color: "#0a0f1a", margin: "0 0 20px", lineHeight: 1.1, letterSpacing: "-0.02em" }}>
+            <h2 style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: "clamp(28px, 4vw, 44px)", fontWeight: 400, color: "#111111", margin: "0 0 20px", lineHeight: 1.1, letterSpacing: "-0.02em" }}>
               {content.visit.titleLine1}<br />
               <em style={{ fontStyle: "italic" }}>{content.visit.titleLine2}</em>
             </h2>
-            <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "14px", color: "#64748b", lineHeight: 1.7, margin: "0 0 32px", maxWidth: "420px" }}>
+            <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "14px", color: "#6b6b6b", lineHeight: 1.7, margin: "0 0 32px", maxWidth: "420px" }}>
               {content.visit.desc}
             </p>
             <div style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
@@ -334,61 +322,61 @@ export default function ShopPage() {
           </div>
 
           {/* Shop Info Card */}
-          <div style={{ background: "#f8fafc", border: "1px solid #e2e8f0", padding: "40px" }}>
+          <div style={{ background: "#f7f7f7", border: "1px solid #e5e5e5", padding: "40px" }}>
             <div style={{ display: "flex", flexDirection: "column", gap: "28px" }}>
               <div style={{ display: "flex", gap: "16px", alignItems: "flex-start" }}>
                 <div style={{ color: "#e07b39", marginTop: "2px", flexShrink: 0 }}>
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" /><circle cx="12" cy="10" r="3" /></svg>
                 </div>
                 <div>
-                  <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "11px", fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", color: "#94a3b8", margin: "0 0 6px" }}>Address</p>
-                  <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "14px", color: "#0a0f1a", margin: 0, lineHeight: 1.6 }}>
+                  <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "11px", fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", color: "#999999", margin: "0 0 6px" }}>Address</p>
+                  <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "14px", color: "#111111", margin: 0, lineHeight: 1.6 }}>
                     {shopInfo.address.line1}<br />
                     {shopInfo.address.line2}
                   </p>
                 </div>
               </div>
 
-              <div style={{ height: "1px", background: "#e2e8f0" }} />
+              <div style={{ height: "1px", background: "#e5e5e5" }} />
 
               <div style={{ display: "flex", gap: "16px", alignItems: "flex-start" }}>
                 <div style={{ color: "#e07b39", marginTop: "2px", flexShrink: 0 }}>
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.56 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.4a16 16 0 0 0 6.29 6.29l.88-.88a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" /></svg>
                 </div>
                 <div>
-                  <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "11px", fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", color: "#94a3b8", margin: "0 0 6px" }}>Phone</p>
-                  <a href={`tel:${shopInfo.phone.dial}`} style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "14px", color: "#0a0f1a", textDecoration: "none", display: "block", lineHeight: 1.6 }}>
+                  <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "11px", fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", color: "#999999", margin: "0 0 6px" }}>Phone</p>
+                  <a href={`tel:${shopInfo.phone.dial}`} style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "14px", color: "#111111", textDecoration: "none", display: "block", lineHeight: 1.6 }}>
                     {shopInfo.phone.display}
                   </a>
                 </div>
               </div>
 
-              <div style={{ height: "1px", background: "#e2e8f0" }} />
+              <div style={{ height: "1px", background: "#e5e5e5" }} />
 
               <div style={{ display: "flex", gap: "16px", alignItems: "flex-start" }}>
                 <div style={{ color: "#e07b39", marginTop: "2px", flexShrink: 0 }}>
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" /></svg>
                 </div>
                 <div>
-                  <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "11px", fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", color: "#94a3b8", margin: "0 0 6px" }}>Store Hours</p>
-                  <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "14px", color: "#0a0f1a", margin: 0, lineHeight: 1.7 }}>
+                  <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "11px", fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", color: "#999999", margin: "0 0 6px" }}>Store Hours</p>
+                  <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "14px", color: "#111111", margin: 0, lineHeight: 1.7 }}>
                     {shopInfo.hours.weekday}<br />
                     {shopInfo.hours.weekend}
                   </p>
                 </div>
               </div>
 
-              <div style={{ height: "1px", background: "#e2e8f0" }} />
+              <div style={{ height: "1px", background: "#e5e5e5" }} />
 
               <div style={{ display: "flex", gap: "16px", alignItems: "flex-start" }}>
                 <div style={{ color: "#e07b39", marginTop: "2px", flexShrink: 0 }}>
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12" /></svg>
                 </div>
                 <div>
-                  <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "11px", fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", color: "#94a3b8", margin: "0 0 6px" }}>Also Serving</p>
-                  <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "14px", color: "#0a0f1a", margin: 0, lineHeight: 1.6 }}>
+                  <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "11px", fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", color: "#999999", margin: "0 0 6px" }}>Also Serving</p>
+                  <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "14px", color: "#111111", margin: 0, lineHeight: 1.6 }}>
                     {shopInfo.serving}<br />
-                    <span style={{ color: "#64748b", fontSize: "12px" }}>{shopInfo.bulkNote}</span>
+                    <span style={{ color: "#6b6b6b", fontSize: "12px" }}>{shopInfo.bulkNote}</span>
                   </p>
                 </div>
               </div>
@@ -398,7 +386,7 @@ export default function ShopPage() {
       </section>
 
       {/* Bottom CTA */}
-      <section style={{ background: "#0a0f1a", padding: "80px 24px", textAlign: "center" }}>
+      <section style={{ background: "#0d0d0d", padding: "80px 24px", textAlign: "center" }}>
         <div style={{ maxWidth: "600px", margin: "0 auto" }}>
           <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "11px", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "#e07b39", margin: "0 0 20px" }}>
             {content.cta.label}
@@ -406,14 +394,14 @@ export default function ShopPage() {
           <h2 style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: "clamp(28px, 4vw, 44px)", fontWeight: 300, color: "white", margin: "0 0 16px", lineHeight: 1.1, letterSpacing: "-0.02em" }}>
             {content.cta.heading}
           </h2>
-          <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "14px", color: "#94a3b8", margin: "0 0 36px", lineHeight: 1.7 }}>
+          <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "14px", color: "#a3a3a3", margin: "0 0 36px", lineHeight: 1.7 }}>
             {content.cta.desc}
           </p>
           <div style={{ display: "flex", gap: "12px", justifyContent: "center", flexWrap: "wrap" }}>
             <Link href="/contact" className="shop-cta-btn">
               Get a Construction Quote
             </Link>
-            <Link href="/packages" className="shop-cta-outline" style={{ borderColor: "#334155" }}>
+            <Link href="/packages" className="shop-cta-outline" style={{ borderColor: "#333333" }}>
               View Packages
             </Link>
           </div>

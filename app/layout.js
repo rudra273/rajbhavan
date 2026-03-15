@@ -87,6 +87,11 @@ export const metadata = {
   verification: {
     google: "76640fc266209747",
   },
+  icons: {
+    icon: "/logo-bold.svg",
+    shortcut: "/logo-bold.svg",
+    apple: "/logo-bold.svg",
+  },
 };
 
 const jsonLd = {

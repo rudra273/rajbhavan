@@ -55,7 +55,8 @@ export default function Navbar() {
                     <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 24px", display: "flex", alignItems: "center", justifyContent: "space-between", height: "60px" }}>
 
                         {/* Logo */}
-                        <Link href="/" style={{ textDecoration: "none", display: "flex", alignItems: "baseline", gap: "8px" }}>
+                        <Link href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: "8px" }}>
+                            <img src="/logo-bold.svg" alt="Raj Bhavan Construction" style={{ height: "44px", width: "auto" }} />
                             <span style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: "22px", fontWeight: 600, color: "#e07b39", letterSpacing: "-0.01em", lineHeight: 1 }}>
                                 Raj Bhavan
                             </span>

@@ -66,12 +66,15 @@ export default function Footer() {
                             <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "11px", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--accent, #e07b39)", margin: "0 0 12px" }}>
                                 Since 2005
                             </p>
-                            <h3 style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: "30px", fontWeight: 500, color: "#e07b39", margin: "0 0 16px", letterSpacing: "-0.02em", lineHeight: 1 }}>
-                                {COMPANY_NAME}
-                                <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "11px", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", color: "#94a3b8", marginLeft: "10px", verticalAlign: "middle" }}>
-                                    Construction
-                                </span>
-                            </h3>
+                            <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "16px" }}>
+                                <img src="/logo.svg" alt="Raj Bhavan Construction" style={{ height: "40px", width: "auto" }} />
+                                <h3 style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: "30px", fontWeight: 500, color: "#e07b39", margin: 0, letterSpacing: "-0.02em", lineHeight: 1 }}>
+                                    {COMPANY_NAME}
+                                    <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "11px", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", color: "#94a3b8", marginLeft: "10px", verticalAlign: "middle" }}>
+                                        Construction
+                                    </span>
+                                </h3>
+                            </div>
                             <p style={{ fontSize: "13px", color: "#64748b", lineHeight: 1.7, margin: "0 0 0", maxWidth: "300px" }}>
                                 {COMPANY_TAGLINE}
                             </p>

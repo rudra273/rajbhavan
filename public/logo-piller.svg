@@ -1,0 +1,102 @@
+<svg width="500" height="500" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+
+  <!-- Pure white background -->
+  <rect width="500" height="500" fill="#ffffff"/>
+
+  <!-- Subtle circle backdrop -->
+  <circle cx="250" cy="255" r="198" fill="#e07b39" opacity="0.06"/>
+  <circle cx="250" cy="255" r="194" fill="none" stroke="#e07b39" stroke-width="1.5" opacity="0.25"/>
+
+  <!-- === MAIN ROOF === -->
+  <polygon points="250,118 100,252 400,252" fill="#e07b39" opacity="0.12" stroke="#e07b39" stroke-width="3" stroke-linejoin="round"/>
+
+  <!-- Roof ridge tiles -->
+  <line x1="148" y1="252" x2="190" y2="184" stroke="#e07b39" stroke-width="1" opacity="0.35"/>
+  <line x1="196" y1="252" x2="228" y2="196" stroke="#e07b39" stroke-width="1" opacity="0.35"/>
+  <line x1="250" y1="252" x2="250" y2="190" stroke="#e07b39" stroke-width="1" opacity="0.35"/>
+  <line x1="304" y1="252" x2="272" y2="196" stroke="#e07b39" stroke-width="1" opacity="0.35"/>
+  <line x1="352" y1="252" x2="310" y2="184" stroke="#e07b39" stroke-width="1" opacity="0.35"/>
+
+  <!-- === CROWN / FINIAL === -->
+  <line x1="250" y1="80" x2="250" y2="120" stroke="#e07b39" stroke-width="2.5" stroke-linecap="round"/>
+  <rect x="240" y="106" width="20" height="14" rx="2" fill="#e07b39" stroke="#e07b39" stroke-width="1"/>
+  <polygon points="240,106 243,96 246,106" fill="#e07b39"/>
+  <polygon points="247,106 250,92 253,106" fill="#e07b39"/>
+  <polygon points="254,106 257,96 260,106" fill="#e07b39"/>
+  <circle cx="250" cy="91" r="4" fill="#f0a060"/>
+
+  <!-- === TWIN CHIMNEYS === -->
+  <rect x="172" y="172" width="14" height="44" rx="2" fill="#e07b39" stroke="#e07b39" stroke-width="1.5"/>
+  <rect x="169" y="168" width="20" height="7" rx="1.5" fill="#e07b39"/>
+  <rect x="314" y="172" width="14" height="44" rx="2" fill="#e07b39" stroke="#e07b39" stroke-width="1.5"/>
+  <rect x="311" y="168" width="20" height="7" rx="1.5" fill="#e07b39"/>
+
+  <!-- Smoke wisps -->
+  <path d="M179,166 Q182,156 178,148 Q174,140 178,132" fill="none" stroke="#e07b39" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
+  <path d="M321,166 Q324,156 320,148 Q316,140 320,132" fill="none" stroke="#e07b39" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
+
+  <!-- === HOUSE BODY === -->
+  <rect x="118" y="250" width="264" height="148" rx="3" fill="#e07b39" opacity="0.06" stroke="#e07b39" stroke-width="2.5"/>
+
+  <!-- Floor divider -->
+  <line x1="118" y1="308" x2="382" y2="308" stroke="#e07b39" stroke-width="1.2" opacity="0.4"/>
+
+  <!-- === COLUMNS === -->
+  <rect x="207" y="252" width="9" height="146" rx="2" fill="#e07b39" opacity="0.6"/>
+  <rect x="284" y="252" width="9" height="146" rx="2" fill="#e07b39" opacity="0.6"/>
+  <!-- Column caps -->
+  <rect x="203" y="248" width="17" height="7" rx="1" fill="#e07b39"/>
+  <rect x="280" y="248" width="17" height="7" rx="1" fill="#e07b39"/>
+  <!-- Column bases -->
+  <rect x="203" y="394" width="17" height="7" rx="1" fill="#e07b39"/>
+  <rect x="280" y="394" width="17" height="7" rx="1" fill="#e07b39"/>
+
+  <!-- === UPPER FLOOR WINDOWS === -->
+  <!-- Left -->
+  <rect x="134" y="262" width="46" height="36" rx="2" fill="#e07b39" opacity="0.12" stroke="#e07b39" stroke-width="2"/>
+  <line x1="157" y1="262" x2="157" y2="298" stroke="#e07b39" stroke-width="1.5"/>
+  <line x1="134" y1="280" x2="180" y2="280" stroke="#e07b39" stroke-width="1.5"/>
+  <path d="M134,269 Q157,257 180,269" fill="#e07b39" opacity="0.15" stroke="#e07b39" stroke-width="1.5"/>
+  <!-- Right -->
+  <rect x="320" y="262" width="46" height="36" rx="2" fill="#e07b39" opacity="0.12" stroke="#e07b39" stroke-width="2"/>
+  <line x1="343" y1="262" x2="343" y2="298" stroke="#e07b39" stroke-width="1.5"/>
+  <line x1="320" y1="280" x2="366" y2="280" stroke="#e07b39" stroke-width="1.5"/>
+  <path d="M320,269 Q343,257 366,269" fill="#e07b39" opacity="0.15" stroke="#e07b39" stroke-width="1.5"/>
+
+  <!-- === LOWER FLOOR WINDOWS === -->
+  <!-- Left -->
+  <rect x="134" y="316" width="46" height="44" rx="2" fill="#e07b39" opacity="0.1" stroke="#e07b39" stroke-width="2"/>
+  <line x1="157" y1="316" x2="157" y2="360" stroke="#e07b39" stroke-width="1.5"/>
+  <line x1="134" y1="338" x2="180" y2="338" stroke="#e07b39" stroke-width="1.5"/>
+  <!-- Right -->
+  <rect x="320" y="316" width="46" height="44" rx="2" fill="#e07b39" opacity="0.1" stroke="#e07b39" stroke-width="2"/>
+  <line x1="343" y1="316" x2="343" y2="360" stroke="#e07b39" stroke-width="1.5"/>
+  <line x1="320" y1="338" x2="366" y2="338" stroke="#e07b39" stroke-width="1.5"/>
+
+  <!-- === GRAND DOOR — from ground up === -->
+  <!-- Arch -->
+  <path d="M222,290 Q250,266 278,290" fill="#e07b39" opacity="0.18" stroke="#e07b39" stroke-width="2"/>
+  <!-- Left panel -->
+  <rect x="222" y="289" width="25" height="109" rx="2" fill="#e07b39" opacity="0.1" stroke="#e07b39" stroke-width="2"/>
+  <!-- Right panel -->
+  <rect x="253" y="289" width="25" height="109" rx="2" fill="#e07b39" opacity="0.1" stroke="#e07b39" stroke-width="2"/>
+  <!-- Panel inset details -->
+  <rect x="226" y="295" width="17" height="22" rx="1" fill="none" stroke="#e07b39" stroke-width="1.2"/>
+  <rect x="226" y="324" width="17" height="22" rx="1" fill="none" stroke="#e07b39" stroke-width="1.2"/>
+  <rect x="257" y="295" width="17" height="22" rx="1" fill="none" stroke="#e07b39" stroke-width="1.2"/>
+  <rect x="257" y="324" width="17" height="22" rx="1" fill="none" stroke="#e07b39" stroke-width="1.2"/>
+  <!-- Knob -->
+  <circle cx="250" cy="350" r="3.5" fill="#e07b39"/>
+
+  <!-- Door step -->
+  <rect x="210" y="396" width="80" height="6" rx="1" fill="#e07b39" opacity="0.7"/>
+  <rect x="204" y="400" width="92" height="4" rx="1" fill="#e07b39" opacity="0.4"/>
+
+  <!-- === GROUND === -->
+  <rect x="100" y="398" width="300" height="8" rx="4" fill="#e07b39"/>
+  <rect x="110" y="406" width="280" height="3" rx="1.5" fill="#e07b39" opacity="0.4"/>
+
+  <!-- Diamond on peak -->
+  <polygon points="250,118 255,125 250,132 245,125" fill="#e07b39"/>
+
+</svg>
