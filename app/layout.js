@@ -96,11 +96,11 @@ export const metadata = {
 
 const jsonLd = {
   "@context": "https://schema.org",
-  "@type": "LocalBusiness",
+  "@type": ["LocalBusiness", "GeneralContractor", "HomeAndConstructionBusiness"],
   "@id": `${BASE_URL}/#business`,
   name: "Raj Bhavan Construction",
   description:
-    "Leading house construction contractor and builder in Chatrapur and Berhampur, Odisha. Specializing in residential and commercial building construction with 18+ years of experience.",
+    "Leading construction company in Chatrapur and Berhampur, Odisha. Top-rated house construction contractor and builder in Ganjam district with 18+ years experience in residential & commercial building construction.",
   url: BASE_URL,
   telephone: "+917008039858",
   email: "akashchandramohanty@gmail.com",
@@ -125,6 +125,11 @@ const jsonLd = {
     { "@type": "AdministrativeArea", name: "Ganjam District" },
     { "@type": "State", name: "Odisha" },
   ],
+  serviceArea: [
+    { "@type": "City", name: "Chatrapur", containedInPlace: { "@type": "State", name: "Odisha" } },
+    { "@type": "City", name: "Berhampur", containedInPlace: { "@type": "State", name: "Odisha" } },
+    { "@type": "AdministrativeArea", name: "Ganjam District" },
+  ],
   openingHoursSpecification: {
     "@type": "OpeningHoursSpecification",
     dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
@@ -136,11 +141,51 @@ const jsonLd = {
     "@type": "OfferCatalog",
     name: "Construction Services",
     itemListElement: [
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Residential House Construction" } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Commercial Building Construction" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "House Construction in Chatrapur", areaServed: "Chatrapur, Odisha" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "House Construction in Berhampur", areaServed: "Berhampur, Odisha" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Commercial Building Construction in Ganjam", areaServed: "Ganjam District, Odisha" } },
       { "@type": "Offer", itemOffered: { "@type": "Service", name: "Interior Hardware Supply" } },
     ],
   },
+};
+
+const faqLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "Which is the best construction company in Chatrapur?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Raj Bhavan Construction is the leading construction company in Chatrapur, Odisha. With 18+ years of experience and 400+ completed projects, we specialize in residential and commercial building construction across Chatrapur and Ganjam district.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Which is the best construction company in Berhampur?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Raj Bhavan Construction is a top-rated house construction contractor serving Berhampur (Brahmapur) and the entire Ganjam district. Call +91 70080 39858 for a free quote.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "How much does house construction cost in Chatrapur or Berhampur?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "House construction costs in Chatrapur and Berhampur vary based on design, materials, and area. Raj Bhavan Construction offers transparent pricing packages starting from economy to premium finishes. Contact us for a free detailed estimate.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Does Raj Bhavan Construction build in Berhampur?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes, Raj Bhavan Construction operates across Berhampur, Chatrapur, and all of Ganjam district in Odisha. We handle residential homes, commercial complexes, and renovation projects throughout the region.",
+      },
+    },
+  ],
 };
 
 export default function RootLayout({ children }) {
@@ -150,6 +195,10 @@ export default function RootLayout({ children }) {
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }}
         />
       </head>
       <body className={`${outfit.variable} ${inter.variable} antialiased`}>

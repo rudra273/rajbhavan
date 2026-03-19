@@ -67,10 +67,10 @@ export default function AboutIntro() {
 
                             <div style={{ borderLeft: "2px solid #e2e8f0", paddingLeft: "20px", marginBottom: "32px" }}>
                                 <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "14px", color: "#475569", lineHeight: 1.75, margin: "0 0 14px" }}>
-                                    At Raj Bhavan Construction, we believe in building more than structures — we build trust, relationships, and legacies. With over 18 years of experience, our team delivers projects that stand the test of time.
+                                    At Raj Bhavan Construction, the top-rated construction company in Chatrapur and Berhampur, we believe in building more than structures — we build trust, relationships, and legacies. With over 18 years of experience serving Ganjam district, our team delivers projects that stand the test of time.
                                 </p>
                                 <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "14px", color: "#475569", lineHeight: 1.75, margin: 0 }}>
-                                    From residential homes to large-scale commercial builds, we combine modern techniques with traditional craftsmanship to deliver results that exceed expectations.
+                                    From residential homes across Chatrapur to large-scale commercial builds in Berhampur, we combine modern techniques with traditional craftsmanship to deliver results that exceed expectations.
                                 </p>
                             </div>
 

@@ -96,7 +96,45 @@ export default async function Home() {
 
       <Testimonials reviews={reviews} />
 
-      
+      {/* Local SEO Section */}
+      <section style={{ background: "#f8fafc", borderTop: "1px solid #e2e8f0", padding: "80px 24px" }}>
+        <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
+          <div style={{ textAlign: "center", marginBottom: "56px" }}>
+            <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "11px", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "#e07b39", margin: "0 0 14px" }}>
+              Where We Build
+            </p>
+            <h2 style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: "clamp(28px, 4vw, 48px)", fontWeight: 400, color: "#0a0f1a", margin: 0, letterSpacing: "-0.02em", lineHeight: 1.1 }}>
+              Construction Company in Chatrapur &amp; Berhampur
+            </h2>
+          </div>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "2px" }}>
+            <div style={{ background: "white", padding: "36px 32px", borderLeft: "3px solid #e07b39" }}>
+              <h3 style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: "22px", fontWeight: 500, color: "#0a0f1a", margin: "0 0 14px" }}>
+                House Construction in Chatrapur
+              </h3>
+              <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "14px", color: "#64748b", lineHeight: 1.75, margin: 0 }}>
+                As the leading construction company in Chatrapur, we deliver bespoke residential homes and commercial buildings across Ganjam district. Our local team understands Chatrapur&apos;s terrain, soil conditions, and building regulations.
+              </p>
+            </div>
+            <div style={{ background: "white", padding: "36px 32px", borderLeft: "3px solid #e07b39" }}>
+              <h3 style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: "22px", fontWeight: 500, color: "#0a0f1a", margin: "0 0 14px" }}>
+                House Construction in Berhampur
+              </h3>
+              <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "14px", color: "#64748b", lineHeight: 1.75, margin: 0 }}>
+                Raj Bhavan Construction is a trusted house builder in Berhampur (Brahmapur), serving clients across the city with quality residential builds, commercial complexes, and renovation projects.
+              </p>
+            </div>
+            <div style={{ background: "white", padding: "36px 32px", borderLeft: "3px solid #e07b39" }}>
+              <h3 style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: "22px", fontWeight: 500, color: "#0a0f1a", margin: "0 0 14px" }}>
+                Civil Contractor in Ganjam District
+              </h3>
+              <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "14px", color: "#64748b", lineHeight: 1.75, margin: 0 }}>
+                From Aska to Chhatrapur, we operate as a full-service civil contractor across Ganjam. 400+ completed projects and 18+ years of on-the-ground experience make us Odisha&apos;s preferred construction partner.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* CTA Section */}
       <section style={{ background: "white", borderTop: "1px solid #e2e8f0", padding: "100px 24px" }}>
